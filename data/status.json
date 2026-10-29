@@ -1,15 +1,15 @@
 {
- "run_time": "2026-10-29T19:11:47Z",
+ "run_time": "2026-10-29T19:17:22Z",
  "first_run_date": "2026-10-29",
  "days_with_success": 1,
- "open": 6743,
+ "open": 6748,
  "new_today": 0,
  "removed_today": 0,
  "sources": [
   {
    "name": "statestreet",
    "ok": true,
-   "count": 1329
+   "count": 1333
   },
   {
    "name": "invesco",
@@ -19,7 +19,7 @@
   {
    "name": "mastercard",
    "ok": true,
-   "count": 1105
+   "count": 1106
   },
   {
    "name": "morganstanley",
