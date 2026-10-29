@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Job Watcher – Today</title>
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#1f6f50">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <h1>Today</h1>
+  <p class="muted" id="runtime">Loading…</p>
+  <div class="cards" id="counts"></div>
+  <h2>Sources</h2>
+  <div id="sources"></div>
+  <h2 id="new-h">New postings</h2>
+  <ul class="posts" id="new"></ul>
+  <h2 id="gone-h">Removed postings</h2>
+  <ul class="posts" id="gone"></ul>
+</main>
+<script src="app.js"></script>
+<script>
+renderNav("index.html");
+const li = r => `<li><div class="main"><div class="t"><a href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.title)}</a>${r.in_role ? '<span class="tag">in role</span>' : ""}</div>
+  <div class="m">${esc(r.employer)}${r.location ? " · " + esc(r.location) : ""}</div></div></li>`;
+function list(el, head, label, items) {
+  items.sort((a, b) => b.in_role - a.in_role || a.employer.localeCompare(b.employer));
+  $(head).textContent = `${label} (${items.length})`;
+  const shown = items.slice(0, 200);
+  $(el).innerHTML = shown.map(li).join("") || `<li class="empty">None in the latest run.</li>`;
+  if (items.length > shown.length) $(el).insertAdjacentHTML("beforeend", `<li class="muted">… and ${items.length - shown.length} more in data/history.csv</li>`);
+}
+loadData().then(({ rows, status, latest }) => {
+  $("#runtime").textContent = `Last run: ${new Date(status.run_time).toUTCString()}`;
+  $("#counts").innerHTML = [["days_with_success", "Days with a successful run"], ["open", "Open postings"],
+    ["new_today", "New today"], ["removed_today", "Removed today"]]
+    .map(([k, l]) => `<div class="card"><div class="n">${status[k].toLocaleString()}</div><div class="l">${l}</div></div>`).join("");
+  $("#sources").innerHTML = `<table><tr><th>Source</th><th>Status</th><th>Postings</th></tr>` +
+    status.sources.map(s => `<tr><td>${esc(s.name)}</td><td class="${s.ok ? "ok" : "fail"}">${s.ok ? "ok" : "failed"}</td><td>${s.count.toLocaleString()}</td></tr>`).join("") + `</table>`;
+  list("#new", "#new-h", "New postings", rows.filter(r => r.first_seen === latest && !r.first_run));
+  list("#gone", "#gone-h", "Removed postings", rows.filter(r => r.removed_date === latest));
+}).catch(showError);
+</script>
+</body>
+</html>

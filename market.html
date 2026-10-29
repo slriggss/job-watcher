@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Job Watcher – Market</title>
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#1f6f50">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <h1>Market</h1>
+  <p class="muted" id="intro">Loading…</p>
+  <section class="market"><h2 id="h1"></h2><p id="p1"></p><div class="chart-card" id="c1"></div></section>
+  <section class="market"><h2 id="h2"></h2><p id="p2"></p><div class="chart-card" id="c2"></div></section>
+  <section class="market"><h2 id="h3"></h2><p id="p3"></p><div class="chart-card" id="c3"></div></section>
+  <section class="market"><h2 id="h4"></h2><p id="p4"></p><div class="chart-card" id="c4"></div></section>
+  <section class="market"><h2 id="h5"></h2><p id="p5"></p><div class="chart-card" id="c5"></div></section>
+  <section class="market"><h2 id="h6"></h2><p id="p6"></p><div class="chart-card" id="c6"></div></section>
+</main>
+<script src="app.js"></script>
+<script src="charts.js"></script>
+<script src="market.js"></script>
+<script>
+renderNav("market.html");
+const sum = a => a.reduce((x, y) => x + y, 0);
+const set = (n, h, p) => { $("#h" + n).textContent = h; $("#p" + n).textContent = p; };
+const none = n => { $("#c" + n).innerHTML = `<p class="empty">Not enough history yet. This fills in as daily runs accumulate.</p>`; };
+
+loadData().then(({ rows, latest }) => {
+  const m = computeMarket(rows, latest), nd = m.days.length;
+  $("#intro").textContent = `Computed in your browser from data/history.csv: ${rows.length.toLocaleString()} postings, history through ${latest}. Postings already open on a source's first day (first_run) have an unknown start date and are left out of the start-date measures.`;
+
+  const totNew = sum(m.newAll), totRole = sum(m.newRole);
+  set(1, `${totNew.toLocaleString()} new postings so far, ${totRole.toLocaleString()} in my role`,
+    `Each point counts postings first seen on that day, leaving out first-run postings. "In my role" uses the title rule in the README (ESG, sustainability, stewardship and related titles). ${nd < 2 ? "Only one day of history exists, so nothing is new yet." : `Across ${nd} days that averages ${(totNew / nd).toFixed(1)} a day for all postings.`}`);
+  nd >= 2 ? lineChart($("#c1"), m.days, [{ name: "All postings", values: m.newAll }, { name: "In my role", values: m.newRole }]) : none(1);
+
+  const totGone = sum(m.removed);
+  set(2, `${totGone.toLocaleString()} postings removed so far`,
+    `A posting is removed on the first day its source has a raw file and no longer lists it. Removals are counted by removed date and include first-run postings, because the removal date is known even when the start date is not.`);
+  nd >= 2 ? barChart($("#c2"), m.days, m.removed, "removed") : none(2);
+
+  const top = m.perEmployer.slice(0, 20);
+  set(3, `${top.length ? top[0][0] : "No employer"} has the most open postings (${top.length ? top[0][1].toLocaleString() : 0})`,
+    `${m.openCount.toLocaleString()} postings are open across ${m.perEmployer.length} employers as of the last run. The chart shows the largest ${top.length}.`);
+  top.length ? barChart($("#c3"), top.map(e => e[0]), top.map(e => e[1]), "open") : none(3);
+
+  set(4, m.medianDaysOpen === null ? "Median days open: not known yet" : `Removed postings were open a median of ${m.medianDaysOpen} days`,
+    `Days open is the removed date minus the first-seen date, for removed postings that are not first-run. ${m.removedCount.toLocaleString()} postings qualify so far. Postings still open are not counted, so early figures lean short.`);
+  if (m.removedCount) {
+    const buckets = new Map();
+    for (const r of rows) if (!r.first_run && r.status === "removed" && r.removed_date) {
+      const d = daysBetween(r.first_seen, r.removed_date); buckets.set(d, (buckets.get(d) || 0) + 1);
+    }
+    const maxD = Math.max(...buckets.keys()), labs = Array.from({ length: maxD + 1 }, (_, i) => String(i));
+    barChart($("#c4"), labs, labs.map(l => buckets.get(+l) || 0), "postings");
+  } else none(4);
+
+  set(5, m.shareWithin7 === null ? "Share removed within 7 days: not known yet" : `${(m.shareWithin7 * 100).toFixed(1)}% of postings are removed within seven days`,
+    `Among postings that are not first-run and were first seen at least seven days before the last run (${m.eligibleCount.toLocaleString()} so far), ${m.quickCount.toLocaleString()} had a removed date seven days or fewer after first seen.`);
+  if (m.shareWithin7 !== null) barChart($("#c5"), ["Removed within 7 days", "Not removed within 7 days"], [m.quickCount, m.eligibleCount - m.quickCount], "postings");
+  else none(5);
+
+  const loc = m.perLocation.slice(0, 15);
+  set(6, loc.length ? `${loc[0][0]} is the top location among open postings` : "No locations yet",
+    `Counts open postings by the location text each employer provides, so a multi-location posting counts once under its own label. The chart shows the top ${loc.length}.`);
+  loc.length ? barChart($("#c6"), loc.map(l => l[0]), loc.map(l => l[1]), "open") : none(6);
+}).catch(showError);
+</script>
+</body>
+</html>
