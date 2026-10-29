@@ -223,9 +223,6 @@ SOURCES = [
     # Ashby (climate software / fintech)
     {"name": "watershed", "employer": "Watershed", "ats": "ashby", "token": "watershed"},
     {"name": "ramp", "employer": "Ramp", "ats": "ashby", "token": "ramp"},
-    # Lever
-    {"name": "palantir", "employer": "Palantir", "ats": "lever", "token": "palantir"},
-    {"name": "spotify", "employer": "Spotify", "ats": "lever", "token": "spotify"},
     # SmartRecruiters
     {"name": "experian", "employer": "Experian", "ats": "smartrecruiters", "token": "Experian"},
 ]

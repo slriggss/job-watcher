@@ -222,18 +222,6 @@
   "error": ""
  },
  {
-  "name": "palantir",
-  "ok": true,
-  "count": 302,
-  "error": ""
- },
- {
-  "name": "spotify",
-  "ok": true,
-  "count": 89,
-  "error": ""
- },
- {
   "name": "experian",
   "ok": true,
   "count": 392,

@@ -1,8 +1,8 @@
 {
- "run_time": "2026-10-29T22:46:00Z",
+ "run_time": "2026-10-29T22:58:05Z",
  "first_run_date": "2026-10-29",
  "days_with_success": 1,
- "open": 10908,
+ "open": 10517,
  "new_today": 0,
  "removed_today": 0,
  "sources": [
@@ -190,16 +190,6 @@
    "name": "ramp",
    "ok": true,
    "count": 168
-  },
-  {
-   "name": "palantir",
-   "ok": true,
-   "count": 302
-  },
-  {
-   "name": "spotify",
-   "ok": true,
-   "count": 89
   },
   {
    "name": "experian",
