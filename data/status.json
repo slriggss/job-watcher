@@ -1,15 +1,15 @@
 {
- "run_time": "2026-10-29T22:58:05Z",
+ "run_time": "2026-10-29T23:03:18Z",
  "first_run_date": "2026-10-29",
  "days_with_success": 1,
- "open": 10517,
+ "open": 10522,
  "new_today": 0,
  "removed_today": 0,
  "sources": [
   {
    "name": "statestreet",
    "ok": true,
-   "count": 1337
+   "count": 1324
   },
   {
    "name": "invesco",
@@ -19,7 +19,7 @@
   {
    "name": "mastercard",
    "ok": true,
-   "count": 1098
+   "count": 1096
   },
   {
    "name": "morganstanley",
@@ -29,7 +29,7 @@
   {
    "name": "northerntrust",
    "ok": true,
-   "count": 652
+   "count": 651
   },
   {
    "name": "nuveen",
@@ -139,7 +139,7 @@
   {
    "name": "stripe",
    "ok": true,
-   "count": 735
+   "count": 736
   },
   {
    "name": "coinbase",
@@ -159,7 +159,7 @@
   {
    "name": "sofi",
    "ok": true,
-   "count": 62
+   "count": 63
   },
   {
    "name": "carta",
@@ -190,6 +190,11 @@
    "name": "ramp",
    "ok": true,
    "count": 168
+  },
+  {
+   "name": "arcadia",
+   "ok": true,
+   "count": 19
   },
   {
    "name": "experian",

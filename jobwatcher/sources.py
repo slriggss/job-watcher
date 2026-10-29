@@ -223,6 +223,8 @@ SOURCES = [
     # Ashby (climate software / fintech)
     {"name": "watershed", "employer": "Watershed", "ats": "ashby", "token": "watershed"},
     {"name": "ramp", "employer": "Ramp", "ats": "ashby", "token": "ramp"},
+    # Lever
+    {"name": "arcadia", "employer": "Arcadia", "ats": "lever", "token": "arcadia"},
     # SmartRecruiters
     {"name": "experian", "employer": "Experian", "ats": "smartrecruiters", "token": "Experian"},
 ]
