@@ -3,7 +3,7 @@
 [![tests](https://github.com/slriggss/job-watcher/actions/workflows/tests.yml/badge.svg)](https://github.com/slriggss/job-watcher/actions/workflows/tests.yml)
 [![daily](https://github.com/slriggss/job-watcher/actions/workflows/daily.yml/badge.svg)](https://github.com/slriggss/job-watcher/actions/workflows/daily.yml)
 
-A tool that watches the ESG / sustainability job market. Every day GitHub Actions pulls the open postings from 23 employers' job boards, compares them with what it saw before, records what is new and what is gone, opens a GitHub Issue for the day, and publishes the result to a GitHub Pages site.
+A tool that watches the ESG / sustainability job market. Every day GitHub Actions pulls the open postings from 40 employers' job boards, compares them with what it saw before, records what is new and what is gone, opens a GitHub Issue for the day, and publishes the result to a GitHub Pages site.
 
 - **Role watched:** ESG / sustainability / stewardship analyst work.
 - **Site:** https://slriggss.github.io/job-watcher/
@@ -46,6 +46,23 @@ A tool that watches the ESG / sustainability job market. Every day GitHub Action
 | blueowl | Blue Owl | Workday |
 | wellington | Wellington Management | Workday |
 | jpmorgan | JPMorgan Chase | Oracle Recruiting Cloud |
+| russell | Russell Investments (Seattle headquarters) | Workday |
+| ameriprise | Ameriprise (parent of Columbia Threadneedle) | Workday |
+| blackrock | BlackRock | Workday |
+| spglobal | S&P Global | Workday |
+| morningstar | Morningstar (parent of Sustainalytics) | Workday |
+| vanguard | Vanguard | Workday |
+| fidelity | Fidelity Investments | Workday |
+| capitalgroup | Capital Group | Workday |
+| troweprice | T. Rowe Price | Workday |
+| abrdn | abrdn | Workday |
+| blackstone | Blackstone | Workday |
+| carlyle | Carlyle | Workday |
+| sweep | Sweep | Ashby |
+| sylvera | Sylvera | Ashby |
+| patch | Patch | Greenhouse |
+| carbondirect | Carbon Direct | Greenhouse |
+| ecovadis | EcoVadis | SmartRecruiters |
 | stripe | Stripe | Greenhouse |
 | coinbase | Coinbase | Greenhouse |
 | robinhood | Robinhood | Greenhouse |
@@ -61,7 +78,7 @@ A tool that watches the ESG / sustainability job market. Every day GitHub Action
 | spotify | Spotify | Lever |
 | experian | Experian | SmartRecruiters |
 
-JPMorgan Chase's board returns more than 5,000 postings (7,307 when checked), so it is requested with the search term **`sustainability`**; the other 22 boards are read in full. Workday sometimes lists a stub with only a requisition id (no title, no link); those are skipped.
+JPMorgan Chase's board returns more than 5,000 postings (7,307 when checked), so it is requested with the search term **`sustainability`**; the other 39 boards are read in full. Workday sometimes lists a stub with only a requisition id (no title, no link); those are skipped.
 
 ## Title rule
 
@@ -78,3 +95,7 @@ Run the whole pipeline locally (without opening an Issue) with `uv run python -m
 ## How history is built
 
 For each raw date in order, per source: a posting seen for the first time gets that day as `first_seen`; every posting listed gets that day as `last_seen`; an open posting is marked `removed` (with that day as `removed_date`) when the source has a raw file that day and no longer lists it; a removed posting listed again becomes `open` with `removed_date` cleared and `first_seen` unchanged. `first_run` is true for postings listed in the first raw file of their source. A day on which a source failed leaves that source's postings untouched.
+
+## Seattle focus
+
+Seattle institutional asset managers are covered through Russell Investments (headquartered in Seattle) and through large boards that post Seattle roles (Morgan Stanley, which includes Parametric, and Fidelity). Use the Location filter on the Browse page (type `Seattle`) to see them.

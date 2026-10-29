@@ -1,15 +1,15 @@
 {
- "run_time": "2026-10-29T21:26:20Z",
+ "run_time": "2026-10-29T22:46:00Z",
  "first_run_date": "2026-10-29",
  "days_with_success": 1,
- "open": 8126,
+ "open": 10908,
  "new_today": 0,
  "removed_today": 0,
  "sources": [
   {
    "name": "statestreet",
    "ok": true,
-   "count": 1335
+   "count": 1337
   },
   {
    "name": "invesco",
@@ -19,12 +19,12 @@
   {
    "name": "mastercard",
    "ok": true,
-   "count": 1097
+   "count": 1098
   },
   {
    "name": "morganstanley",
    "ok": true,
-   "count": 1242
+   "count": 1244
   },
   {
    "name": "northerntrust",
@@ -52,14 +52,99 @@
    "count": 358
   },
   {
+   "name": "russell",
+   "ok": true,
+   "count": 39
+  },
+  {
+   "name": "ameriprise",
+   "ok": true,
+   "count": 219
+  },
+  {
+   "name": "blackrock",
+   "ok": true,
+   "count": 277
+  },
+  {
+   "name": "spglobal",
+   "ok": true,
+   "count": 316
+  },
+  {
+   "name": "morningstar",
+   "ok": true,
+   "count": 167
+  },
+  {
+   "name": "vanguard",
+   "ok": true,
+   "count": 359
+  },
+  {
+   "name": "fidelity",
+   "ok": true,
+   "count": 810
+  },
+  {
+   "name": "capitalgroup",
+   "ok": true,
+   "count": 181
+  },
+  {
+   "name": "troweprice",
+   "ok": true,
+   "count": 133
+  },
+  {
+   "name": "abrdn",
+   "ok": true,
+   "count": 20
+  },
+  {
+   "name": "blackstone",
+   "ok": true,
+   "count": 134
+  },
+  {
+   "name": "carlyle",
+   "ok": true,
+   "count": 71
+  },
+  {
+   "name": "sweep",
+   "ok": true,
+   "count": 7
+  },
+  {
+   "name": "sylvera",
+   "ok": true,
+   "count": 7
+  },
+  {
+   "name": "patch",
+   "ok": true,
+   "count": 8
+  },
+  {
+   "name": "carbondirect",
+   "ok": true,
+   "count": 3
+  },
+  {
+   "name": "ecovadis",
+   "ok": true,
+   "count": 23
+  },
+  {
    "name": "stripe",
    "ok": true,
-   "count": 732
+   "count": 735
   },
   {
    "name": "coinbase",
    "ok": true,
-   "count": 233
+   "count": 234
   },
   {
    "name": "robinhood",
@@ -74,7 +159,7 @@
   {
    "name": "sofi",
    "ok": true,
-   "count": 63
+   "count": 62
   },
   {
    "name": "carta",

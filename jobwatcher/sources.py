@@ -191,6 +191,25 @@ SOURCES = [
     {"name": "wellington", "employer": "Wellington Management", "ats": "workday", "tenant": "wellington", "wd": "wd5", "site": "External"},
     # Oracle Recruiting Cloud: 7,000+ postings, so requested with a search term
     {"name": "jpmorgan", "employer": "JPMorgan Chase", "ats": "oracle", "host": "jpmc.fa.oraclecloud.com", "site": "CX_1001", "search": "sustainability"},
+    # Institutional asset managers and ESG data providers (Workday)
+    {"name": "russell", "employer": "Russell Investments (Seattle)", "ats": "workday", "tenant": "russell", "wd": "wd5", "site": "RussellInvestments"},
+    {"name": "ameriprise", "employer": "Ameriprise (Columbia Threadneedle)", "ats": "workday", "tenant": "ameriprise", "wd": "wd5", "site": "ameriprise"},
+    {"name": "blackrock", "employer": "BlackRock", "ats": "workday", "tenant": "blackrock", "wd": "wd1", "site": "BlackRock_Professional"},
+    {"name": "spglobal", "employer": "S&P Global", "ats": "workday", "tenant": "spgi", "wd": "wd5", "site": "SPGI_Careers"},
+    {"name": "morningstar", "employer": "Morningstar (Sustainalytics)", "ats": "workday", "tenant": "morningstar", "wd": "wd5", "site": "Morningstar"},
+    {"name": "vanguard", "employer": "Vanguard", "ats": "workday", "tenant": "vanguard", "wd": "wd5", "site": "vanguard_external"},
+    {"name": "fidelity", "employer": "Fidelity Investments", "ats": "workday", "tenant": "fmr", "wd": "wd1", "site": "FidelityCareers"},
+    {"name": "capitalgroup", "employer": "Capital Group", "ats": "workday", "tenant": "capgroup", "wd": "wd1", "site": "capitalgroupcareers"},
+    {"name": "troweprice", "employer": "T. Rowe Price", "ats": "workday", "tenant": "troweprice", "wd": "wd5", "site": "TRowePrice"},
+    {"name": "abrdn", "employer": "abrdn", "ats": "workday", "tenant": "abrdn", "wd": "wd3", "site": "abrdn"},
+    {"name": "blackstone", "employer": "Blackstone", "ats": "workday", "tenant": "blackstone", "wd": "wd1", "site": "Blackstone_Careers"},
+    {"name": "carlyle", "employer": "Carlyle", "ats": "workday", "tenant": "carlyle", "wd": "wd1", "site": "carlyle"},
+    # ESG / climate specialists
+    {"name": "sweep", "employer": "Sweep", "ats": "ashby", "token": "sweep"},
+    {"name": "sylvera", "employer": "Sylvera", "ats": "ashby", "token": "sylvera"},
+    {"name": "patch", "employer": "Patch", "ats": "greenhouse", "token": "patch"},
+    {"name": "carbondirect", "employer": "Carbon Direct", "ats": "greenhouse", "token": "carbondirect"},
+    {"name": "ecovadis", "employer": "EcoVadis", "ats": "smartrecruiters", "token": "ecovadis"},
     # Greenhouse (fintech)
     {"name": "stripe", "employer": "Stripe", "ats": "greenhouse", "token": "stripe"},
     {"name": "coinbase", "employer": "Coinbase", "ats": "greenhouse", "token": "coinbase"},
