@@ -2,7 +2,8 @@ name: daily
 
 on:
   schedule:
-    - cron: "23 7 * * *"   # once a day, 07:23 UTC
+    - cron: "23 7 * * *"    # 07:23 UTC
+    - cron: "47 19 * * *"   # second run, 19:47 UTC: a backup if the first is skipped (it replaces that day's files)
   workflow_dispatch:
 
 permissions:
