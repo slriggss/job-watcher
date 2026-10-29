@@ -4,7 +4,7 @@ import re
 # A title is in role when it contains one of these terms...
 INCLUDE = re.compile(
     r"\b(esg|sustainab\w*|stewardship|climate|decarboni[sz]ation|net[- ]zero|carbon|"
-    r"responsible invest\w*|impact invest\w*|proxy|corporate responsibility|"
+    r"responsible invest\w*|impact invest\w*|proxy (?:voting|research|advis\w*|analyst\w*)|corporate responsibility|"
     r"corporate governance|environmental|social impact|ethics|energy transition)\b"
 )
 # ...unless it is a different kind of work that happens to share a word.
