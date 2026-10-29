@@ -1,0 +1,33 @@
+name: daily
+
+on:
+  schedule:
+    - cron: "23 7 * * *"   # once a day, 07:23 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: daily
+  cancel-in-progress: false
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+      - name: Fetch sources, build history, write status, update the day's issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: uv run python -m jobwatcher.pipeline
+      - name: Commit data
+        run: |
+          git config user.name "job-watcher[bot]"
+          git config user.email "actions@users.noreply.github.com"
+          git add data
+          git commit -m "Daily run $(date -u +%F)" || echo "nothing to commit"
+          git pull --rebase
+          git push
