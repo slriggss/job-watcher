@@ -1,25 +1,25 @@
 {
- "run_time": "2026-10-29T19:17:22Z",
+ "run_time": "2026-10-29T21:26:20Z",
  "first_run_date": "2026-10-29",
  "days_with_success": 1,
- "open": 6748,
+ "open": 8126,
  "new_today": 0,
  "removed_today": 0,
  "sources": [
   {
    "name": "statestreet",
    "ok": true,
-   "count": 1333
+   "count": 1335
   },
   {
    "name": "invesco",
    "ok": true,
-   "count": 215
+   "count": 213
   },
   {
    "name": "mastercard",
    "ok": true,
-   "count": 1106
+   "count": 1097
   },
   {
    "name": "morganstanley",
@@ -27,29 +27,54 @@
    "count": 1242
   },
   {
+   "name": "northerntrust",
+   "ok": true,
+   "count": 652
+  },
+  {
+   "name": "nuveen",
+   "ok": true,
+   "count": 193
+  },
+  {
+   "name": "blueowl",
+   "ok": true,
+   "count": 45
+  },
+  {
+   "name": "wellington",
+   "ok": true,
+   "count": 128
+  },
+  {
+   "name": "jpmorgan",
+   "ok": true,
+   "count": 358
+  },
+  {
    "name": "stripe",
    "ok": true,
-   "count": 731
+   "count": 732
   },
   {
    "name": "coinbase",
    "ok": true,
-   "count": 232
+   "count": 233
   },
   {
    "name": "robinhood",
    "ok": true,
-   "count": 166
+   "count": 167
   },
   {
    "name": "affirm",
    "ok": true,
-   "count": 238
+   "count": 237
   },
   {
    "name": "sofi",
    "ok": true,
-   "count": 64
+   "count": 63
   },
   {
    "name": "carta",
@@ -59,7 +84,7 @@
   {
    "name": "brex",
    "ok": true,
-   "count": 262
+   "count": 264
   },
   {
    "name": "betterment",
@@ -94,7 +119,7 @@
   {
    "name": "experian",
    "ok": true,
-   "count": 384
+   "count": 392
   }
  ]
 }

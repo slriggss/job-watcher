@@ -92,3 +92,29 @@ def test_every_normalizer_returns_the_common_columns():
              (normalize_workday, WD, {"jobPostings": [{"externalPath": "/job/x_R-1"}]})]
     for fn, src, raw in cases:
         assert list(fn(src, raw)[0]) == COLUMNS
+
+
+def test_oracle():
+    from jobwatcher.sources import normalize_oracle
+    src = {"name": "jpmorgan", "employer": "JPMorgan Chase", "ats": "oracle",
+           "host": "jpmc.fa.oraclecloud.com", "site": "CX_1001", "search": "sustainability"}
+    raw = {"total": 2, "requisitionList": [
+        {"Id": "210693294", "Title": "Sustainability Associate", "PostedDate": "2026-10-29",
+         "PrimaryLocation": "New York, NY, United States", "JobFunction": "Finance"},
+        {"Id": "210693294", "Title": "Sustainability Associate (dup)"}]}
+    rows = normalize_oracle(src, raw)
+    assert len(rows) == 1
+    row = rows[0]
+    assert list(row) == COLUMNS
+    assert row["posting_id"] == "jpmorgan:210693294"
+    assert row["department"] == "Finance"
+    assert row["posted_date"] == "2026-10-29"
+    assert row["location"] == "New York, NY, United States"
+    assert row["url"] == "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210693294"
+
+
+def test_workday_skips_stubs_without_a_path():
+    raw = {"jobPostings": [{"bulletFields": ["R-291827"]},
+                           {"title": "Analyst", "externalPath": "/job/X/Analyst_R-1", "locationsText": "X"}]}
+    rows = normalize_workday(WD, raw)
+    assert [r["source_id"] for r in rows] == ["R-1"]

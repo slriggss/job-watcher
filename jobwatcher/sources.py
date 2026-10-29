@@ -127,7 +127,9 @@ def fetch_workday(src):
 def normalize_workday(src, raw):
     out, seen = [], set()
     for j in raw["jobPostings"]:
-        path = j["externalPath"]
+        path = j.get("externalPath")
+        if not path:  # Workday sometimes lists a stub with only a requisition id: no title, no link
+            continue
         m = re.search(r"_([^_/]+)$", path)  # the requisition id closes the path: ..._R-12345
         sid = m.group(1) if m else path
         if sid in seen:
@@ -138,10 +140,44 @@ def normalize_workday(src, raw):
     return out
 
 
+# ---- Oracle Recruiting Cloud (JPMorgan) ---------------------------------------------------
+def fetch_oracle(src):
+    url = f"https://{src['host']}/hcmRestApi/resources/latest/recruitingCEJobRequisitions"
+    keyword = f",keyword={src["search"]}" if src.get("search") else ""
+    jobs, offset, total = [], 0, None
+    while total is None or offset < total:
+        finder = f"findReqs;siteNumber={src['site']}{keyword},limit=200,offset={offset},sortBy=POSTING_DATES_DESC"
+        r = requests.get(url, params={"onlyData": "true", "expand": "requisitionList.secondaryLocations",
+                                      "finder": finder}, headers=HEADERS, timeout=TIMEOUT)
+        r.raise_for_status()
+        item = r.json()["items"][0]
+        total = item["TotalJobsCount"]
+        page = item.get("requisitionList", [])
+        if not page:
+            break
+        jobs += page
+        offset += 200
+        time.sleep(0.1)
+    return {"total": total, "requisitionList": jobs}
+
+
+def normalize_oracle(src, raw):
+    out, seen = [], set()
+    for j in raw["requisitionList"]:
+        if j["Id"] in seen:
+            continue
+        seen.add(j["Id"])
+        out.append(_row(src, j["Id"], j.get("Title"),
+                        f"https://{src['host']}/hcmUI/CandidateExperience/en/sites/{src['site']}/job/{j['Id']}",
+                        j.get("PrimaryLocation", ""), j.get("JobFunction", ""), _iso_date(j.get("PostedDate"))))
+    return out
+
+
 FETCH = {"greenhouse": fetch_greenhouse, "lever": fetch_lever, "ashby": fetch_ashby,
-         "smartrecruiters": fetch_smartrecruiters, "workday": fetch_workday}
+         "smartrecruiters": fetch_smartrecruiters, "workday": fetch_workday, "oracle": fetch_oracle}
 NORMALIZE = {"greenhouse": normalize_greenhouse, "lever": normalize_lever, "ashby": normalize_ashby,
-             "smartrecruiters": normalize_smartrecruiters, "workday": normalize_workday}
+             "smartrecruiters": normalize_smartrecruiters, "workday": normalize_workday,
+             "oracle": normalize_oracle}
 
 SOURCES = [
     # Workday (banks and asset managers)
@@ -149,6 +185,12 @@ SOURCES = [
     {"name": "invesco", "employer": "Invesco", "ats": "workday", "tenant": "invesco", "wd": "wd1", "site": "IVZ"},
     {"name": "mastercard", "employer": "Mastercard", "ats": "workday", "tenant": "mastercard", "wd": "wd1", "site": "CorporateCareers"},
     {"name": "morganstanley", "employer": "Morgan Stanley", "ats": "workday", "tenant": "ms", "wd": "wd5", "site": "External"},
+    {"name": "northerntrust", "employer": "Northern Trust", "ats": "workday", "tenant": "ntrs", "wd": "wd1", "site": "northerntrust"},
+    {"name": "nuveen", "employer": "Nuveen (TIAA)", "ats": "workday", "tenant": "tiaa", "wd": "wd1", "site": "Search"},
+    {"name": "blueowl", "employer": "Blue Owl", "ats": "workday", "tenant": "blueowl", "wd": "wd1", "site": "BlueOwl"},
+    {"name": "wellington", "employer": "Wellington Management", "ats": "workday", "tenant": "wellington", "wd": "wd5", "site": "External"},
+    # Oracle Recruiting Cloud: 7,000+ postings, so requested with a search term
+    {"name": "jpmorgan", "employer": "JPMorgan Chase", "ats": "oracle", "host": "jpmc.fa.oraclecloud.com", "site": "CX_1001", "search": "sustainability"},
     # Greenhouse (fintech)
     {"name": "stripe", "employer": "Stripe", "ats": "greenhouse", "token": "stripe"},
     {"name": "coinbase", "employer": "Coinbase", "ats": "greenhouse", "token": "coinbase"},

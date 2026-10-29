@@ -3,7 +3,7 @@
 [![tests](https://github.com/slriggss/job-watcher/actions/workflows/tests.yml/badge.svg)](https://github.com/slriggss/job-watcher/actions/workflows/tests.yml)
 [![daily](https://github.com/slriggss/job-watcher/actions/workflows/daily.yml/badge.svg)](https://github.com/slriggss/job-watcher/actions/workflows/daily.yml)
 
-A tool that watches the ESG / sustainability job market. Every day GitHub Actions pulls the open postings from 18 employers' job boards, compares them with what it saw before, records what is new and what is gone, opens a GitHub Issue for the day, and publishes the result to a GitHub Pages site.
+A tool that watches the ESG / sustainability job market. Every day GitHub Actions pulls the open postings from 23 employers' job boards, compares them with what it saw before, records what is new and what is gone, opens a GitHub Issue for the day, and publishes the result to a GitHub Pages site.
 
 - **Role watched:** ESG / sustainability / stewardship analyst work.
 - **Site:** https://slriggss.github.io/job-watcher/
@@ -40,7 +40,12 @@ A tool that watches the ESG / sustainability job market. Every day GitHub Action
 | statestreet | State Street | Workday |
 | invesco | Invesco | Workday |
 | mastercard | Mastercard | Workday |
-| morganstanley | Morgan Stanley | Workday |
+| morganstanley | Morgan Stanley (includes Calvert Research and Management postings) | Workday |
+| northerntrust | Northern Trust | Workday |
+| nuveen | Nuveen (hosted on TIAA's board) | Workday |
+| blueowl | Blue Owl | Workday |
+| wellington | Wellington Management | Workday |
+| jpmorgan | JPMorgan Chase | Oracle Recruiting Cloud |
 | stripe | Stripe | Greenhouse |
 | coinbase | Coinbase | Greenhouse |
 | robinhood | Robinhood | Greenhouse |
@@ -56,7 +61,7 @@ A tool that watches the ESG / sustainability job market. Every day GitHub Action
 | spotify | Spotify | Lever |
 | experian | Experian | SmartRecruiters |
 
-No board returns more than 5,000 postings, so no search term is used.
+JPMorgan Chase's board returns more than 5,000 postings (7,307 when checked), so it is requested with the search term **`sustainability`**; the other 22 boards are read in full. Workday sometimes lists a stub with only a requisition id (no title, no link); those are skipped.
 
 ## Title rule
 
