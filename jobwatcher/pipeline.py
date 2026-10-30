@@ -47,7 +47,7 @@ def fetch_all(date):
     return results
 
 
-def issue_body(rows, date, results):
+def issue_body(rows, date, results, limit=ISSUE_LIMIT):
     new = [r for r in rows if r["first_seen"] == date and not r["first_run"]]
     gone = [r for r in rows if r["removed_date"] == date]
     failed = [r["name"] for r in results if not r["ok"]]
@@ -60,7 +60,7 @@ def issue_body(rows, date, results):
             line = f"- [{r['title']}]({r['url']}) — {r['employer']}" + (f", {r['location']}" if r["location"] else "")
             line += " **(in role)**" if r["in_role"] else ""
             used += len(line)
-            if used > ISSUE_LIMIT // 2:
+            if used > limit // 2:
                 lines.append(f"- … and {len(items) - i} more (see data/history.csv)")
                 break
             lines.append(line)
@@ -74,8 +74,13 @@ def issue_body(rows, date, results):
     return "\n\n".join([head, section("New postings", new), section("Removed postings", gone)])
 
 
-def gh(*args, check=True):
-    return subprocess.run(["gh", *args], capture_output=True, text=True, check=check)
+def gh(*args, body=None):
+    """Run gh. A body goes through stdin (not argv) and a failure reports gh's own error text."""
+    cmd = ["gh", *args] + (["--body-file", "-"] if body is not None else [])
+    r = subprocess.run(cmd, input=body, capture_output=True, text=True, encoding="utf-8")
+    if r.returncode:
+        raise RuntimeError(f"gh {' '.join(args[:2])} failed ({r.returncode}): {r.stderr.strip()[:500]}")
+    return r
 
 
 def update_issue(date, body):
@@ -84,11 +89,11 @@ def update_issue(date, body):
                             "--json", "number,title,state").stdout)
     mine = next((i for i in listing if i["title"] == date), None)
     if mine:
-        gh("issue", "edit", str(mine["number"]), "--body", body)
+        gh("issue", "edit", str(mine["number"]), body=body)
         if mine["state"] != "OPEN":
             gh("issue", "reopen", str(mine["number"]))
     else:
-        gh("issue", "create", "--title", date, "--body", body)
+        gh("issue", "create", "--title", date, body=body)
     for i in listing:
         if i["state"] == "OPEN" and i["title"] != date:
             gh("issue", "close", str(i["number"]))
@@ -112,7 +117,13 @@ def main():
         print(f"{'ok  ' if r['ok'] else 'FAIL'} {r['name']:<14} {r['count']:>5} {r['error']}")
     print(f"open={status['open']} new_today={status['new_today']} removed_today={status['removed_today']}")
     if not args.no_issue:
-        update_issue(date, issue_body(rows, date, results))
+        # Never let the issue step cost the day's data: retry with a shorter body, then warn.
+        for limit in (ISSUE_LIMIT, 15000, 2000):
+            try:
+                update_issue(date, issue_body(rows, date, results, limit))
+                break
+            except Exception as e:
+                print(f"::warning::issue update failed with limit {limit}: {e}")
 
 
 if __name__ == "__main__":

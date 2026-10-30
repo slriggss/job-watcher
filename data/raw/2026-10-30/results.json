@@ -1,0 +1,236 @@
+[
+ {
+  "name": "statestreet",
+  "ok": true,
+  "count": 1257,
+  "error": ""
+ },
+ {
+  "name": "invesco",
+  "ok": true,
+  "count": 213,
+  "error": ""
+ },
+ {
+  "name": "mastercard",
+  "ok": true,
+  "count": 1090,
+  "error": ""
+ },
+ {
+  "name": "morganstanley",
+  "ok": true,
+  "count": 1240,
+  "error": ""
+ },
+ {
+  "name": "northerntrust",
+  "ok": true,
+  "count": 653,
+  "error": ""
+ },
+ {
+  "name": "nuveen",
+  "ok": true,
+  "count": 166,
+  "error": ""
+ },
+ {
+  "name": "blueowl",
+  "ok": true,
+  "count": 43,
+  "error": ""
+ },
+ {
+  "name": "wellington",
+  "ok": true,
+  "count": 128,
+  "error": ""
+ },
+ {
+  "name": "jpmorgan",
+  "ok": true,
+  "count": 355,
+  "error": ""
+ },
+ {
+  "name": "russell",
+  "ok": true,
+  "count": 39,
+  "error": ""
+ },
+ {
+  "name": "ameriprise",
+  "ok": true,
+  "count": 219,
+  "error": ""
+ },
+ {
+  "name": "blackrock",
+  "ok": true,
+  "count": 254,
+  "error": ""
+ },
+ {
+  "name": "spglobal",
+  "ok": true,
+  "count": 316,
+  "error": ""
+ },
+ {
+  "name": "morningstar",
+  "ok": true,
+  "count": 166,
+  "error": ""
+ },
+ {
+  "name": "vanguard",
+  "ok": true,
+  "count": 358,
+  "error": ""
+ },
+ {
+  "name": "fidelity",
+  "ok": true,
+  "count": 805,
+  "error": ""
+ },
+ {
+  "name": "capitalgroup",
+  "ok": true,
+  "count": 179,
+  "error": ""
+ },
+ {
+  "name": "troweprice",
+  "ok": true,
+  "count": 131,
+  "error": ""
+ },
+ {
+  "name": "abrdn",
+  "ok": true,
+  "count": 19,
+  "error": ""
+ },
+ {
+  "name": "blackstone",
+  "ok": true,
+  "count": 135,
+  "error": ""
+ },
+ {
+  "name": "carlyle",
+  "ok": true,
+  "count": 71,
+  "error": ""
+ },
+ {
+  "name": "sweep",
+  "ok": true,
+  "count": 7,
+  "error": ""
+ },
+ {
+  "name": "sylvera",
+  "ok": true,
+  "count": 7,
+  "error": ""
+ },
+ {
+  "name": "patch",
+  "ok": true,
+  "count": 8,
+  "error": ""
+ },
+ {
+  "name": "carbondirect",
+  "ok": true,
+  "count": 3,
+  "error": ""
+ },
+ {
+  "name": "ecovadis",
+  "ok": true,
+  "count": 23,
+  "error": ""
+ },
+ {
+  "name": "stripe",
+  "ok": true,
+  "count": 744,
+  "error": ""
+ },
+ {
+  "name": "coinbase",
+  "ok": true,
+  "count": 241,
+  "error": ""
+ },
+ {
+  "name": "robinhood",
+  "ok": true,
+  "count": 166,
+  "error": ""
+ },
+ {
+  "name": "affirm",
+  "ok": true,
+  "count": 242,
+  "error": ""
+ },
+ {
+  "name": "sofi",
+  "ok": true,
+  "count": 61,
+  "error": ""
+ },
+ {
+  "name": "carta",
+  "ok": true,
+  "count": 76,
+  "error": ""
+ },
+ {
+  "name": "brex",
+  "ok": true,
+  "count": 264,
+  "error": ""
+ },
+ {
+  "name": "betterment",
+  "ok": true,
+  "count": 26,
+  "error": ""
+ },
+ {
+  "name": "chime",
+  "ok": true,
+  "count": 72,
+  "error": ""
+ },
+ {
+  "name": "watershed",
+  "ok": true,
+  "count": 41,
+  "error": ""
+ },
+ {
+  "name": "ramp",
+  "ok": true,
+  "count": 168,
+  "error": ""
+ },
+ {
+  "name": "arcadia",
+  "ok": true,
+  "count": 19,
+  "error": ""
+ },
+ {
+  "name": "experian",
+  "ok": true,
+  "count": 394,
+  "error": ""
+ }
+]

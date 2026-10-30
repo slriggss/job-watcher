@@ -1,15 +1,15 @@
 {
- "run_time": "2026-10-29T23:03:18Z",
+ "run_time": "2026-10-30T14:30:41Z",
  "first_run_date": "2026-10-29",
- "days_with_success": 1,
- "open": 10522,
- "new_today": 0,
- "removed_today": 0,
+ "days_with_success": 2,
+ "open": 10399,
+ "new_today": 165,
+ "removed_today": 288,
  "sources": [
   {
    "name": "statestreet",
    "ok": true,
-   "count": 1324
+   "count": 1257
   },
   {
    "name": "invesco",
@@ -19,27 +19,27 @@
   {
    "name": "mastercard",
    "ok": true,
-   "count": 1096
+   "count": 1090
   },
   {
    "name": "morganstanley",
    "ok": true,
-   "count": 1244
+   "count": 1240
   },
   {
    "name": "northerntrust",
    "ok": true,
-   "count": 651
+   "count": 653
   },
   {
    "name": "nuveen",
    "ok": true,
-   "count": 193
+   "count": 166
   },
   {
    "name": "blueowl",
    "ok": true,
-   "count": 45
+   "count": 43
   },
   {
    "name": "wellington",
@@ -49,7 +49,7 @@
   {
    "name": "jpmorgan",
    "ok": true,
-   "count": 358
+   "count": 355
   },
   {
    "name": "russell",
@@ -64,7 +64,7 @@
   {
    "name": "blackrock",
    "ok": true,
-   "count": 277
+   "count": 254
   },
   {
    "name": "spglobal",
@@ -74,37 +74,37 @@
   {
    "name": "morningstar",
    "ok": true,
-   "count": 167
+   "count": 166
   },
   {
    "name": "vanguard",
    "ok": true,
-   "count": 359
+   "count": 358
   },
   {
    "name": "fidelity",
    "ok": true,
-   "count": 810
+   "count": 805
   },
   {
    "name": "capitalgroup",
    "ok": true,
-   "count": 181
+   "count": 179
   },
   {
    "name": "troweprice",
    "ok": true,
-   "count": 133
+   "count": 131
   },
   {
    "name": "abrdn",
    "ok": true,
-   "count": 20
+   "count": 19
   },
   {
    "name": "blackstone",
    "ok": true,
-   "count": 134
+   "count": 135
   },
   {
    "name": "carlyle",
@@ -139,32 +139,32 @@
   {
    "name": "stripe",
    "ok": true,
-   "count": 736
+   "count": 744
   },
   {
    "name": "coinbase",
    "ok": true,
-   "count": 234
+   "count": 241
   },
   {
    "name": "robinhood",
    "ok": true,
-   "count": 167
+   "count": 166
   },
   {
    "name": "affirm",
    "ok": true,
-   "count": 237
+   "count": 242
   },
   {
    "name": "sofi",
    "ok": true,
-   "count": 63
+   "count": 61
   },
   {
    "name": "carta",
    "ok": true,
-   "count": 77
+   "count": 76
   },
   {
    "name": "brex",
@@ -199,7 +199,7 @@
   {
    "name": "experian",
    "ok": true,
-   "count": 392
+   "count": 394
   }
  ]
 }
