@@ -1,50 +1,50 @@
 {
- "run_time": "2026-10-30T14:32:40Z",
+ "run_time": "2026-10-30T23:16:19Z",
  "first_run_date": "2026-10-29",
  "days_with_success": 2,
- "open": 10400,
- "new_today": 166,
- "removed_today": 288,
+ "open": 10221,
+ "new_today": 350,
+ "removed_today": 651,
  "sources": [
   {
    "name": "statestreet",
    "ok": true,
-   "count": 1258
+   "count": 1141
   },
   {
    "name": "invesco",
    "ok": true,
-   "count": 213
+   "count": 204
   },
   {
    "name": "mastercard",
    "ok": true,
-   "count": 1090
+   "count": 1031
   },
   {
    "name": "morganstanley",
    "ok": true,
-   "count": 1240
+   "count": 1237
   },
   {
    "name": "northerntrust",
    "ok": true,
-   "count": 653
+   "count": 619
   },
   {
    "name": "nuveen",
    "ok": true,
-   "count": 166
+   "count": 171
   },
   {
    "name": "blueowl",
    "ok": true,
-   "count": 43
+   "count": 44
   },
   {
    "name": "wellington",
    "ok": true,
-   "count": 128
+   "count": 125
   },
   {
    "name": "jpmorgan",
@@ -54,7 +54,7 @@
   {
    "name": "russell",
    "ok": true,
-   "count": 39
+   "count": 38
   },
   {
    "name": "ameriprise",
@@ -64,22 +64,22 @@
   {
    "name": "blackrock",
    "ok": true,
-   "count": 254
+   "count": 263
   },
   {
    "name": "spglobal",
    "ok": true,
-   "count": 316
+   "count": 341
   },
   {
    "name": "morningstar",
    "ok": true,
-   "count": 166
+   "count": 164
   },
   {
    "name": "vanguard",
    "ok": true,
-   "count": 358
+   "count": 351
   },
   {
    "name": "fidelity",
@@ -89,7 +89,7 @@
   {
    "name": "capitalgroup",
    "ok": true,
-   "count": 179
+   "count": 180
   },
   {
    "name": "troweprice",
@@ -104,12 +104,12 @@
   {
    "name": "blackstone",
    "ok": true,
-   "count": 135
+   "count": 133
   },
   {
    "name": "carlyle",
    "ok": true,
-   "count": 71
+   "count": 69
   },
   {
    "name": "sweep",
@@ -124,7 +124,7 @@
   {
    "name": "patch",
    "ok": true,
-   "count": 8
+   "count": 9
   },
   {
    "name": "carbondirect",
@@ -134,32 +134,32 @@
   {
    "name": "ecovadis",
    "ok": true,
-   "count": 23
+   "count": 24
   },
   {
    "name": "stripe",
    "ok": true,
-   "count": 744
+   "count": 746
   },
   {
    "name": "coinbase",
    "ok": true,
-   "count": 241
+   "count": 250
   },
   {
    "name": "robinhood",
    "ok": true,
-   "count": 166
+   "count": 160
   },
   {
    "name": "affirm",
    "ok": true,
-   "count": 242
+   "count": 245
   },
   {
    "name": "sofi",
    "ok": true,
-   "count": 61
+   "count": 62
   },
   {
    "name": "carta",
@@ -169,12 +169,12 @@
   {
    "name": "brex",
    "ok": true,
-   "count": 264
+   "count": 263
   },
   {
    "name": "betterment",
    "ok": true,
-   "count": 26
+   "count": 27
   },
   {
    "name": "chime",
@@ -189,7 +189,7 @@
   {
    "name": "ramp",
    "ok": true,
-   "count": 168
+   "count": 171
   },
   {
    "name": "arcadia",
@@ -199,7 +199,7 @@
   {
    "name": "experian",
    "ok": true,
-   "count": 394
+   "count": 399
   }
  ]
 }
