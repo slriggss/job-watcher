@@ -1,15 +1,15 @@
 {
- "run_time": "2026-10-31T13:43:49Z",
+ "run_time": "2026-10-31T22:51:20Z",
  "first_run_date": "2026-10-29",
  "days_with_success": 3,
- "open": 10118,
- "new_today": 13,
- "removed_today": 116,
+ "open": 10113,
+ "new_today": 28,
+ "removed_today": 136,
  "sources": [
   {
    "name": "statestreet",
    "ok": true,
-   "count": 1101
+   "count": 1107
   },
   {
    "name": "invesco",
@@ -19,17 +19,17 @@
   {
    "name": "mastercard",
    "ok": true,
-   "count": 1020
+   "count": 1015
   },
   {
    "name": "morganstanley",
    "ok": true,
-   "count": 1236
+   "count": 1235
   },
   {
    "name": "northerntrust",
    "ok": true,
-   "count": 618
+   "count": 616
   },
   {
    "name": "nuveen",
@@ -49,7 +49,7 @@
   {
    "name": "jpmorgan",
    "ok": true,
-   "count": 353
+   "count": 351
   },
   {
    "name": "russell",
@@ -59,7 +59,7 @@
   {
    "name": "ameriprise",
    "ok": true,
-   "count": 217
+   "count": 216
   },
   {
    "name": "blackrock",
@@ -79,7 +79,7 @@
   {
    "name": "vanguard",
    "ok": true,
-   "count": 342
+   "count": 341
   },
   {
    "name": "fidelity",
@@ -89,7 +89,7 @@
   {
    "name": "capitalgroup",
    "ok": true,
-   "count": 177
+   "count": 175
   },
   {
    "name": "troweprice",
@@ -139,12 +139,12 @@
   {
    "name": "stripe",
    "ok": true,
-   "count": 746
+   "count": 745
   },
   {
    "name": "coinbase",
    "ok": true,
-   "count": 250
+   "count": 254
   },
   {
    "name": "robinhood",
@@ -154,7 +154,7 @@
   {
    "name": "affirm",
    "ok": true,
-   "count": 245
+   "count": 244
   },
   {
    "name": "sofi",
@@ -189,7 +189,7 @@
   {
    "name": "ramp",
    "ok": true,
-   "count": 171
+   "count": 172
   },
   {
    "name": "arcadia",
