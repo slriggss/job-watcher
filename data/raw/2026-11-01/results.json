@@ -2,31 +2,31 @@
  {
   "name": "statestreet",
   "ok": true,
-  "count": 1090,
+  "count": 1080,
   "error": ""
  },
  {
   "name": "invesco",
   "ok": true,
-  "count": 207,
+  "count": 206,
   "error": ""
  },
  {
   "name": "mastercard",
   "ok": true,
-  "count": 1012,
+  "count": 1011,
   "error": ""
  },
  {
   "name": "morganstanley",
   "ok": true,
-  "count": 1235,
+  "count": 1234,
   "error": ""
  },
  {
   "name": "northerntrust",
   "ok": true,
-  "count": 618,
+  "count": 615,
   "error": ""
  },
  {
@@ -50,7 +50,7 @@
  {
   "name": "jpmorgan",
   "ok": true,
-  "count": 351,
+  "count": 350,
   "error": ""
  },
  {
@@ -62,19 +62,19 @@
  {
   "name": "ameriprise",
   "ok": true,
-  "count": 216,
+  "count": 214,
   "error": ""
  },
  {
   "name": "blackrock",
   "ok": true,
-  "count": 241,
+  "count": 238,
   "error": ""
  },
  {
   "name": "spglobal",
   "ok": true,
-  "count": 352,
+  "count": 349,
   "error": ""
  },
  {
@@ -86,7 +86,7 @@
  {
   "name": "vanguard",
   "ok": true,
-  "count": 336,
+  "count": 334,
   "error": ""
  },
  {
@@ -176,7 +176,7 @@
  {
   "name": "affirm",
   "ok": true,
-  "count": 244,
+  "count": 240,
   "error": ""
  },
  {

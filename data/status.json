@@ -1,35 +1,35 @@
 {
- "run_time": "2026-11-01T14:22:33Z",
+ "run_time": "2026-11-01T23:07:54Z",
  "first_run_date": "2026-10-29",
  "days_with_success": 4,
- "open": 10092,
- "new_today": 14,
- "removed_today": 35,
+ "open": 10061,
+ "new_today": 23,
+ "removed_today": 75,
  "sources": [
   {
    "name": "statestreet",
    "ok": true,
-   "count": 1090
+   "count": 1080
   },
   {
    "name": "invesco",
    "ok": true,
-   "count": 207
+   "count": 206
   },
   {
    "name": "mastercard",
    "ok": true,
-   "count": 1012
+   "count": 1011
   },
   {
    "name": "morganstanley",
    "ok": true,
-   "count": 1235
+   "count": 1234
   },
   {
    "name": "northerntrust",
    "ok": true,
-   "count": 618
+   "count": 615
   },
   {
    "name": "nuveen",
@@ -49,7 +49,7 @@
   {
    "name": "jpmorgan",
    "ok": true,
-   "count": 351
+   "count": 350
   },
   {
    "name": "russell",
@@ -59,17 +59,17 @@
   {
    "name": "ameriprise",
    "ok": true,
-   "count": 216
+   "count": 214
   },
   {
    "name": "blackrock",
    "ok": true,
-   "count": 241
+   "count": 238
   },
   {
    "name": "spglobal",
    "ok": true,
-   "count": 352
+   "count": 349
   },
   {
    "name": "morningstar",
@@ -79,7 +79,7 @@
   {
    "name": "vanguard",
    "ok": true,
-   "count": 336
+   "count": 334
   },
   {
    "name": "fidelity",
@@ -154,7 +154,7 @@
   {
    "name": "affirm",
    "ok": true,
-   "count": 244
+   "count": 240
   },
   {
    "name": "sofi",
