@@ -1,25 +1,25 @@
 {
- "run_time": "2026-10-31T22:51:20Z",
+ "run_time": "2026-11-01T14:22:33Z",
  "first_run_date": "2026-10-29",
- "days_with_success": 3,
- "open": 10113,
- "new_today": 28,
- "removed_today": 136,
+ "days_with_success": 4,
+ "open": 10092,
+ "new_today": 14,
+ "removed_today": 35,
  "sources": [
   {
    "name": "statestreet",
    "ok": true,
-   "count": 1107
+   "count": 1090
   },
   {
    "name": "invesco",
    "ok": true,
-   "count": 204
+   "count": 207
   },
   {
    "name": "mastercard",
    "ok": true,
-   "count": 1015
+   "count": 1012
   },
   {
    "name": "morganstanley",
@@ -29,12 +29,12 @@
   {
    "name": "northerntrust",
    "ok": true,
-   "count": 616
+   "count": 618
   },
   {
    "name": "nuveen",
    "ok": true,
-   "count": 150
+   "count": 149
   },
   {
    "name": "blueowl",
@@ -44,7 +44,7 @@
   {
    "name": "wellington",
    "ok": true,
-   "count": 125
+   "count": 124
   },
   {
    "name": "jpmorgan",
@@ -64,12 +64,12 @@
   {
    "name": "blackrock",
    "ok": true,
-   "count": 245
+   "count": 241
   },
   {
    "name": "spglobal",
    "ok": true,
-   "count": 344
+   "count": 352
   },
   {
    "name": "morningstar",
@@ -79,7 +79,7 @@
   {
    "name": "vanguard",
    "ok": true,
-   "count": 341
+   "count": 336
   },
   {
    "name": "fidelity",
@@ -89,7 +89,7 @@
   {
    "name": "capitalgroup",
    "ok": true,
-   "count": 175
+   "count": 172
   },
   {
    "name": "troweprice",
