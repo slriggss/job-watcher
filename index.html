@@ -8,7 +8,7 @@
 <meta name="theme-color" content="#7a2f3a">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="icon-192.png">
-<link rel="stylesheet" href="style.css?v=3">
+<link rel="stylesheet" href="style.css?v=4">
 </head>
 <body>
 <main class="wide">
@@ -28,7 +28,9 @@
     </section>
   </div>
 </main>
-<script src="app.js?v=3"></script>
+<script src="app.js?v=4"></script>
+<script src="market.js?v=4"></script>
+<script src="cards.js?v=4"></script>
 <script>
 renderNav("index.html");
 const li = r => `<li><div class="main"><div class="t"><a href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.title)}</a>${r.in_role ? '<span class="tag">in role</span>' : (r.am_esg ? '<span class="tag" title="Matched on ' + esc(r.esg_via) + (r.esg_terms ? ': ' + esc(r.esg_terms.replace(/;/g, ", ")) : "") + '">asset-manager ESG · ' + esc(r.esg_via) + '</span>' : "")}</div>
@@ -42,9 +44,7 @@ function list(el, head, label, items) {
 }
 loadData().then(({ rows, status, latest }) => {
   $("#runtime").textContent = `Last run: ${new Date(status.run_time).toUTCString()}`;
-  $("#counts").innerHTML = [["days_with_success", "Days with a successful run"], ["open", "Open postings"],
-    ["new_today", "New today"], ["removed_today", "Removed today"]]
-    .map(([k, l]) => `<div class="card"><div class="n">${status[k].toLocaleString()}</div><div class="l">${l}</div></div>`).join("");
+  renderCards($("#counts"), status, rows, latest);
   $("#src-h").textContent = `Sources (${status.sources.length})`;
   $("#sources").innerHTML = `<table><tr><th>Source</th><th>Status</th><th>Postings</th></tr>` +
     status.sources.map(s => `<tr><td>${esc(s.name)}</td><td class="${s.ok ? "ok" : "fail"}">${s.ok ? "ok" : "failed"}</td><td>${s.count.toLocaleString()}</td></tr>`).join("") + `</table>`;
