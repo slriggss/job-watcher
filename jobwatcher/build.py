@@ -7,12 +7,21 @@ import gzip
 import json
 from pathlib import Path
 
-from .sources import COLUMNS, NORMALIZE, SOURCES
-from .titlerule import in_role
+from .sources import COLUMNS, NORMALIZE, SOURCES, employer_type
+from .titlerule import esg_via, in_role
 
 DATA = Path(__file__).resolve().parent.parent / "data"
-HISTORY_COLUMNS = COLUMNS + ["in_role", "first_run", "first_seen", "last_seen", "status", "removed_date"]
+HISTORY_COLUMNS = COLUMNS + ["in_role", "employer_type", "am_esg", "esg_via", "esg_terms", "first_run", "first_seen", "last_seen", "status", "removed_date"]
 BY_NAME = {s["name"]: s for s in SOURCES}
+ENRICH_PATH = DATA / "enrich.csv"  # ESG-term counts from posting text, written by enrich.py
+
+
+def load_enrich(path=ENRICH_PATH):
+    """posting_id -> {"strong": int, "terms": str}; empty if no posting text has been read yet."""
+    if not Path(path).exists():
+        return {}
+    with open(path, newline="", encoding="utf-8") as f:
+        return {r["posting_id"]: {"strong": int(r["strong"]), "terms": r["terms"]} for r in csv.DictReader(f)}
 
 
 def load_raw(raw_dir):
@@ -26,8 +35,19 @@ def load_raw(raw_dir):
     return days
 
 
-def build_history(days, sources=None):
-    """Apply the first-seen / last-seen / removed rules day by day. Returns rows sorted by posting_id."""
+def build_history(days, sources=None, enrich=None):
+    """Apply the first-seen / last-seen / removed rules day by day. Returns rows sorted by posting_id.
+
+    enrich is the optional {posting_id: {strong, terms}} cache of ESG terms found in posting text (enrich.py)."""
+    enrich = enrich or {}
+    # An identical pattern of ESG terms in 3+ postings of one employer is its standard company paragraph, not
+    # something about the role, so it does not count toward a text match.
+    seen = {}
+    for pid, e in enrich.items():
+        if e["terms"]:
+            key = (pid.split(":")[0], e["terms"])
+            seen[key] = seen.get(key, 0) + 1
+    boilerplate = {k for k, n in seen.items() if n >= 3}
     by_name = BY_NAME if sources is None else {s["name"]: s for s in sources}
     history = {}
     first_day = {}  # source name -> date of that source's first raw file
@@ -58,6 +78,12 @@ def build_history(days, sources=None):
     for pid in sorted(history):
         r = history[pid]
         r["in_role"] = in_role(r["title"])
+        r["employer_type"] = employer_type(r["source"])
+        e = enrich.get(pid, {})
+        strong = 0 if (r["source"], e.get("terms", "")) in boilerplate else e.get("strong", 0)
+        r["esg_via"] = esg_via(r["title"], r["employer_type"], strong)
+        r["am_esg"] = bool(r["esg_via"])
+        r["esg_terms"] = e.get("terms", "")
         rows.append(r)
     return rows
 
@@ -86,7 +112,7 @@ def build_status(rows, days, run_time, results):
 
 def main():
     days = load_raw(DATA / "raw")
-    rows = build_history(days)
+    rows = build_history(days, enrich=load_enrich())
     write_history(rows, DATA / "history.csv")
     print(f"history.csv: {len(rows)} postings from {len(days)} day(s) of raw files")
 

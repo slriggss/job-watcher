@@ -27,7 +27,7 @@ function parseCSV(text) {
   const head = rows.shift();
   return rows.filter(r => r.length === head.length).map(r => {
     const o = Object.fromEntries(head.map((h, i) => [h, r[i]]));
-    o.in_role = o.in_role === "true"; o.first_run = o.first_run === "true";
+    o.in_role = o.in_role === "true"; o.am_esg = o.am_esg === "true"; o.first_run = o.first_run === "true";
     return o;
   });
 }

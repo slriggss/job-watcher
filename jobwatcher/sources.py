@@ -228,3 +228,23 @@ SOURCES = [
     # SmartRecruiters
     {"name": "experian", "employer": "Experian", "ats": "smartrecruiters", "token": "Experian"},
 ]
+
+
+# What kind of employer each source is. "asset manager" means an investment management firm; the
+# am_esg flag (see titlerule.py) only applies to those. Banks that own an asset-management arm
+# (State Street, Northern Trust, Morgan Stanley, JPMorgan) are classed as banks.
+EMPLOYER_TYPE = {
+    **dict.fromkeys(["invesco", "nuveen", "blueowl", "wellington", "russell", "ameriprise", "blackrock",
+                     "vanguard", "fidelity", "capitalgroup", "troweprice", "abrdn", "blackstone", "carlyle"],
+                    "asset manager"),
+    **dict.fromkeys(["statestreet", "northerntrust", "morganstanley", "jpmorgan"], "bank"),
+    **dict.fromkeys(["spglobal", "morningstar", "experian"], "ratings and data"),
+    **dict.fromkeys(["sweep", "sylvera", "patch", "carbondirect", "ecovadis", "watershed", "arcadia"],
+                    "sustainability vendor"),
+    **dict.fromkeys(["mastercard", "stripe", "coinbase", "robinhood", "affirm", "sofi", "carta", "brex",
+                     "betterment", "chime", "ramp"], "fintech"),
+}
+
+
+def employer_type(source_name):
+    return EMPLOYER_TYPE.get(source_name, "other")

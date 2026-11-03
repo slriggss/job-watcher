@@ -10,9 +10,11 @@ import subprocess
 from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone
 
-from .build import DATA, build_history, build_status, load_raw, write_history
+from .build import DATA, build_history, build_status, load_enrich, load_raw, write_history
+from .enrich import enrich
 from .sources import FETCH, NORMALIZE, SOURCES
 
+ENRICH_PER_RUN = 100  # a few postings per run, spread over days, so no employer site sees a burst of requests
 ISSUE_LIMIT = 60000  # GitHub caps an issue body at 65,536 characters
 
 
@@ -109,7 +111,14 @@ def main():
 
     results = fetch_all(date)
     days = load_raw(DATA / "raw")
-    rows = build_history(days)
+    rows = build_history(days, enrich=load_enrich())
+    try:  # reading posting text is a bonus: whatever goes wrong here must not cost the day its data
+        done, failed = enrich(rows, limit=ENRICH_PER_RUN)
+        print(f"posting text read: {done} fetched, {failed} failed")
+        if done:
+            rows = build_history(days, enrich=load_enrich())
+    except Exception as e:
+        print(f"::warning::posting-text step failed: {type(e).__name__}: {e}")
     write_history(rows, DATA / "history.csv")
     status = build_status(rows, days, now.strftime("%Y-%m-%dT%H:%M:%SZ"), results)
     (DATA / "status.json").write_text(json.dumps(status, indent=1), encoding="utf-8")

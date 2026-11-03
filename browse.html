@@ -14,10 +14,11 @@
 <main>
   <h1>Browse open postings</h1>
   <div class="switch" id="scope">
-    <button data-v="role" class="on">In my role</button><button data-v="all">All postings</button>
+    <button data-v="role" class="on">In my role</button><button data-v="am">Asset-manager ESG</button><button data-v="all">All postings</button>
   </div>
   <div class="controls">
     <label>Search titles<input id="q" type="search" placeholder="e.g. sustainability"></label>
+    <label>Employer type<select id="etype"><option value="">All types</option></select></label>
     <label>Employer<select id="employer"><option value="">All employers</option></select></label>
     <label>Location contains<input id="loc" type="search" placeholder="e.g. New York"></label>
     <label>Days open<select id="days">
@@ -41,9 +42,9 @@ let openRows = [], scope = "role", limit = 100;
 
 function view() {
   const q = $("#q").value.trim().toLowerCase(), loc = $("#loc").value.trim().toLowerCase();
-  const emp = $("#employer").value, maxDays = +$("#days").value, onlyStar = $("#short").value === "1";
+  const etype = $("#etype").value, emp = $("#employer").value, maxDays = +$("#days").value, onlyStar = $("#short").value === "1";
   const out = openRows.filter(r =>
-    (scope === "all" || r.in_role) && (!emp || r.employer === emp) &&
+    (scope === "all" || (scope === "am" ? r.am_esg : r.in_role)) && (!etype || r.employer_type === etype) && (!emp || r.employer === emp) &&
     (!loc || r.location.toLowerCase().includes(loc)) && (!q || r.title.toLowerCase().includes(q)) &&
     (!maxDays || r.daysOpen <= maxDays) && (!onlyStar || shortlist.has(r.posting_id)));
   const dir = $("#sort").value === "asc" ? 1 : -1;
@@ -51,7 +52,7 @@ function view() {
   $("#count").textContent = `${out.length.toLocaleString()} postings`;
   $("#list").innerHTML = out.slice(0, limit).map(r => `<li>
     <button class="star ${shortlist.has(r.posting_id) ? "on" : ""}" data-id="${esc(r.posting_id)}" aria-label="Save to shortlist" title="Save to shortlist">${shortlist.has(r.posting_id) ? "★" : "☆"}</button>
-    <div class="main"><div class="t">${esc(r.title)}${r.in_role ? '<span class="tag">in role</span>' : ""}</div>
+    <div class="main"><div class="t">${esc(r.title)}${r.in_role ? '<span class="tag">in role</span>' : (r.am_esg ? '<span class="tag" title="Matched on ' + esc(r.esg_via) + (r.esg_terms ? ': ' + esc(r.esg_terms.replace(/;/g, ", ")) : "") + '">asset-manager ESG · ' + esc(r.esg_via) + '</span>' : "")}</div>
       <div class="m">${esc(r.employer)}${r.location ? " · " + esc(r.location) : ""} · first seen ${r.first_seen}${r.first_run ? " or earlier" : ""} · ${r.daysOpen} day${r.daysOpen === 1 ? "" : "s"} open${r.first_run ? "+" : ""}</div></div>
     <a class="apply" href="${esc(r.url)}" target="_blank" rel="noopener">Apply</a></li>`).join("") ||
     `<li class="empty">No postings match.</li>`;
@@ -60,12 +61,14 @@ function view() {
 
 loadData().then(({ rows, latest }) => {
   openRows = rows.filter(r => r.status === "open").map(r => ({ ...r, daysOpen: daysBetween(r.first_seen, latest) }));
+  const types = [...new Set(openRows.map(r => r.employer_type).filter(Boolean))].sort();
+  $("#etype").insertAdjacentHTML("beforeend", types.map(t => `<option>${esc(t)}</option>`).join(""));
   const emps = [...new Set(openRows.map(r => r.employer))].sort();
   $("#employer").insertAdjacentHTML("beforeend", emps.map(e => `<option>${esc(e)}</option>`).join(""));
   view();
 }).catch(showError);
 
-for (const id of ["q", "loc", "employer", "days", "sort", "short"]) $("#" + id).addEventListener("input", () => { limit = 100; view(); });
+for (const id of ["q", "loc", "etype", "employer", "days", "sort", "short"]) $("#" + id).addEventListener("input", () => { limit = 100; view(); });
 $("#scope").addEventListener("click", e => {
   const b = e.target.closest("button"); if (!b) return;
   scope = b.dataset.v; limit = 100;
