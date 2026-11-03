@@ -56,4 +56,18 @@ function showError(e) {
   $("main").innerHTML = `<p class="empty">Could not load the data (${esc(e.message)}). Try again when online.</p>`;
 }
 
+// Scroll effect: the cream background drifts toward a rose cream and the tile pattern drifts upward.
+(function () {
+  if (typeof matchMedia !== "function" || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const root = document.documentElement; let tick = false;
+  const update = () => {
+    tick = false;
+    const max = Math.max(1, root.scrollHeight - innerHeight), p = Math.min(1, scrollY / max);
+    root.style.setProperty("--mix", (p * 100).toFixed(1) + "%");
+    root.style.setProperty("--py", (-scrollY * 0.25).toFixed(1) + "px");
+  };
+  addEventListener("scroll", () => { if (!tick) { tick = true; requestAnimationFrame(update); } }, { passive: true });
+  update();
+})();
+
 if ("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch(() => {});

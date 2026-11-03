@@ -1,7 +1,8 @@
 // Network first, so online visits always show the latest data; the cache is the offline fallback.
-const CACHE = "job-watcher-v1";
+const CACHE = "job-watcher-v3";
 const SHELL = ["./", "index.html", "browse.html", "market.html", "style.css", "app.js", "charts.js",
-  "market.js", "manifest.webmanifest", "icon.svg", "icon-192.png", "icon-512.png"];
+  "market.js", "manifest.webmanifest", "icon.svg", "icon-192.png", "icon-512.png",
+  "fonts/EBGaramond.woff2", "fonts/EBGaramond-Italic.woff2"];
 
 self.addEventListener("install", e => {
   e.waitUntil(caches.open(CACHE).then(c => c.addAll(SHELL)));
@@ -19,6 +20,6 @@ self.addEventListener("fetch", e => {
     fetch(e.request).then(res => {
       if (res.ok) { const copy = res.clone(); caches.open(CACHE).then(c => c.put(e.request, copy)); }
       return res;
-    }).catch(() => caches.match(e.request).then(hit => hit || caches.match("index.html")))
+    }).catch(() => caches.match(e.request, { ignoreSearch: true }).then(hit => hit || caches.match("index.html")))
   );
 });
