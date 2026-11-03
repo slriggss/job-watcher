@@ -5,7 +5,7 @@ const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "
 function renderNav(active) {
   const links = [["index.html", "Today"], ["browse.html", "Browse"], ["market.html", "Market"]];
   document.body.insertAdjacentHTML("afterbegin",
-    `<nav><span class="brand">Job Watcher</span>` +
+    `<nav><span class="brand">Watch Jobber</span>` +
     links.map(([h, t]) => `<a href="${h}" class="${h === active ? "on" : ""}">${t}</a>`).join("") + `</nav>`);
 }
 

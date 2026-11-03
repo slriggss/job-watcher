@@ -1,4 +1,4 @@
-# Job Watcher
+# Watch Jobber
 
 [![tests](https://github.com/slriggss/job-watcher/actions/workflows/tests.yml/badge.svg)](https://github.com/slriggss/job-watcher/actions/workflows/tests.yml)
 [![daily](https://github.com/slriggss/job-watcher/actions/workflows/daily.yml/badge.svg)](https://github.com/slriggss/job-watcher/actions/workflows/daily.yml)

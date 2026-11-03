@@ -1,6 +1,6 @@
 {
-  "name": "Job Watcher",
-  "short_name": "Job Watcher",
+  "name": "Watch Jobber",
+  "short_name": "Watch Jobber",
   "description": "Daily watch on ESG and sustainability job postings.",
   "start_url": "./index.html",
   "scope": "./",

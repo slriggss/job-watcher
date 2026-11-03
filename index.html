@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Job Watcher – Today</title>
+<title>Watch Jobber – Today</title>
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#7a2f3a">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="icon-192.png">
-<link rel="stylesheet" href="style.css?v=4">
+<link rel="stylesheet" href="style.css?v=5">
 </head>
 <body>
 <main class="wide">
@@ -28,9 +28,9 @@
     </section>
   </div>
 </main>
-<script src="app.js?v=4"></script>
-<script src="market.js?v=4"></script>
-<script src="cards.js?v=4"></script>
+<script src="app.js?v=5"></script>
+<script src="market.js?v=5"></script>
+<script src="cards.js?v=5"></script>
 <script>
 renderNav("index.html");
 const li = r => `<li><div class="main"><div class="t"><a href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.title)}</a>${r.in_role ? '<span class="tag">in role</span>' : (r.am_esg ? '<span class="tag" title="Matched on ' + esc(r.esg_via) + (r.esg_terms ? ': ' + esc(r.esg_terms.replace(/;/g, ", ")) : "") + '">asset-manager ESG · ' + esc(r.esg_via) + '</span>' : "")}</div>
