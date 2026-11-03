@@ -195,3 +195,56 @@ svg text { fill: var(--muted); font: 12px var(--font-body); }
 @media (prefers-reduced-motion: reduce) {
   .stat .spark-ln, .stat .spark-area, .stat .spark-dot, .tile.go .flap-t, .tile.go .flap-b { animation: none; }
 }
+
+/* Themed hovers for the three stat cards */
+.stat { position: relative; overflow: hidden; }
+.stat > :not(.dawn):not(.slashes):not(.lens) { position: relative; z-index: 1; }
+
+/* Open postings: a magnifying glass that follows the pointer and enlarges the number */
+.stat.open { cursor: none; }
+.lens { position: absolute; left: 0; top: 0; width: 92px; height: 92px; z-index: 3; pointer-events: none;
+        opacity: 0; transition: opacity .15s; will-change: transform; }
+.lens.on { opacity: 1; }
+.lens-glass { position: relative; width: 92px; height: 92px; border-radius: 50%; overflow: hidden;
+              background: color-mix(in srgb, var(--card) 88%, var(--accent2));
+              box-shadow: 0 0 0 4px var(--accent), 0 8px 18px rgba(0, 0, 0, .35), inset 0 0 14px rgba(255, 255, 255, .25); }
+.lens-glass::after { content: ""; position: absolute; left: 14px; top: 10px; width: 34px; height: 16px; border-radius: 50%;
+                     background: linear-gradient(180deg, rgba(255, 255, 255, .55), rgba(255, 255, 255, 0)); transform: rotate(-28deg); }
+.lens-num { position: absolute; transform-origin: 0 0; white-space: nowrap; font: 700 2.2rem var(--font-head);
+            color: var(--accent); font-variant-numeric: tabular-nums; line-height: 1.5; }
+.lens-handle { position: absolute; left: 76px; top: 76px; width: 9px; height: 34px; border-radius: 5px;
+               background: var(--accent); transform-origin: 4.5px 0; transform: rotate(-45deg);
+               box-shadow: 0 4px 8px rgba(0, 0, 0, .3); }
+
+/* New today: a sun rises from the bottom edge, its rays turning slowly */
+.dawn { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+.dawn .sky { position: absolute; inset: 0; opacity: 0; transition: opacity .7s ease;
+             background: linear-gradient(0deg, rgba(246, 185, 91, .38), rgba(224, 130, 120, .16) 55%, transparent); }
+.dawn .sun { position: absolute; left: 50%; bottom: -78px; width: 130px; height: 130px; margin-left: -65px; border-radius: 50%;
+             background: radial-gradient(circle, #fff3c2 0 30%, #f9c964 52%, rgba(246, 170, 80, 0) 72%);
+             transform: translateY(95%); opacity: 0; transition: transform .9s cubic-bezier(.2, .8, .2, 1), opacity .6s ease; }
+.dawn .sun::after { content: ""; position: absolute; inset: -55%; border-radius: 50%; animation: sun-spin 22s linear infinite;
+                    background: repeating-conic-gradient(rgba(255, 214, 120, .55) 0 5deg, transparent 5deg 15deg);
+                    -webkit-mask: radial-gradient(circle, #000 18%, transparent 62%); mask: radial-gradient(circle, #000 18%, transparent 62%); }
+.stat.new:hover .sky { opacity: 1; }
+.stat.new:hover .sun { transform: translateY(0); opacity: 1; }
+.stat.new .n { transition: color .5s ease; }
+.stat.new:hover .n { color: color-mix(in srgb, var(--accent2) 70%, var(--accent)); }
+@keyframes sun-spin { to { transform: rotate(360deg); } }
+
+/* Removed today: three slashes cut across the card one after another */
+.slashes { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 2; pointer-events: none; overflow: visible; }
+.slashes line { stroke: var(--bad); stroke-width: 1.7; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 1;
+                filter: drop-shadow(0 0 2px rgba(179, 38, 30, .4)); }
+.stat.gone:hover { border-color: var(--bad); }
+.stat.gone:hover .slashes line { animation: slash .2s cubic-bezier(.3, 0, .2, 1) forwards; }
+.stat.gone:hover .slashes line:nth-child(2) { animation-delay: .12s; }
+.stat.gone:hover .slashes line:nth-child(3) { animation-delay: .24s; }
+.stat.gone:hover .n { animation: jolt .32s ease .06s; color: var(--bad); }
+.stat.gone .n { transition: color .25s ease; }
+@keyframes slash { to { stroke-dashoffset: 0; } }
+@keyframes jolt { 0%, 100% { transform: none; } 25% { transform: translate(-3px, 1px) skewX(-6deg); } 60% { transform: translate(3px, -1px) skewX(5deg); } }
+@media (prefers-reduced-motion: reduce) {
+  .dawn .sun::after, .stat.gone:hover .n { animation: none; }
+  .stat.gone:hover .slashes line { animation: none; stroke-dashoffset: 0; }
+}

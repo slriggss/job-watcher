@@ -90,11 +90,47 @@ function renderCards(el, status, rows, latest) {
   const openSeries = m.days.map(d => rows.filter(r => r.first_seen <= d && (!r.removed_date || r.removed_date > d)).length);
   const month = new Date(latest + "T00:00:00Z").toLocaleString("en-US", { month: "short", year: "numeric", timeZone: "UTC" }).toUpperCase();
   const stats = [
-    ["open", "Open postings", openSeries], ["new_today", "New today", m.newAll], ["removed_today", "Removed today", m.removed],
+    ["open", "Open postings", openSeries, "open"], ["new_today", "New today", m.newAll, "new"],
+    ["removed_today", "Removed today", m.removed, "gone"],
   ];
-  el.innerHTML = `<div class="card cal" id="cal"></div>` + stats.map(([k, label, series]) =>
-    `<div class="card stat"><div class="l">${label}</div><div class="n" data-to="${status[k]}">0</div>` +
+  // Each card gets its own hover: a magnifying lens (open), a rising sun (new), slash marks (removed).
+  const extras = {
+    open: "",
+    new: `<span class="dawn" aria-hidden="true"><i class="sky"></i><i class="sun"></i></span>`,
+    gone: `<svg class="slashes" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">` +
+          `<line pathLength="1" x1="-4" y1="14" x2="104" y2="52"/><line pathLength="1" x1="-4" y1="50" x2="104" y2="96"/>` +
+          `<line pathLength="1" x1="22" y1="-4" x2="86" y2="104"/></svg>`,
+  };
+  el.innerHTML = `<div class="card cal" id="cal"></div>` + stats.map(([k, label, series, kind]) =>
+    `<div class="card stat ${kind}">${extras[kind]}<div class="l">${label}</div><div class="n" data-to="${status[k]}">0</div>` +
     `<div class="delta">${deltaLine(series)}</div>${sparkline(series, label)}</div>`).join("");
   flipCalendar($("#cal"), status.days_with_success, month);
   el.querySelectorAll(".n[data-to]").forEach(n => countUp(n, +n.dataset.to));
+  attachLens(el.querySelector(".stat.open"));
+}
+
+// A magnifying glass that follows the pointer over the Open postings card and shows the number enlarged.
+function attachLens(card, zoom = 2, radius = 46) {
+  if (!card || typeof PointerEvent === "undefined") return;
+  const num = card.querySelector(".n");
+  const lens = document.createElement("div");
+  lens.className = "lens"; lens.setAttribute("aria-hidden", "true");
+  lens.innerHTML = `<div class="lens-glass"><span class="lens-num"></span></div><i class="lens-handle"></i>`;
+  card.appendChild(lens);
+  const big = lens.querySelector(".lens-num");
+  const move = e => {
+    if (e.pointerType === "touch") return;
+    const c = card.getBoundingClientRect(), r = num.getBoundingClientRect();
+    const mx = e.clientX - c.left, my = e.clientY - c.top;
+    lens.style.transform = `translate(${mx - radius}px, ${my - radius}px)`;
+    big.textContent = num.textContent;   // follows the count-up
+    // a point P of the card lands at radius + zoom * (P - pointer) inside the glass
+    big.style.left = `${radius + zoom * (r.left - c.left - mx)}px`;
+    big.style.top = `${radius + zoom * (r.top - c.top - my)}px`;
+    big.style.transform = `scale(${zoom})`;
+    lens.classList.add("on");
+  };
+  card.addEventListener("pointermove", move);
+  card.addEventListener("pointerenter", move);
+  card.addEventListener("pointerleave", () => lens.classList.remove("on"));
 }
