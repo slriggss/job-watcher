@@ -2,37 +2,37 @@
  {
   "name": "statestreet",
   "ok": true,
-  "count": 1176,
+  "count": 1180,
   "error": ""
  },
  {
   "name": "invesco",
   "ok": true,
-  "count": 217,
+  "count": 215,
   "error": ""
  },
  {
   "name": "mastercard",
   "ok": true,
-  "count": 949,
+  "count": 941,
   "error": ""
  },
  {
   "name": "morganstanley",
   "ok": true,
-  "count": 1216,
+  "count": 1217,
   "error": ""
  },
  {
   "name": "northerntrust",
   "ok": true,
-  "count": 641,
+  "count": 653,
   "error": ""
  },
  {
   "name": "nuveen",
   "ok": true,
-  "count": 162,
+  "count": 166,
   "error": ""
  },
  {
@@ -44,85 +44,85 @@
  {
   "name": "wellington",
   "ok": true,
-  "count": 121,
+  "count": 123,
   "error": ""
  },
  {
   "name": "jpmorgan",
   "ok": true,
-  "count": 356,
+  "count": 349,
   "error": ""
  },
  {
   "name": "russell",
   "ok": true,
-  "count": 44,
+  "count": 47,
   "error": ""
  },
  {
   "name": "ameriprise",
   "ok": true,
-  "count": 234,
+  "count": 229,
   "error": ""
  },
  {
   "name": "blackrock",
   "ok": true,
-  "count": 276,
+  "count": 273,
   "error": ""
  },
  {
   "name": "spglobal",
   "ok": true,
-  "count": 328,
+  "count": 331,
   "error": ""
  },
  {
   "name": "morningstar",
   "ok": true,
-  "count": 171,
+  "count": 172,
   "error": ""
  },
  {
   "name": "vanguard",
   "ok": true,
-  "count": 358,
+  "count": 359,
   "error": ""
  },
  {
   "name": "fidelity",
   "ok": true,
-  "count": 856,
+  "count": 851,
   "error": ""
  },
  {
   "name": "capitalgroup",
   "ok": true,
-  "count": 175,
+  "count": 178,
   "error": ""
  },
  {
   "name": "troweprice",
   "ok": true,
-  "count": 134,
+  "count": 133,
   "error": ""
  },
  {
   "name": "abrdn",
   "ok": true,
-  "count": 19,
+  "count": 20,
   "error": ""
  },
  {
   "name": "blackstone",
   "ok": true,
-  "count": 129,
+  "count": 133,
   "error": ""
  },
  {
   "name": "carlyle",
   "ok": true,
-  "count": 66,
+  "count": 67,
   "error": ""
  },
  {
@@ -158,13 +158,13 @@
  {
   "name": "stripe",
   "ok": true,
-  "count": 767,
+  "count": 763,
   "error": ""
  },
  {
   "name": "coinbase",
   "ok": true,
-  "count": 277,
+  "count": 279,
   "error": ""
  },
  {
@@ -176,13 +176,13 @@
  {
   "name": "affirm",
   "ok": true,
-  "count": 235,
+  "count": 234,
   "error": ""
  },
  {
   "name": "sofi",
   "ok": true,
-  "count": 53,
+  "count": 49,
   "error": ""
  },
  {
@@ -194,7 +194,7 @@
  {
   "name": "brex",
   "ok": true,
-  "count": 274,
+  "count": 272,
   "error": ""
  },
  {
@@ -218,7 +218,7 @@
  {
   "name": "ramp",
   "ok": true,
-  "count": 171,
+  "count": 168,
   "error": ""
  },
  {
@@ -230,7 +230,7 @@
  {
   "name": "experian",
   "ok": true,
-  "count": 388,
+  "count": 387,
   "error": ""
  }
 ]
