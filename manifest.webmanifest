@@ -1,15 +1,20 @@
 {
+  "id": "./index.html",
   "name": "Watch Jobber",
   "short_name": "Watch Jobber",
   "description": "Daily watch on ESG and sustainability job postings.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#f6eedd",
+  "background_color": "#ecd8da",
   "theme_color": "#7a2f3a",
   "icons": [
-    {"src": "icon-192.png", "sizes": "192x192", "type": "image/png"},
-    {"src": "icon-512.png", "sizes": "512x512", "type": "image/png"},
-    {"src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable"}
+    {"src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any"},
+    {"src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any"},
+    {"src": "icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable"}
+  ],
+  "shortcuts": [
+    {"name": "Browse in my role", "url": "browse.html", "icons": [{"src": "icon-192.png", "sizes": "192x192"}]},
+    {"name": "My shortlist", "url": "browse.html?scope=short", "icons": [{"src": "icon-192.png", "sizes": "192x192"}]}
   ]
 }

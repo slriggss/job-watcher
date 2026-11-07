@@ -5,51 +5,105 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Watch Jobber – Today</title>
 <link rel="manifest" href="manifest.webmanifest">
-<meta name="theme-color" content="#7a2f3a">
+<meta name="theme-color" content="#7a2f3a" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#5e1f2b" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="icon-192.png">
-<link rel="stylesheet" href="style.css?v=5">
+<link rel="stylesheet" href="style.css?v=7">
 </head>
 <body>
 <main class="wide">
-  <h1>Today</h1>
-  <p class="muted" id="runtime">Loading…</p>
-  <div class="cards" id="counts"></div>
+  <div class="today-head">
+    <div class="head-left">
+      <h1 id="page-title">Today</h1>
+      <p class="muted" id="runtime">Loading…</p>
+    </div>
+    <aside class="fact" id="fact" aria-label="A fact from women's business history" hidden></aside>
+  </div>
+  <p class="lead" id="lead"></p>
+  <div class="cards" id="counts"><div class="skel card-skel"></div><div class="skel card-skel"></div><div class="skel card-skel"></div><div class="skel card-skel"></div></div>
+  <p class="health" id="health" role="status"></p>
   <div class="split">
     <aside class="side">
       <h2 id="src-h">Sources</h2>
-      <div id="sources"></div>
+      <div id="sources"><div class="skel line-skel"></div><div class="skel line-skel"></div><div class="skel line-skel"></div><div class="skel line-skel"></div></div>
     </aside>
     <section>
       <h2 id="new-h">New postings</h2>
-      <ul class="posts" id="new"></ul>
+      <ul class="posts" id="new"><li class="skel row-skel"></li><li class="skel row-skel"></li><li class="skel row-skel"></li></ul>
       <h2 id="gone-h">Removed postings</h2>
-      <ul class="posts" id="gone"></ul>
+      <ul class="posts" id="gone"><li class="skel row-skel"></li><li class="skel row-skel"></li></ul>
     </section>
   </div>
 </main>
-<script src="app.js?v=5"></script>
-<script src="market.js?v=5"></script>
-<script src="cards.js?v=5"></script>
+<script src="app.js?v=7"></script>
+<script src="market.js?v=7"></script>
+<script src="cards.js?v=7"></script>
+<script src="facts.js?v=7"></script>
 <script>
 renderNav("index.html");
-const li = r => `<li><div class="main"><div class="t"><a href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.title)}</a>${r.in_role ? '<span class="tag">in role</span>' : (r.am_esg ? '<span class="tag" title="Matched on ' + esc(r.esg_via) + (r.esg_terms ? ': ' + esc(r.esg_terms.replace(/;/g, ", ")) : "") + '">asset-manager ESG · ' + esc(r.esg_via) + '</span>' : "")}</div>
-  <div class="m">${esc(r.employer)}${r.location ? " · " + esc(r.location) : ""}</div></div></li>`;
+// A small fact from women's business history, different each day
+try {
+  const f = pickFact(new Date()), box = $("#fact");
+  box.innerHTML = `<div class="fact-label">${esc(f.label)}</div><p>${esc(f.text)}</p>`;
+  box.hidden = false;
+} catch (e) { /* the fact is a bonus: the page works without it */ }
+const li = r => `<li${isIntl(r) ? ' class="intl"' : ""}><div class="main"><div class="t"><a href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.title)}</a>${postingTag(r)}</div>
+  <div class="m">${esc(r.employer)}${placeHtml(r)}</div></div></li>`;
+const mine = r => r.in_role || r.am_esg;
+const plural = (n, one, many) => `${n.toLocaleString()} ${n === 1 ? one : many}`;
+
+// Role and asset-manager ESG postings show at once as compact rows. Everything else is one click away and is
+// drawn only then, so the page stays short and fast.
 function list(el, head, label, items) {
-  items.sort((a, b) => (b.in_role || b.am_esg) - (a.in_role || a.am_esg) || a.employer.localeCompare(b.employer));
+  items.sort((a, b) => mine(b) - mine(a) || a.employer.localeCompare(b.employer) || a.title.localeCompare(b.title));
+  const picked = items.filter(mine), rest = items.filter(r => !mine(r));
   $(head).textContent = `${label} (${items.length})`;
-  const shown = items.slice(0, 200);
-  $(el).innerHTML = shown.map(li).join("") || `<li class="empty">None in the latest run.</li>`;
-  if (items.length > shown.length) $(el).insertAdjacentHTML("beforeend", `<li class="muted">… and ${items.length - shown.length} more in data/history.csv</li>`);
+  const ul = $(el);
+  ul.innerHTML = picked.map(li).join("") ||
+    `<li class="empty">${items.length ? "None in your role or at asset managers on ESG work." : "None in the latest run."}</li>`;
+  if (rest.length) {
+    const li2 = document.createElement("li");
+    li2.className = "more";
+    li2.innerHTML = `<button type="button" class="linklike">Show all ${rest.length.toLocaleString()} other ${label.toLowerCase()}</button>`;
+    li2.firstChild.addEventListener("click", () => li2.replaceWith(...rest.map(r => {
+      const t = document.createElement("template"); t.innerHTML = li(r).trim(); return t.content.firstChild; })));
+    ul.appendChild(li2);
+  }
 }
+
+function sourceRows(sources) {
+  const bad = s => (!s.ok ? 0 : s.suspect ? 1 : 2);
+  return [...sources].sort((a, b) => bad(a) - bad(b)).map(s => {
+    const state = !s.ok ? `<span class="fail">failed</span>` : s.suspect ? `<span class="fail">suspect</span>` : `<span class="ok">ok</span>`;
+    const why = !s.ok ? `${esc(s.error || "no error recorded")}${s.last_ok ? ` · last ok ${esc(s.last_ok)}` : ""}`
+      : s.suspect ? "posting count fell by over half since its last good day" : "";
+    return `<tr><td>${esc(s.employer || s.name)}</td><td>${state}</td><td>${s.count.toLocaleString()}</td></tr>` +
+      (why ? `<tr class="why"><td colspan="3">${why}</td></tr>` : "");
+  }).join("");
+}
+
 loadData().then(({ rows, status, latest }) => {
-  $("#runtime").textContent = `Last run: ${new Date(status.run_time).toUTCString()}`;
+  // The heading is the date of the run the page shows, e.g. "Saturday, Nov 7, 2026"
+  $("#page-title").textContent = new Date(latest + "T00:00:00Z").toLocaleDateString("en-US",
+    { weekday: "long", month: "short", day: "numeric", year: "numeric", timeZone: "UTC" });
+  const rt = $("#runtime");
+  rt.textContent = `Updated ${fmtTime(status.run_time)}`;
+  rt.title = new Date(status.run_time).toUTCString();
+  const fresh = rows.filter(r => r.first_seen === latest && !r.first_run), gone = rows.filter(r => r.removed_date === latest);
+  const roleNew = fresh.filter(r => r.in_role).length, roleGone = gone.filter(r => r.in_role).length;
+  const esgNew = fresh.filter(r => !r.in_role && r.am_esg).length;
+  $("#lead").innerHTML = `<b>${plural(roleNew, "new posting", "new postings")} in your role today, ${roleGone} removed</b>` +
+    (esgNew ? ` · ${plural(esgNew, "new asset-manager ESG posting", "new asset-manager ESG postings")}` : "");
   renderCards($("#counts"), status, rows, latest);
+  const failed = status.sources.filter(s => !s.ok), suspect = status.sources.filter(s => s.ok && s.suspect);
+  $("#health").innerHTML = (failed.length ? `<span class="fail">${plural(failed.length, "source", "sources")} failed</span> (${failed.map(s => esc(s.employer || s.name)).join(", ")}). ` : "") +
+    (suspect.length ? `<span class="fail">${plural(suspect.length, "source", "sources")} suspect</span> (${suspect.map(s => esc(s.employer || s.name)).join(", ")}). ` : "") +
+    (failed.length || suspect.length ? "Details are in the Sources table." : "");
   $("#src-h").textContent = `Sources (${status.sources.length})`;
-  $("#sources").innerHTML = `<table><tr><th>Source</th><th>Status</th><th>Postings</th></tr>` +
-    status.sources.map(s => `<tr><td>${esc(s.name)}</td><td class="${s.ok ? "ok" : "fail"}">${s.ok ? "ok" : "failed"}</td><td>${s.count.toLocaleString()}</td></tr>`).join("") + `</table>`;
-  list("#new", "#new-h", "New postings", rows.filter(r => r.first_seen === latest && !r.first_run));
-  list("#gone", "#gone-h", "Removed postings", rows.filter(r => r.removed_date === latest));
+  $("#sources").innerHTML = `<table><tr><th>Source</th><th>Status</th><th>Postings</th></tr>${sourceRows(status.sources)}</table>`;
+  list("#new", "#new-h", "New postings", fresh);
+  list("#gone", "#gone-h", "Removed postings", gone);
 }).catch(showError);
 </script>
 </body>

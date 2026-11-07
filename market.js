@@ -26,7 +26,7 @@ function computeMarket(rows, latest) {
   const gone = countBy(rows, r => r.removed_date);
   const open = rows.filter(r => r.status === "open");
   const perEmployer = [...countBy(open, r => r.employer)].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
-  const perLocation = [...countBy(open, r => r.location)].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+  const perLocation = [...countBy(open, r => r.location_norm)].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
   const lifetimes = fresh.filter(r => r.status === "removed" && r.removed_date).map(r => daysBetween(r.first_seen, r.removed_date));
   const eligible = fresh.filter(r => daysBetween(r.first_seen, latest) >= 7);
   const quick = eligible.filter(r => r.removed_date && daysBetween(r.first_seen, r.removed_date) <= 7);
@@ -37,6 +37,7 @@ function computeMarket(rows, latest) {
     removed: days.map(d => gone.get(d) || 0),
     perEmployer, perLocation,
     openCount: open.length,
+    unplacedCount: open.filter(r => !r.location_norm).length,  // "N Locations" postings whose list is not read yet
     removedCount: lifetimes.length,
     medianDaysOpen: median(lifetimes),
     eligibleCount: eligible.length,

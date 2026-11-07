@@ -2,6 +2,7 @@
 checked against an independent calculation from the definitions in Python."""
 import csv
 import json
+import os
 import shutil
 import statistics
 import subprocess
@@ -15,7 +16,8 @@ from jobwatcher.build import build_history, write_history
 
 SRC = {"name": "a", "employer": "Alpha", "ats": "greenhouse", "token": "a"}
 ROOT = Path(__file__).resolve().parent.parent
-pytestmark = pytest.mark.skipif(shutil.which("node") is None, reason="node not installed")
+pytestmark = pytest.mark.skipif(shutil.which("node") is None and not os.environ.get("REQUIRE_NODE"),
+                                reason="node not installed")  # CI sets REQUIRE_NODE so a missing Node fails
 
 
 def board(*items):
@@ -50,7 +52,8 @@ def expected(path):
         "new_role": Counter(r["first_seen"] for r in fresh if r["in_role"] == "true"),
         "removed": Counter(r["removed_date"] for r in rows if r["removed_date"]),
         "employers": Counter(r["employer"] for r in opens),
-        "locations": Counter(r["location"] for r in opens),
+        "locations": Counter(r["location_norm"] for r in opens if r["location_norm"]),
+        "unplaced": sum(1 for r in opens if not r["location_norm"]),
         "median": statistics.median(lifetimes) if lifetimes else None,
         "eligible": len(eligible), "quick": len(quick),
         "share": len(quick) / len(eligible) if eligible else None,
@@ -63,7 +66,7 @@ def test_market_numbers_agree_with_history(tmp_path):
     write_history(build_history(make_days(), [SRC]), path)
     exp = expected(path)
     out = subprocess.run(["node", str(ROOT / "tests" / "market_check.js"), str(path), exp["latest"]],
-                         capture_output=True, text=True, check=True)
+                         capture_output=True, text=True, encoding="utf-8", check=True)
     m = json.loads(out.stdout)
     assert dict(zip(m["days"], m["newAll"])) == {d: exp["new"].get(d, 0) for d in m["days"]}
     assert dict(zip(m["days"], m["newRole"])) == {d: exp["new_role"].get(d, 0) for d in m["days"]}
@@ -75,15 +78,18 @@ def test_market_numbers_agree_with_history(tmp_path):
     assert (m["eligibleCount"], m["quickCount"]) == (exp["eligible"], exp["quick"])
     assert m["shareWithin7"] == exp["share"]
     assert m["openCount"] == exp["open"]
+    assert m["unplacedCount"] == exp["unplaced"]
 
 
 def test_market_on_the_real_history_file():
     path = ROOT / "data" / "history.csv"
     exp = expected(path)
     out = subprocess.run(["node", str(ROOT / "tests" / "market_check.js"), str(path)],
-                         capture_output=True, text=True, check=True)
+                         capture_output=True, text=True, encoding="utf-8", check=True)
     m = json.loads(out.stdout)
     assert m["openCount"] == exp["open"]
     assert dict(map(tuple, m["perEmployer"])) == dict(exp["employers"])
     assert m["medianDaysOpen"] == exp["median"]
     assert m["shareWithin7"] == exp["share"]
+    assert dict(map(tuple, m["perLocation"])) == dict(exp["locations"])
+    assert m["unplacedCount"] == exp["unplaced"]
