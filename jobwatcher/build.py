@@ -5,15 +5,51 @@ Run:  uv run python -m jobwatcher.build
 import csv
 import gzip
 import json
+import re
 from pathlib import Path
 
+from .locations import all_places, country_of, normalize_location
 from .sources import COLUMNS, NORMALIZE, SOURCES, employer_type
+from .terms import plain_text, scan
 from .titlerule import esg_via, in_role
 
 DATA = Path(__file__).resolve().parent.parent / "data"
-HISTORY_COLUMNS = COLUMNS + ["in_role", "employer_type", "am_esg", "esg_via", "esg_terms", "first_run", "first_seen", "last_seen", "status", "removed_date"]
+HISTORY_COLUMNS = COLUMNS + ["location_norm", "country", "remote", "locations_all", "in_role", "employer_type", "text_read", "am_esg", "esg_via", "esg_terms", "first_run", "first_seen", "last_seen", "status", "removed_date"]
 BY_NAME = {s["name"]: s for s in SOURCES}
-ENRICH_PATH = DATA / "enrich.csv"  # ESG-term counts from posting text, written by enrich.py
+ENRICH_PATH = DATA / "enrich.csv"  # legacy: term counts of postings read before descriptions were saved
+DETAILS_DIR = DATA / "raw" / "details"  # one saved detail response per posting: <source>/<source id>.json.gz
+
+
+def details_path(source, source_id, root=DETAILS_DIR):
+    safe = re.sub(r"[^A-Za-z0-9._-]", "_", str(source_id))
+    return Path(root) / source / f"{safe}.json.gz"
+
+
+def detail_ids(root=DETAILS_DIR):
+    """posting_ids that have a saved detail file (a directory listing only; nothing is parsed)."""
+    return {f"{d.name}:{p.name[:-len('.json.gz')]}" for d in Path(root).glob("*") if d.is_dir()
+            for p in d.glob("*.json.gz")}
+
+
+def load_details(root=DETAILS_DIR):
+    """posting_id -> {"strong", "terms", "locations", "posted", "detail": True}, computed from the saved
+    responses. The term counts are recomputed on every build, so a change to the term list reaches every
+    posting. Files are read one at a time and not kept."""
+    out = {}
+    for d in sorted(Path(root).glob("*")):
+        if not d.is_dir():
+            continue
+        for p in sorted(d.glob("*.json.gz")):
+            try:
+                info = json.loads(gzip.decompress(p.read_bytes())).get("jobPostingInfo") or {}
+            except (OSError, ValueError):
+                continue
+            strong, terms = scan(plain_text(info.get("jobDescription")))
+            locs = [info.get("location")] + list(info.get("additionalLocations") or [])
+            out[f"{d.name}:{p.name[:-len('.json.gz')]}"] = {
+                "strong": strong, "terms": terms, "detail": True,
+                "locations": [l for l in locs if l], "posted": (info.get("startDate") or "")[:10]}
+    return out
 
 
 def load_enrich(path=ENRICH_PATH):
@@ -66,7 +102,7 @@ def build_history(days, sources=None, enrich=None):
                     history[pid] = {**row, "first_run": first_day[name] == date, "first_seen": date,
                                     "last_seen": date, "status": "open", "removed_date": ""}
                 else:  # still (or again) listed: refresh the fields and the last-seen date
-                    cur.update(row)
+                    cur.update({k: v for k, v in row.items() if v != ""})  # a blank listing keeps the earlier value
                     cur["last_seen"] = date
                     cur["status"] = "open"
                     cur["removed_date"] = ""
@@ -84,6 +120,20 @@ def build_history(days, sources=None, enrich=None):
         r["esg_via"] = esg_via(r["title"], r["employer_type"], strong)
         r["am_esg"] = bool(r["esg_via"])
         r["esg_terms"] = e.get("terms", "")
+        r["text_read"] = pid in enrich
+        if not r["posted_date"] and e.get("posted"):
+            r["posted_date"] = e["posted"]
+        places, remote = [], False
+        for text in (e.get("locations") or [r["location"]]):
+            place, is_remote = normalize_location(text)
+            remote = remote or is_remote
+            for q in (all_places(text) if ";" in text else [place]):
+                if q and q not in places:
+                    places.append(q)
+        r["location_norm"] = places[0] if places else ""
+        r["country"] = country_of(r["location_norm"])
+        r["locations_all"] = ";".join(places) if len(places) > 1 else ""
+        r["remote"] = remote
         rows.append(r)
     return rows
 
@@ -106,13 +156,19 @@ def build_status(rows, days, run_time, results):
         "open": sum(1 for r in rows if r["status"] == "open"),
         "new_today": sum(1 for r in rows if r["first_seen"] == latest and not r["first_run"]),
         "removed_today": sum(1 for r in rows if r["removed_date"] == latest),
-        "sources": [{"name": s["name"], "ok": s["ok"], "count": s["count"]} for s in results],
+        "sources": [{k: s[k] for k in ("name", "employer", "ok", "count", "error", "last_ok", "suspect") if k in s}
+                    for s in results],
     }
+
+
+def load_all_enrich():
+    """Saved detail files win; the legacy enrich.csv fills in postings whose description was never saved."""
+    return {**load_enrich(), **load_details()}
 
 
 def main():
     days = load_raw(DATA / "raw")
-    rows = build_history(days, enrich=load_enrich())
+    rows = build_history(days, enrich=load_all_enrich())
     write_history(rows, DATA / "history.csv")
     print(f"history.csv: {len(rows)} postings from {len(days)} day(s) of raw files")
 

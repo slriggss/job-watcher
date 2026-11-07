@@ -2,13 +2,14 @@ name: daily
 
 on:
   schedule:
-    - cron: "23 7 * * *"    # 07:23 UTC
-    - cron: "47 19 * * *"   # second run, 19:47 UTC: a backup if the first is skipped (it replaces that day's files)
-  workflow_dispatch:
+    # GitHub delays scheduled runs under load (the old 07:23 run started 6 to 10 hours late). Both runs are set
+    # early enough that, even with a 10 hour delay, they still land on the same UTC date as their cron time.
+    - cron: "7 1 * * *"     # main run, 01:07 UTC
+    - cron: "41 10 * * *"   # backup, 10:41 UTC: does nothing when the main run already stored today's files
+  workflow_dispatch:         # a manual run always fetches again
 
 permissions:
   contents: write
-  issues: write
 
 concurrency:
   group: daily
@@ -17,18 +18,39 @@ concurrency:
 jobs:
   watch:
     runs-on: ubuntu-latest
+    timeout-minutes: 45
+    outputs:
+      run_date: ${{ steps.fetch.outputs.run_date }}
+      ran: ${{ steps.fetch.outputs.ran }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: astral-sh/setup-uv@v5
-      - name: Fetch sources, build history, write status, update the day's issue
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: uv run python -m jobwatcher.pipeline
+      - uses: actions/checkout@v5
+      - uses: astral-sh/setup-uv@v6
+      - name: Fetch sources, build history, write status
+        id: fetch
+        # No token here: this step talks to 39 outside hosts and does not need to write to GitHub.
+        run: uv run --locked python -m jobwatcher.pipeline --no-issue ${{ github.event_name == 'schedule' && '--once' || '' }}
       - name: Commit data
+        if: steps.fetch.outputs.ran == 'true'
         run: |
           git config user.name "job-watcher[bot]"
           git config user.email "actions@users.noreply.github.com"
           git add data
-          git commit -m "Daily run $(date -u +%F)" || echo "nothing to commit"
+          git commit -m "Daily run ${{ steps.fetch.outputs.run_date }}" || echo "nothing to commit"
           git pull --rebase
           git push
+
+  issue:
+    needs: watch
+    if: needs.watch.outputs.ran == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - uses: actions/checkout@v5
+      - uses: astral-sh/setup-uv@v6
+      - name: Open or update the day's issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: uv run --locked python -m jobwatcher.issue --date ${{ needs.watch.outputs.run_date }}

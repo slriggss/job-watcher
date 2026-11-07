@@ -106,4 +106,5 @@ def test_status_counts():
     assert st["open"] == 2
     assert st["new_today"] == 1       # posting 3 (postings 1 and 2 are first-run)
     assert st["removed_today"] == 1   # posting 1
-    assert st["sources"] == [{"name": "a", "ok": True, "count": 2}, {"name": "b", "ok": False, "count": 0}]
+    assert st["sources"] == [{"name": "a", "ok": True, "count": 2, "error": ""},
+                             {"name": "b", "ok": False, "count": 0, "error": "boom"}]

@@ -4,6 +4,8 @@ import time
 from datetime import datetime, timezone
 
 import requests
+from requests.adapters import HTTPAdapter
+from urllib3.util.retry import Retry
 
 COLUMNS = ["posting_id", "source", "source_id", "employer", "title", "location",
            "department", "posted_date", "url"]
@@ -11,12 +13,27 @@ HEADERS = {"User-Agent": "job-watcher/1.0 (student project; daily job board snap
            "Accept": "application/json"}
 TIMEOUT = 30
 
+# One session for every fetch: connections are reused, and a timeout, 429 or 5xx is retried with backoff
+# (Retry honours a Retry-After header). POST is retried too: Workday's list endpoint is a read-only POST.
+SESSION = requests.Session()
+SESSION.mount("https://", HTTPAdapter(max_retries=Retry(
+    total=4, backoff_factor=1.5, status_forcelist=(429, 500, 502, 503, 504),
+    allowed_methods=None, respect_retry_after_header=True)))
+
+# A paged board that returns fewer than this share of its own reported total is treated as a failed pull.
+MIN_SHARE_OF_TOTAL = 0.95
+
+
+def _clean(text):
+    """Trim and collapse runs of whitespace, so search and duplicate checks behave."""
+    return " ".join((text or "").split())
+
 
 def _row(src, source_id, title, url, location="", department="", posted_date=""):
     source_id = str(source_id)
     return {"posting_id": f"{src['name']}:{source_id}", "source": src["name"],
-            "source_id": source_id, "employer": src["employer"], "title": (title or "").strip(),
-            "location": (location or "").strip(), "department": (department or "").strip(),
+            "source_id": source_id, "employer": src["employer"], "title": _clean(title),
+            "location": _clean(location), "department": _clean(department),
             "posted_date": posted_date or "", "url": url or ""}
 
 
@@ -30,9 +47,22 @@ def _iso_date(s):
     return (s or "")[:10]
 
 
+def _utc_date(s):
+    """An ISO timestamp with an offset (2026-10-10T21:56:00-04:00) -> its UTC calendar date."""
+    if not s:
+        return ""
+    try:
+        d = datetime.fromisoformat(s.replace("Z", "+00:00"))
+    except ValueError:
+        return _iso_date(s)
+    if d.tzinfo is None:
+        return d.strftime("%Y-%m-%d")
+    return d.astimezone(timezone.utc).strftime("%Y-%m-%d")
+
+
 # ---- Greenhouse -------------------------------------------------------------------------
 def fetch_greenhouse(src):
-    r = requests.get(f"https://boards-api.greenhouse.io/v1/boards/{src['token']}/jobs",
+    r = SESSION.get(f"https://boards-api.greenhouse.io/v1/boards/{src['token']}/jobs",
                      headers=HEADERS, timeout=TIMEOUT)
     r.raise_for_status()
     return r.json()
@@ -40,13 +70,13 @@ def fetch_greenhouse(src):
 
 def normalize_greenhouse(src, raw):
     return [_row(src, j["id"], j.get("title"), j.get("absolute_url"),
-                 (j.get("location") or {}).get("name", ""))
+                 (j.get("location") or {}).get("name", ""), "", _utc_date(j.get("first_published")))
             for j in raw["jobs"]]
 
 
 # ---- Lever ------------------------------------------------------------------------------
 def fetch_lever(src):
-    r = requests.get(f"https://api.lever.co/v0/postings/{src['token']}?mode=json",
+    r = SESSION.get(f"https://api.lever.co/v0/postings/{src['token']}?mode=json",
                      headers=HEADERS, timeout=TIMEOUT)
     r.raise_for_status()
     return r.json()
@@ -64,7 +94,7 @@ def normalize_lever(src, raw):
 
 # ---- Ashby ------------------------------------------------------------------------------
 def fetch_ashby(src):
-    r = requests.get(f"https://api.ashbyhq.com/posting-api/job-board/{src['token']}",
+    r = SESSION.get(f"https://api.ashbyhq.com/posting-api/job-board/{src['token']}",
                      headers=HEADERS, timeout=TIMEOUT)
     r.raise_for_status()
     return r.json()
@@ -80,13 +110,14 @@ def normalize_ashby(src, raw):
 def fetch_smartrecruiters(src):
     content, offset = [], 0
     while True:
-        r = requests.get(f"https://api.smartrecruiters.com/v1/companies/{src['token']}/postings",
+        r = SESSION.get(f"https://api.smartrecruiters.com/v1/companies/{src['token']}/postings",
                          params={"limit": 100, "offset": offset}, headers=HEADERS, timeout=TIMEOUT)
         r.raise_for_status()
         page = r.json()
         content += page["content"]
         offset += 100
         if offset >= page["totalFound"] or not page["content"]:
+            # an empty page before the total is reached is left for fetch_source's completeness check
             return {"totalFound": page["totalFound"], "content": content}
 
 
@@ -108,16 +139,21 @@ def workday_base(src):
 
 def fetch_workday(src):
     url = f"{workday_base(src)}/wday/cxs/{src['tenant']}/{src['site']}/jobs"
-    postings, offset, total = [], 0, None
+    postings, offset, total, empty_retried = [], 0, None, False
     while total is None or offset < total:
-        r = requests.post(url, json={"limit": 20, "offset": offset, "searchText": src.get("search", "")},
+        r = SESSION.post(url, json={"limit": 20, "offset": offset, "searchText": src.get("search", "")},
                           headers=HEADERS, timeout=TIMEOUT)
         r.raise_for_status()
         page = r.json()
         if total is None:
             total = page["total"]  # Workday reports the total only on the first page
         if not page["jobPostings"]:
-            break
+            if empty_retried:  # an empty page twice in a row: stop; fetch_source compares with the total
+                break
+            empty_retried = True
+            time.sleep(1)
+            continue
+        empty_retried = False
         postings += page["jobPostings"]
         offset += 20
         time.sleep(0.1)
@@ -143,18 +179,25 @@ def normalize_workday(src, raw):
 # ---- Oracle Recruiting Cloud (JPMorgan) ---------------------------------------------------
 def fetch_oracle(src):
     url = f"https://{src['host']}/hcmRestApi/resources/latest/recruitingCEJobRequisitions"
-    keyword = f",keyword={src["search"]}" if src.get("search") else ""
-    jobs, offset, total = [], 0, None
+    if re.search(r"[,;=]", src.get("search", "")):  # these characters are finder syntax and cannot be escaped
+        raise ValueError(f"Oracle search term may not contain , ; or =: {src['search']!r}")
+    keyword = f",keyword={src['search']}" if src.get("search") else ""
+    jobs, offset, total, empty_retried = [], 0, None, False
     while total is None or offset < total:
         finder = f"findReqs;siteNumber={src['site']}{keyword},limit=200,offset={offset},sortBy=POSTING_DATES_DESC"
-        r = requests.get(url, params={"onlyData": "true", "expand": "requisitionList.secondaryLocations",
+        r = SESSION.get(url, params={"onlyData": "true", "expand": "requisitionList.secondaryLocations",
                                       "finder": finder}, headers=HEADERS, timeout=TIMEOUT)
         r.raise_for_status()
         item = r.json()["items"][0]
         total = item["TotalJobsCount"]
         page = item.get("requisitionList", [])
         if not page:
-            break
+            if empty_retried:
+                break
+            empty_retried = True
+            time.sleep(1)
+            continue
+        empty_retried = False
         jobs += page
         offset += 200
         time.sleep(0.1)
@@ -171,6 +214,13 @@ def normalize_oracle(src, raw):
                         f"https://{src['host']}/hcmUI/CandidateExperience/en/sites/{src['site']}/job/{j['Id']}",
                         j.get("PrimaryLocation", ""), j.get("JobFunction", ""), _iso_date(j.get("PostedDate"))))
     return out
+
+
+def reported_total(raw):
+    """The total a paged board says it has, or None for boards that return everything in one response."""
+    if isinstance(raw, dict):
+        return raw.get("total", raw.get("totalFound"))
+    return None
 
 
 FETCH = {"greenhouse": fetch_greenhouse, "lever": fetch_lever, "ashby": fetch_ashby,
