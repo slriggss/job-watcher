@@ -1,0 +1,275 @@
+[
+ {
+  "name": "statestreet",
+  "employer": "State Street",
+  "ok": true,
+  "count": 1155,
+  "error": ""
+ },
+ {
+  "name": "invesco",
+  "employer": "Invesco",
+  "ok": true,
+  "count": 212,
+  "error": ""
+ },
+ {
+  "name": "mastercard",
+  "employer": "Mastercard",
+  "ok": true,
+  "count": 939,
+  "error": ""
+ },
+ {
+  "name": "morganstanley",
+  "employer": "Morgan Stanley",
+  "ok": true,
+  "count": 1208,
+  "error": ""
+ },
+ {
+  "name": "northerntrust",
+  "employer": "Northern Trust",
+  "ok": true,
+  "count": 638,
+  "error": ""
+ },
+ {
+  "name": "nuveen",
+  "employer": "Nuveen (TIAA)",
+  "ok": true,
+  "count": 161,
+  "error": ""
+ },
+ {
+  "name": "blueowl",
+  "employer": "Blue Owl",
+  "ok": true,
+  "count": 52,
+  "error": ""
+ },
+ {
+  "name": "wellington",
+  "employer": "Wellington Management",
+  "ok": true,
+  "count": 124,
+  "error": ""
+ },
+ {
+  "name": "jpmorgan",
+  "employer": "JPMorgan Chase",
+  "ok": true,
+  "count": 339,
+  "error": ""
+ },
+ {
+  "name": "russell",
+  "employer": "Russell Investments (Seattle)",
+  "ok": true,
+  "count": 47,
+  "error": ""
+ },
+ {
+  "name": "ameriprise",
+  "employer": "Ameriprise (Columbia Threadneedle)",
+  "ok": true,
+  "count": 213,
+  "error": ""
+ },
+ {
+  "name": "blackrock",
+  "employer": "BlackRock",
+  "ok": true,
+  "count": 273,
+  "error": ""
+ },
+ {
+  "name": "spglobal",
+  "employer": "S&P Global",
+  "ok": true,
+  "count": 350,
+  "error": ""
+ },
+ {
+  "name": "morningstar",
+  "employer": "Morningstar (Sustainalytics)",
+  "ok": true,
+  "count": 179,
+  "error": ""
+ },
+ {
+  "name": "vanguard",
+  "employer": "Vanguard",
+  "ok": true,
+  "count": 322,
+  "error": ""
+ },
+ {
+  "name": "fidelity",
+  "employer": "Fidelity Investments",
+  "ok": true,
+  "count": 850,
+  "error": ""
+ },
+ {
+  "name": "capitalgroup",
+  "employer": "Capital Group",
+  "ok": true,
+  "count": 175,
+  "error": ""
+ },
+ {
+  "name": "troweprice",
+  "employer": "T. Rowe Price",
+  "ok": true,
+  "count": 135,
+  "error": ""
+ },
+ {
+  "name": "abrdn",
+  "employer": "abrdn",
+  "ok": true,
+  "count": 19,
+  "error": ""
+ },
+ {
+  "name": "blackstone",
+  "employer": "Blackstone",
+  "ok": false,
+  "count": 0,
+  "error": "HTTPError: 401 Client Error: Unauthorized for url: https://blackstone.wd1.myworkdayjobs.com/wday/cxs/blackstone/Blackstone_Careers/jobs"
+ },
+ {
+  "name": "carlyle",
+  "employer": "Carlyle",
+  "ok": true,
+  "count": 65,
+  "error": ""
+ },
+ {
+  "name": "sweep",
+  "employer": "Sweep",
+  "ok": true,
+  "count": 7,
+  "error": ""
+ },
+ {
+  "name": "sylvera",
+  "employer": "Sylvera",
+  "ok": true,
+  "count": 7,
+  "error": ""
+ },
+ {
+  "name": "patch",
+  "employer": "Patch",
+  "ok": true,
+  "count": 1,
+  "error": ""
+ },
+ {
+  "name": "carbondirect",
+  "employer": "Carbon Direct",
+  "ok": true,
+  "count": 3,
+  "error": ""
+ },
+ {
+  "name": "ecovadis",
+  "employer": "EcoVadis",
+  "ok": true,
+  "count": 25,
+  "error": ""
+ },
+ {
+  "name": "stripe",
+  "employer": "Stripe",
+  "ok": true,
+  "count": 768,
+  "error": ""
+ },
+ {
+  "name": "coinbase",
+  "employer": "Coinbase",
+  "ok": true,
+  "count": 283,
+  "error": ""
+ },
+ {
+  "name": "robinhood",
+  "employer": "Robinhood",
+  "ok": true,
+  "count": 150,
+  "error": ""
+ },
+ {
+  "name": "affirm",
+  "employer": "Affirm",
+  "ok": true,
+  "count": 222,
+  "error": ""
+ },
+ {
+  "name": "sofi",
+  "employer": "SoFi",
+  "ok": true,
+  "count": 46,
+  "error": ""
+ },
+ {
+  "name": "carta",
+  "employer": "Carta",
+  "ok": true,
+  "count": 79,
+  "error": ""
+ },
+ {
+  "name": "brex",
+  "employer": "Brex",
+  "ok": true,
+  "count": 268,
+  "error": ""
+ },
+ {
+  "name": "betterment",
+  "employer": "Betterment",
+  "ok": true,
+  "count": 26,
+  "error": ""
+ },
+ {
+  "name": "chime",
+  "employer": "Chime",
+  "ok": true,
+  "count": 72,
+  "error": ""
+ },
+ {
+  "name": "watershed",
+  "employer": "Watershed",
+  "ok": true,
+  "count": 39,
+  "error": ""
+ },
+ {
+  "name": "ramp",
+  "employer": "Ramp",
+  "ok": true,
+  "count": 169,
+  "error": ""
+ },
+ {
+  "name": "arcadia",
+  "employer": "Arcadia",
+  "ok": true,
+  "count": 15,
+  "error": ""
+ },
+ {
+  "name": "experian",
+  "employer": "Experian",
+  "ok": true,
+  "count": 395,
+  "error": ""
+ }
+]
