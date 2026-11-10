@@ -8,7 +8,7 @@
 <meta name="theme-color" content="#5e1f2b">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="icon-192.png">
-<link rel="stylesheet" href="style.css?v=9">
+<link rel="stylesheet" href="style.css?v=10">
 </head>
 <body>
 <main class="wide">
@@ -35,10 +35,10 @@
     </section>
   </div>
 </main>
-<script src="app.js?v=9"></script>
-<script src="market.js?v=9"></script>
-<script src="cards.js?v=9"></script>
-<script src="facts.js?v=9"></script>
+<script src="app.js?v=10"></script>
+<script src="market.js?v=10"></script>
+<script src="cards.js?v=10"></script>
+<script src="facts.js?v=10"></script>
 <script>
 renderNav("index.html");
 // A small fact from women's business history, different each day
@@ -61,13 +61,48 @@ function list(el, head, label, items) {
   const ul = $(el);
   ul.innerHTML = picked.map(li).join("") ||
     `<li class="empty">${items.length ? "None in your role or at asset managers on ESG work." : "None in the latest run."}</li>`;
+  ul._rest = rest; ul._label = label;
   if (rest.length) {
     const li2 = document.createElement("li");
     li2.className = "more";
-    li2.innerHTML = `<button type="button" class="linklike">Show all ${rest.length.toLocaleString()} other ${label.toLowerCase()}</button>`;
-    li2.firstChild.addEventListener("click", () => li2.replaceWith(...rest.map(r => {
-      const t = document.createElement("template"); t.innerHTML = li(r).trim(); return t.content.firstChild; })));
+    li2.innerHTML = `<button type="button" class="linklike"></button>`;
+    li2.firstChild.addEventListener("click", () => { while (ul._rest.length) revealOne(ul); });
     ul.appendChild(li2);
+    moreLabel(ul);
+  }
+}
+function moreLabel(ul) {
+  const more = ul.querySelector("li.more");
+  if (!more) return;
+  more.style.display = ul._rest.length ? "" : "none";
+  more.firstChild.textContent = `Show all ${ul._rest.length.toLocaleString()} ${ul._shownRest ? "remaining" : "other"} ${ul._label.toLowerCase()}`;
+}
+function revealOne(ul) {
+  const r = ul._rest.shift(), t = document.createElement("template");
+  t.innerHTML = li(r).trim();
+  const node = t.content.firstChild, more = ul.querySelector("li.more");
+  node._rec = r;
+  more ? ul.insertBefore(node, more) : ul.appendChild(node);
+  ul._shownRest = true;
+  moreLabel(ul);
+  return node;
+}
+// Even page: on the wide two-column layout, fill the postings column with more rows until it is as tall as the
+// Sources table beside it. The "Show all" button still opens whatever is left.
+function balance() {
+  const side = document.querySelector(".split .side"), col = document.querySelector(".split > section");
+  if (!side || !col || side.getBoundingClientRect().left === col.getBoundingClientRect().left) return;  // one column
+  const uls = [$("#new"), $("#gone")];
+  const short = () => col.offsetHeight < side.offsetHeight;
+  while (short()) {
+    const ul = uls.filter(u => u._rest && u._rest.length).sort((a, b) => (a._extra || 0) - (b._extra || 0))[0];   // take turns
+    if (!ul) break;
+    const node = revealOne(ul);
+    ul._extra = (ul._extra || 0) + 1;
+    if (col.offsetHeight > side.offsetHeight + 4) {   // that row overshot: put it back and stop
+      node.remove(); ul._rest.unshift(node._rec); ul._extra--; moreLabel(ul);
+      break;
+    }
   }
 }
 
@@ -103,6 +138,9 @@ loadData().then(({ rows, status, latest }) => {
   $("#sources").innerHTML = `<table><tr><th>Source</th><th>Status</th><th>Postings</th></tr>${sourceRows(status.sources)}</table>`;
   list("#new", "#new-h", "New postings", fresh);
   list("#gone", "#gone-h", "Removed postings", gone);
+  balance();
+  let w = innerWidth;
+  addEventListener("resize", () => { if (innerWidth !== w) { w = innerWidth; balance(); } });
 }).catch(showError);
 </script>
 </body>
