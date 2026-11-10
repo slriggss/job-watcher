@@ -3,9 +3,9 @@
 // - Only page navigations fall back to index.html. A data file that is not cached fails as missing, so the
 //   page can say so instead of trying to parse HTML as JSON.
 // - A data request waits at most DATA_TIMEOUT_MS for the network, then uses the cached copy if there is one.
-const CACHE = "job-watcher-v8";  // bump together with the ?v= on the script and style tags in the three pages
-const SHELL = ["./", "index.html", "browse.html", "market.html", "style.css?v=8", "app.js?v=8", "charts.js?v=8",
-  "market.js?v=8", "cards.js?v=8", "browse.js?v=8", "facts.js?v=8", "manifest.webmanifest", "icon.svg", "icon-192.png", "icon-512.png",
+const CACHE = "job-watcher-v9";  // bump together with the ?v= on the script and style tags in the three pages
+const SHELL = ["./", "index.html", "browse.html", "market.html", "style.css?v=9", "app.js?v=9", "charts.js?v=9",
+  "market.js?v=9", "cards.js?v=9", "browse.js?v=9", "facts.js?v=9", "manifest.webmanifest", "icon.svg", "icon-192.png", "icon-512.png",
   "icon-maskable-512.png", "fonts/EBGaramond.woff2", "fonts/Inter.woff2"];
 const DATA = ["data/status.json", "data/history.csv"];
 const DATA_TIMEOUT_MS = 4000;

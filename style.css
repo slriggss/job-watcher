@@ -13,11 +13,11 @@
   --panel: color-mix(in srgb, var(--rose) 30%, var(--card));
   --stripe-a: color-mix(in srgb, var(--rose) 28%, var(--card)); --stripe-b: color-mix(in srgb, var(--accent) 10%, var(--card));
   --shadow: 0 6px 18px rgba(122, 47, 58, .22);
-  --tile: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2272%22%20height%3D%2272%22%20viewBox%3D%220%200%2072%2072%22%3E%3Cpath%20d%3D%22M36%200L72%2036L36%2072L0%2036Z%22%20fill%3D%22%23c98a8f%22%20fill-opacity%3D%220.2%22%2F%3E%3Cpath%20d%3D%22M0%20-36L36%200L0%2036L-36%200ZM72%20-36L108%200L72%2036L36%200ZM0%2036L36%2072L0%20108L-36%2072ZM72%2036L108%2072L72%20108L36%2072Z%22%20fill%3D%22%237a2f3a%22%20fill-opacity%3D%220.07%22%2F%3E%3C%2Fsvg%3E");
+  --tile: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2272%22%20height%3D%2272%22%20viewBox%3D%220%200%2072%2072%22%3E%3Cpath%20d%3D%22M36%200L72%2036L36%2072L0%2036Z%22%20fill%3D%22%23c98a8f%22%20fill-opacity%3D%220.42%22%2F%3E%3Cpath%20d%3D%22M0%20-36L36%200L0%2036L-36%200ZM72%20-36L108%200L72%2036L36%200ZM0%2036L36%2072L0%20108L-36%2072ZM72%2036L108%2072L72%20108L36%2072Z%22%20fill%3D%22%237a2f3a%22%20fill-opacity%3D%220.34%22%2F%3E%3C%2Fsvg%3E");
   --font-head: "EB Garamond", Garamond, "Cormorant Garamond", Georgia, serif;
   --font-body: "EB Garamond", Garamond, "Cormorant Garamond", Georgia, serif;
 }
-@media (prefers-color-scheme: dark) {
+@media all {
   :root { --bg: #1e0f14; --bg-end: #2d141c; --card: #2a161d; --ink: #f4e9d6; --muted: #bfa8a3; --field: #9a7f86; --line: #4a2a34;
           --accent: #e3a9ab; --accent-ink: #2a0f17; --nav: #5e1f2b; --nav-ink: #fbf0f0;
           --rose: #b86f78; --accent2: #d9a066; --pop: #f06ab8; --sage: #8fd0a8; --sage-ink: #12281c;
@@ -39,7 +39,7 @@
           --stripe-a: color-mix(in srgb, var(--rose) 22%, var(--card)); --stripe-b: color-mix(in srgb, var(--accent) 12%, var(--card));
           --shadow: 0 6px 18px rgba(0, 0, 0, .5);
           --tile: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2272%22%20height%3D%2272%22%20viewBox%3D%220%200%2072%2072%22%3E%3Cpath%20d%3D%22M36%200L72%2036L36%2072L0%2036Z%22%20fill%3D%22%23e3a9ab%22%20fill-opacity%3D%220.07%22%2F%3E%3Cpath%20d%3D%22M0%20-36L36%200L0%2036L-36%200ZM72%20-36L108%200L72%2036L36%200ZM0%2036L36%2072L0%20108L-36%2072ZM72%2036L108%2072L72%20108L36%2072Z%22%20fill%3D%22%23d9a066%22%20fill-opacity%3D%220.05%22%2F%3E%3C%2Fsvg%3E"); }
-@media (prefers-color-scheme: dark) {
+@media all {
   :root[data-theme="light"] { color-scheme: light;
   --bg: #ecd8da; --bg-end: #e4c9cc; --card: #f8eeee; --ink: #2b1519; --muted: #5e4549; --field: #85696f; --line: #d8bcc1;
   --accent: #7a2f3a; --accent-ink: #fbf0f0; --nav: #7a2f3a; --nav-ink: #fbf0f0;
@@ -49,7 +49,7 @@
   --panel: color-mix(in srgb, var(--rose) 30%, var(--card));
   --stripe-a: color-mix(in srgb, var(--rose) 28%, var(--card)); --stripe-b: color-mix(in srgb, var(--accent) 10%, var(--card));
   --shadow: 0 6px 18px rgba(122, 47, 58, .22);
-  --tile: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2272%22%20height%3D%2272%22%20viewBox%3D%220%200%2072%2072%22%3E%3Cpath%20d%3D%22M36%200L72%2036L36%2072L0%2036Z%22%20fill%3D%22%23c98a8f%22%20fill-opacity%3D%220.2%22%2F%3E%3Cpath%20d%3D%22M0%20-36L36%200L0%2036L-36%200ZM72%20-36L108%200L72%2036L36%200ZM0%2036L36%2072L0%20108L-36%2072ZM72%2036L108%2072L72%20108L36%2072Z%22%20fill%3D%22%237a2f3a%22%20fill-opacity%3D%220.07%22%2F%3E%3C%2Fsvg%3E");
+  --tile: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2272%22%20height%3D%2272%22%20viewBox%3D%220%200%2072%2072%22%3E%3Cpath%20d%3D%22M36%200L72%2036L36%2072L0%2036Z%22%20fill%3D%22%23c98a8f%22%20fill-opacity%3D%220.42%22%2F%3E%3Cpath%20d%3D%22M0%20-36L36%200L0%2036L-36%200ZM72%20-36L108%200L72%2036L36%200ZM0%2036L36%2072L0%20108L-36%2072ZM72%2036L108%2072L72%20108L36%2072Z%22%20fill%3D%22%237a2f3a%22%20fill-opacity%3D%220.34%22%2F%3E%3C%2Fsvg%3E");
   }
 }
 * { box-sizing: border-box; }
@@ -244,7 +244,7 @@ ul.posts li.more, ul.posts li.more:hover { background: none; border: 0; transfor
 tr.why td { font-size: .9rem; color: var(--muted); padding-top: 0; border-top: 0; }
 
 /* Browse rows, shortlist, controls and accessibility */
-:root { color-scheme: light dark; }
+:root { color-scheme: dark; }
 main, main.wide { max-width: 1200px; }
 .skip { position: absolute; left: 8px; top: -60px; z-index: 100; background: var(--card); color: var(--accent);
         padding: 10px 16px; border-radius: 8px; border: 2px solid var(--accent); }
@@ -283,7 +283,7 @@ table.chart-table th, table.chart-table td { font-size: .95rem; }
 /* Type: EB Garamond for page titles, headings and large numbers; Inter for everything you read or operate.
    Scale: 13, 15, 18, 24, 32, 44. */
 :root { --font-ui: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif; --font-body: var(--font-ui); --gone: #9a5e68; }
-@media (prefers-color-scheme: dark) { :root { --gone: #c98a94; } }
+@media all { :root { --gone: #c98a94; } }
 :root[data-theme="dark"] { --gone: #c98a94; }
 :root[data-theme="light"] { --gone: #9a5e68; }
 h1 { font-size: 44px; margin: 8px 0 4px; }
@@ -386,12 +386,12 @@ section.market p { margin-top: 12px; }
 /* Centred text, and a layered "stacked paper" shadow that sets these cards apart from the flat rows below. */
 .cards .card { text-align: center; position: relative;
                box-shadow: 0 1px 0 color-mix(in srgb, var(--accent) 30%, transparent),
-                           5px 5px 0 -1px color-mix(in srgb, var(--accent) 16%, var(--card)),
-                           10px 10px 0 -2px color-mix(in srgb, var(--accent) 8%, var(--card)); }
+                           5px 5px 0 -1px color-mix(in srgb, var(--accent) 30%, var(--bg)),
+                           10px 10px 0 -2px color-mix(in srgb, var(--accent) 16%, var(--bg)); }
 .cards { gap: 22px; margin-bottom: 40px; }
 a.card:hover { box-shadow: 0 1px 0 color-mix(in srgb, var(--accent) 30%, transparent),
-                           3px 3px 0 -1px color-mix(in srgb, var(--accent) 22%, var(--card)),
-                           6px 6px 0 -2px color-mix(in srgb, var(--accent) 10%, var(--card)); }
+                           3px 3px 0 -1px color-mix(in srgb, var(--accent) 36%, var(--bg)),
+                           6px 6px 0 -2px color-mix(in srgb, var(--accent) 20%, var(--bg)); }
 .cal-head { text-align: left; }
 .stat { overflow: hidden; }
 .stat > :not(.dawn):not(.slashes):not(.lens) { position: relative; z-index: 1; }
@@ -447,7 +447,7 @@ a.card:hover { box-shadow: 0 1px 0 color-mix(in srgb, var(--accent) 30%, transpa
 .tabs { align-self: stretch; align-items: flex-end; gap: 2px; }
 nav .tabs a { padding: 15px 20px; border-radius: 10px 10px 0 0; opacity: 1; box-shadow: none; color: var(--nav-ink);
               transition: background-color .15s; }
-nav .tabs a:hover { background: rgba(255, 255, 255, .16); box-shadow: none; }
+nav .tabs a:hover { background: color-mix(in srgb, var(--nav) 55%, #000); box-shadow: none; }
 nav .tabs a.on, nav .tabs a.on:hover {
   position: relative; z-index: 2; background: var(--bg); color: var(--accent); font-weight: 600;
   padding-bottom: 23px; margin-bottom: -8px;   /* runs down over the zigzag edge, so it joins the page below */
@@ -488,7 +488,7 @@ nav .tabs a.on, nav .tabs a.on:hover { background-color: var(--bg); background-i
 /* Hovering another tab: a highlight that fades out toward the bottom, so it never ends in a hard line against
    the jagged edge. (The selected tab is the one that joins the page.) */
 @media (min-width: 561px) {
-  nav .tabs a:hover:not(.on) { background: linear-gradient(180deg, rgba(255, 255, 255, .24), rgba(255, 255, 255, 0) 92%); }
+  nav .tabs a:hover:not(.on) { background: linear-gradient(180deg, color-mix(in srgb, var(--nav) 55%, #000), transparent 92%); }
 }
 
 /* Market: the description under each chart spans the chart's full width */
@@ -496,7 +496,7 @@ section.market p { max-width: none; }
 
 /* ===== Outside the United States: a country chip (rows themselves are not tinted) ===== */
 :root { --intl: #5f6420; }
-@media (prefers-color-scheme: dark) { :root { --intl: #c5cb8a; } }
+@media all { :root { --intl: #c5cb8a; } }
 :root[data-theme="dark"] { --intl: #c5cb8a; }
 :root[data-theme="light"] { --intl: #5f6420; }
 .chip.intl { display: inline-block; white-space: nowrap; font-size: 12px; font-weight: 600; line-height: 1.5; padding: 0 9px;

@@ -17,10 +17,10 @@ function renderNav(active) {
   $("nav .theme").addEventListener("click", () => setTheme(effectiveTheme() === "dark" ? "light" : "dark"));
 }
 
-// Light or dark: starts from the system setting, and remembers the visitor's own choice.
+// Light or dark: always starts dark, whatever the system setting, and remembers the visitor's own choice.
 const THEME_KEY = "jobwatcher.theme", THEME_COLORS = { light: "#7a2f3a", dark: "#5e1f2b" };
 const effectiveTheme = () => document.documentElement.dataset.theme ||
-  (typeof matchMedia === "function" && matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+  "dark";
 function setTheme(t, remember = true) {
   document.documentElement.dataset.theme = t;
   const metas = document.querySelectorAll('meta[name="theme-color"]');  // one colour now, whatever the system says
