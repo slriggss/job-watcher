@@ -522,3 +522,12 @@ section.market p { max-width: none; }
   .fact { flex-basis: 100%; max-width: none; }
   .fact::before { left: 28px; top: -8px; margin-top: 0; border-left: 1px solid var(--line); border-top: 1px solid var(--line); border-bottom: 0; transform: rotate(45deg); }
 }
+
+/* Fix: a long unbroken error URL in the Sources table must wrap, not widen the table and the page. */
+.split > * { min-width: 0; }
+@media (max-width: 900px) { .split { grid-template-columns: minmax(0, 1fr); } }
+.split .side { overflow-x: auto; }
+.split .side table { table-layout: auto; }
+tr.why td { overflow-wrap: anywhere; word-break: break-word; }
+.split .side td:first-child { overflow-wrap: anywhere; }
+body { overflow-x: hidden; }
