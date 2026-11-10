@@ -13,11 +13,13 @@ HEADERS = {"User-Agent": "job-watcher/1.0 (student project; daily job board snap
            "Accept": "application/json"}
 TIMEOUT = 30
 
-# One session for every fetch: connections are reused, and a timeout, 429 or 5xx is retried with backoff
+# One session for every fetch: connections are reused, and a timeout, 401, 403, 429 or 5xx is retried with backoff
+# (Workday answered one run with a passing 401 that cleared by the next day; raise_on_status=False keeps the real
+# HTTP error message once the retries run out)
 # (Retry honours a Retry-After header). POST is retried too: Workday's list endpoint is a read-only POST.
 SESSION = requests.Session()
 SESSION.mount("https://", HTTPAdapter(max_retries=Retry(
-    total=4, backoff_factor=1.5, status_forcelist=(429, 500, 502, 503, 504),
+    total=4, backoff_factor=1.5, status_forcelist=(401, 403, 429, 500, 502, 503, 504), raise_on_status=False,
     allowed_methods=None, respect_retry_after_header=True)))
 
 # A paged board that returns fewer than this share of its own reported total is treated as a failed pull.
