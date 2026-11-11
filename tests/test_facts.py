@@ -34,23 +34,20 @@ def test_two_facts_on_one_date_alternate_by_year():
     assert {p["text"][:10] for p in out["picks"]} == {"Josephine ", "Muriel Sie"}
 
 
-def test_a_day_without_its_own_fact_shows_the_nearest_dated_one_with_its_real_date():
-    out = run("2026-11-13", "2026-11-08", "2026-12-30", "2026-01-03")
-    assert out["picks"][0]["label"] == "Nov 10, 1903 \u00b7 in 3 days" or out["picks"][0]["label"] == "Nov 10, 1903 \u00b7 3 days ago"
-    assert out["picks"][1]["label"] in ("Nov 7, 1867 \u00b7 yesterday", "Nov 9, 1914 \u00b7 tomorrow")
-    assert out["picks"][2]["label"].startswith("Dec 28")  # two days earlier than Dec 30
-    assert out["picks"][3]["label"].startswith("Jan 1, 2012")  # across New Year, nearest is Jan 1
-
-
-def test_every_day_from_november_7_through_january_31_is_within_a_week_of_a_dated_fact():
-    start = date(2026, 11, 7)
-    days = [(start + timedelta(days=i)).isoformat() for i in range((date(2027, 1, 31) - start).days + 1)]
+def test_every_day_from_november_11_through_december_31_has_its_own_dated_fact():
+    start = date(2026, 11, 11)
+    days = [(start + timedelta(days=i)).isoformat() for i in range((date(2026, 12, 31) - start).days + 1)]
     picks = run(*days)["picks"]
-    assert len(picks) == 86
-    assert not [d for d, p in zip(days, picks) if p["label"].startswith("Women in business")]
+    assert len(picks) == 51
+    assert all(p["label"].startswith("On this day") for p in picks), [d for d, p in zip(days, picks) if not p["label"].startswith("On this day")]
 
 
-def test_an_undated_fact_fills_in_only_when_nothing_dated_is_near():
+def test_a_day_without_its_own_fact_never_shows_another_days_fact():
+    out = run("2026-06-20", "2026-06-21")
+    assert all(p["label"].startswith("Women in business") for p in out["picks"])
+
+
+def test_an_undated_fact_rotates_daily():
     out = run("2026-06-20", "2026-06-21")
     assert all(p["label"].startswith("Women in business") for p in out["picks"])
     assert out["picks"][0]["text"] != out["picks"][1]["text"]

@@ -26,7 +26,7 @@ Watch Jobber (repository name: `job-watcher`) is a tool that watches the ESG / s
 | `tests/test_enrich.py` | The term scan, saved detail files, back-off when a site refuses, rebuilding from saved files, and the text routes into the asset-manager flag |
 | `tests/test_locations.py` | Location spellings collapse to one place; remote flag; "N Locations" is not a place |
 | `tests/test_site_files.py` | The service worker's file list, the `?v=` on every script, the manifest and the theme colors agree with the files that exist |
-| `tests/test_facts.py`, `tests/facts_check.js` | A dated fact shows on its date, the nearest one fills the gaps, every day from Nov 7 through Jan 31 has a dated fact within a week, and the list is well formed |
+| `tests/test_facts.py`, `tests/facts_check.js` | A dated fact shows on its date, other days show a rotating undated fact (never another day's), and the list is well formed |
 | `tests/test_app.py`, `tests/app_check.js` | The shared page helpers (dates, posting tags, CSV parser) run in Node |
 | `tests/test_charts.py`, `tests/charts_check.js` | Draws the Market charts in Node at phone and desktop widths and checks size, names and axes |
 | `tests/test_build.py` | First-seen, last-seen, removed and reopened logic; the history is reproduced from raw files |
@@ -45,7 +45,7 @@ Watch Jobber (repository name: `job-watcher`) is a tool that watches the ESG / s
 | `browse.html`, `browse.js` | Browse page: scope switch (role, asset-manager ESG, all, shortlist), filters kept in the address bar, word-by-word title search, rows with title links and an Apply button, a shortlist that is its own view and keeps removed postings |
 | `market.html`, `market.js`, `charts.js` | Market page: six findings computed in the browser from `history.csv`, with inline-SVG charts |
 | `cards.js` | The four stat cards on the Today page |
-| `facts.js` | The hand-written list of women-in-business facts and the picker for the Today page: a fact on its own date, else the nearest dated fact within a week (labelled with its real date), else an undated fact. Dated entries cover November through January so far |
+| `facts.js` | The hand-written list of women-in-business facts and the picker for the Today page: a fact on its own date, else an undated fact that rotates daily; the date is always Central time. Dated entries cover every day from Nov 11 through Dec 31, 2026, plus some in January |
 | `app.js`, `style.css` | Shared navigation bar, data loading, CSV parser, fonts and colors |
 | `fonts/` | EB Garamond (titles, headings, large numbers) and Inter (interface text), self-hosted, each with its SIL Open Font License |
 | `pyproject.toml`, `uv.lock`, `.python-version` | Dependencies and the Python version (3.12) |
