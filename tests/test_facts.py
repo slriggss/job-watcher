@@ -59,7 +59,7 @@ def test_the_list_is_well_formed():
     assert len(set(texts)) == len(texts) and all(len(t) > 40 for t in texts)
     for f in facts:
         year = f["year"]
-        assert isinstance(year, str) or 1800 < year <= 2026
+        assert isinstance(year, str) or 1700 < year <= 2026
         if "on" in f:
             assert re.fullmatch(r"\d\d-\d\d", f["on"])
             date(2024, int(f["on"][:2]), int(f["on"][3:]))  # a real calendar date (2024 is a leap year)

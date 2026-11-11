@@ -4,8 +4,8 @@
 //   page can say so instead of trying to parse HTML as JSON.
 // - A data request waits at most DATA_TIMEOUT_MS for the network, then uses the cached copy if there is one.
 const CACHE = "job-watcher-v11";  // bump together with the ?v= on the script and style tags in the three pages
-const SHELL = ["./", "index.html", "browse.html", "market.html", "style.css?v=10", "app.js?v=10", "charts.js?v=10",
-  "market.js?v=10", "cards.js?v=10", "browse.js?v=10", "facts.js?v=11", "manifest.webmanifest", "icon.svg", "icon-192.png", "icon-512.png",
+const SHELL = ["./", "index.html", "browse.html", "market.html", "style.css?v=11", "app.js?v=11", "charts.js?v=11",
+  "market.js?v=11", "cards.js?v=11", "browse.js?v=11", "facts.js?v=11", "manifest.webmanifest", "icon.svg", "icon-192.png", "icon-512.png",
   "icon-maskable-512.png", "fonts/EBGaramond.woff2", "fonts/Inter.woff2"];
 const DATA = ["data/status.json", "data/history.csv"];
 const DATA_TIMEOUT_MS = 4000;
