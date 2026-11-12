@@ -1,63 +1,63 @@
 {
- "run_time": "2026-11-11T07:42:38Z",
+ "run_time": "2026-11-12T08:14:01Z",
  "first_run_date": "2026-10-29",
- "days_with_success": 13,
- "open": 10195,
- "new_today": 290,
- "removed_today": 307,
+ "days_with_success": 14,
+ "open": 10264,
+ "new_today": 229,
+ "removed_today": 215,
  "sources": [
   {
    "name": "statestreet",
    "employer": "State Street",
    "ok": true,
-   "count": 1172,
+   "count": 1197,
    "error": "",
-   "last_ok": "2026-11-11",
+   "last_ok": "2026-11-12",
    "suspect": false
   },
   {
    "name": "invesco",
    "employer": "Invesco",
    "ok": true,
-   "count": 218,
+   "count": 216,
    "error": "",
-   "last_ok": "2026-11-11",
+   "last_ok": "2026-11-12",
    "suspect": false
   },
   {
    "name": "mastercard",
    "employer": "Mastercard",
    "ok": true,
-   "count": 898,
+   "count": 894,
    "error": "",
-   "last_ok": "2026-11-11",
+   "last_ok": "2026-11-12",
    "suspect": false
   },
   {
    "name": "morganstanley",
    "employer": "Morgan Stanley",
    "ok": true,
-   "count": 1209,
+   "count": 1199,
    "error": "",
-   "last_ok": "2026-11-11",
+   "last_ok": "2026-11-12",
    "suspect": false
   },
   {
    "name": "northerntrust",
    "employer": "Northern Trust",
    "ok": true,
-   "count": 657,
+   "count": 662,
    "error": "",
-   "last_ok": "2026-11-11",
+   "last_ok": "2026-11-12",
    "suspect": false
   },
   {
    "name": "nuveen",
    "employer": "Nuveen (TIAA)",
    "ok": true,
-   "count": 157,
+   "count": 170,
    "error": "",
-   "last_ok": "2026-11-11",
+   "last_ok": "2026-11-12",
    "suspect": false
   },
   {
@@ -66,52 +66,52 @@
    "ok": true,
    "count": 55,
    "error": "",
-   "last_ok": "2026-11-11",
+   "last_ok": "2026-11-12",
    "suspect": false
   },
   {
    "name": "wellington",
    "employer": "Wellington Management",
    "ok": true,
-   "count": 117,
+   "count": 119,
    "error": "",
-   "last_ok": "2026-11-11",
+   "last_ok": "2026-11-12",
    "suspect": false
   },
   {
    "name": "jpmorgan",
    "employer": "JPMorgan Chase",
    "ok": true,
-   "count": 338,
+   "count": 339,
    "error": "",
-   "last_ok": "2026-11-11",
+   "last_ok": "2026-11-12",
    "suspect": false
   },
   {
    "name": "russell",
    "employer": "Russell Investments (Seattle)",
    "ok": true,
-   "count": 43,
+   "count": 44,
    "error": "",
-   "last_ok": "2026-11-11",
+   "last_ok": "2026-11-12",
    "suspect": false
   },
   {
    "name": "ameriprise",
    "employer": "Ameriprise (Columbia Threadneedle)",
    "ok": true,
-   "count": 225,
+   "count": 227,
    "error": "",
-   "last_ok": "2026-11-11",
+   "last_ok": "2026-11-12",
    "suspect": false
   },
   {
    "name": "blackrock",
    "employer": "BlackRock",
    "ok": true,
-   "count": 281,
+   "count": 292,
    "error": "",
-   "last_ok": "2026-11-11",
+   "last_ok": "2026-11-12",
    "suspect": false
   },
   {
@@ -120,52 +120,52 @@
    "ok": true,
    "count": 351,
    "error": "",
-   "last_ok": "2026-11-11",
+   "last_ok": "2026-11-12",
    "suspect": false
   },
   {
    "name": "morningstar",
    "employer": "Morningstar (Sustainalytics)",
    "ok": true,
-   "count": 189,
+   "count": 193,
    "error": "",
-   "last_ok": "2026-11-11",
+   "last_ok": "2026-11-12",
    "suspect": false
   },
   {
    "name": "vanguard",
    "employer": "Vanguard",
    "ok": true,
-   "count": 329,
+   "count": 331,
    "error": "",
-   "last_ok": "2026-11-11",
+   "last_ok": "2026-11-12",
    "suspect": false
   },
   {
    "name": "fidelity",
    "employer": "Fidelity Investments",
    "ok": true,
-   "count": 856,
+   "count": 863,
    "error": "",
-   "last_ok": "2026-11-11",
+   "last_ok": "2026-11-12",
    "suspect": false
   },
   {
    "name": "capitalgroup",
    "employer": "Capital Group",
    "ok": true,
-   "count": 168,
+   "count": 165,
    "error": "",
-   "last_ok": "2026-11-11",
+   "last_ok": "2026-11-12",
    "suspect": false
   },
   {
    "name": "troweprice",
    "employer": "T. Rowe Price",
    "ok": true,
-   "count": 133,
+   "count": 131,
    "error": "",
-   "last_ok": "2026-11-11",
+   "last_ok": "2026-11-12",
    "suspect": false
   },
   {
@@ -174,16 +174,16 @@
    "ok": true,
    "count": 14,
    "error": "",
-   "last_ok": "2026-11-11",
+   "last_ok": "2026-11-12",
    "suspect": false
   },
   {
    "name": "blackstone",
    "employer": "Blackstone",
    "ok": true,
-   "count": 127,
+   "count": 136,
    "error": "",
-   "last_ok": "2026-11-11",
+   "last_ok": "2026-11-12",
    "suspect": false
   },
   {
@@ -192,7 +192,7 @@
    "ok": true,
    "count": 66,
    "error": "",
-   "last_ok": "2026-11-11",
+   "last_ok": "2026-11-12",
    "suspect": false
   },
   {
@@ -201,7 +201,7 @@
    "ok": true,
    "count": 7,
    "error": "",
-   "last_ok": "2026-11-11",
+   "last_ok": "2026-11-12",
    "suspect": false
   },
   {
@@ -210,7 +210,7 @@
    "ok": true,
    "count": 7,
    "error": "",
-   "last_ok": "2026-11-11",
+   "last_ok": "2026-11-12",
    "suspect": false
   },
   {
@@ -219,7 +219,7 @@
    "ok": true,
    "count": 0,
    "error": "",
-   "last_ok": "2026-11-11",
+   "last_ok": "2026-11-12",
    "suspect": false
   },
   {
@@ -228,7 +228,7 @@
    "ok": true,
    "count": 3,
    "error": "",
-   "last_ok": "2026-11-11",
+   "last_ok": "2026-11-12",
    "suspect": false
   },
   {
@@ -237,25 +237,25 @@
    "ok": true,
    "count": 27,
    "error": "",
-   "last_ok": "2026-11-11",
+   "last_ok": "2026-11-12",
    "suspect": false
   },
   {
    "name": "stripe",
    "employer": "Stripe",
    "ok": true,
-   "count": 779,
+   "count": 787,
    "error": "",
-   "last_ok": "2026-11-11",
+   "last_ok": "2026-11-12",
    "suspect": false
   },
   {
    "name": "coinbase",
    "employer": "Coinbase",
    "ok": true,
-   "count": 286,
+   "count": 276,
    "error": "",
-   "last_ok": "2026-11-11",
+   "last_ok": "2026-11-12",
    "suspect": false
   },
   {
@@ -264,7 +264,7 @@
    "ok": true,
    "count": 155,
    "error": "",
-   "last_ok": "2026-11-11",
+   "last_ok": "2026-11-12",
    "suspect": false
   },
   {
@@ -273,16 +273,16 @@
    "ok": true,
    "count": 207,
    "error": "",
-   "last_ok": "2026-11-11",
+   "last_ok": "2026-11-12",
    "suspect": false
   },
   {
    "name": "sofi",
    "employer": "SoFi",
    "ok": true,
-   "count": 50,
+   "count": 46,
    "error": "",
-   "last_ok": "2026-11-11",
+   "last_ok": "2026-11-12",
    "suspect": false
   },
   {
@@ -291,25 +291,25 @@
    "ok": true,
    "count": 78,
    "error": "",
-   "last_ok": "2026-11-11",
+   "last_ok": "2026-11-12",
    "suspect": false
   },
   {
    "name": "brex",
    "employer": "Brex",
    "ok": true,
-   "count": 279,
+   "count": 284,
    "error": "",
-   "last_ok": "2026-11-11",
+   "last_ok": "2026-11-12",
    "suspect": false
   },
   {
    "name": "betterment",
    "employer": "Betterment",
    "ok": true,
-   "count": 27,
+   "count": 28,
    "error": "",
-   "last_ok": "2026-11-11",
+   "last_ok": "2026-11-12",
    "suspect": false
   },
   {
@@ -318,7 +318,7 @@
    "ok": true,
    "count": 66,
    "error": "",
-   "last_ok": "2026-11-11",
+   "last_ok": "2026-11-12",
    "suspect": false
   },
   {
@@ -327,7 +327,7 @@
    "ok": true,
    "count": 40,
    "error": "",
-   "last_ok": "2026-11-11",
+   "last_ok": "2026-11-12",
    "suspect": false
   },
   {
@@ -336,7 +336,7 @@
    "ok": true,
    "count": 176,
    "error": "",
-   "last_ok": "2026-11-11",
+   "last_ok": "2026-11-12",
    "suspect": false
   },
   {
@@ -345,16 +345,16 @@
    "ok": true,
    "count": 15,
    "error": "",
-   "last_ok": "2026-11-11",
+   "last_ok": "2026-11-12",
    "suspect": false
   },
   {
    "name": "experian",
    "employer": "Experian",
    "ok": true,
-   "count": 390,
+   "count": 398,
    "error": "",
-   "last_ok": "2026-11-11",
+   "last_ok": "2026-11-12",
    "suspect": false
   }
  ]
