@@ -1,0 +1,275 @@
+[
+ {
+  "name": "statestreet",
+  "employer": "State Street",
+  "ok": true,
+  "count": 1189,
+  "error": ""
+ },
+ {
+  "name": "invesco",
+  "employer": "Invesco",
+  "ok": true,
+  "count": 203,
+  "error": ""
+ },
+ {
+  "name": "mastercard",
+  "employer": "Mastercard",
+  "ok": true,
+  "count": 869,
+  "error": ""
+ },
+ {
+  "name": "morganstanley",
+  "employer": "Morgan Stanley",
+  "ok": true,
+  "count": 1184,
+  "error": ""
+ },
+ {
+  "name": "northerntrust",
+  "employer": "Northern Trust",
+  "ok": true,
+  "count": 655,
+  "error": ""
+ },
+ {
+  "name": "nuveen",
+  "employer": "Nuveen (TIAA)",
+  "ok": true,
+  "count": 168,
+  "error": ""
+ },
+ {
+  "name": "blueowl",
+  "employer": "Blue Owl",
+  "ok": true,
+  "count": 55,
+  "error": ""
+ },
+ {
+  "name": "wellington",
+  "employer": "Wellington Management",
+  "ok": true,
+  "count": 122,
+  "error": ""
+ },
+ {
+  "name": "jpmorgan",
+  "employer": "JPMorgan Chase",
+  "ok": true,
+  "count": 337,
+  "error": ""
+ },
+ {
+  "name": "russell",
+  "employer": "Russell Investments (Seattle)",
+  "ok": true,
+  "count": 41,
+  "error": ""
+ },
+ {
+  "name": "ameriprise",
+  "employer": "Ameriprise (Columbia Threadneedle)",
+  "ok": true,
+  "count": 223,
+  "error": ""
+ },
+ {
+  "name": "blackrock",
+  "employer": "BlackRock",
+  "ok": true,
+  "count": 285,
+  "error": ""
+ },
+ {
+  "name": "spglobal",
+  "employer": "S&P Global",
+  "ok": true,
+  "count": 344,
+  "error": ""
+ },
+ {
+  "name": "morningstar",
+  "employer": "Morningstar (Sustainalytics)",
+  "ok": true,
+  "count": 192,
+  "error": ""
+ },
+ {
+  "name": "vanguard",
+  "employer": "Vanguard",
+  "ok": true,
+  "count": 321,
+  "error": ""
+ },
+ {
+  "name": "fidelity",
+  "employer": "Fidelity Investments",
+  "ok": true,
+  "count": 882,
+  "error": ""
+ },
+ {
+  "name": "capitalgroup",
+  "employer": "Capital Group",
+  "ok": true,
+  "count": 154,
+  "error": ""
+ },
+ {
+  "name": "troweprice",
+  "employer": "T. Rowe Price",
+  "ok": true,
+  "count": 127,
+  "error": ""
+ },
+ {
+  "name": "abrdn",
+  "employer": "abrdn",
+  "ok": true,
+  "count": 16,
+  "error": ""
+ },
+ {
+  "name": "blackstone",
+  "employer": "Blackstone",
+  "ok": true,
+  "count": 141,
+  "error": ""
+ },
+ {
+  "name": "carlyle",
+  "employer": "Carlyle",
+  "ok": true,
+  "count": 64,
+  "error": ""
+ },
+ {
+  "name": "sweep",
+  "employer": "Sweep",
+  "ok": true,
+  "count": 7,
+  "error": ""
+ },
+ {
+  "name": "sylvera",
+  "employer": "Sylvera",
+  "ok": true,
+  "count": 7,
+  "error": ""
+ },
+ {
+  "name": "patch",
+  "employer": "Patch",
+  "ok": true,
+  "count": 0,
+  "error": ""
+ },
+ {
+  "name": "carbondirect",
+  "employer": "Carbon Direct",
+  "ok": true,
+  "count": 3,
+  "error": ""
+ },
+ {
+  "name": "ecovadis",
+  "employer": "EcoVadis",
+  "ok": true,
+  "count": 26,
+  "error": ""
+ },
+ {
+  "name": "stripe",
+  "employer": "Stripe",
+  "ok": true,
+  "count": 787,
+  "error": ""
+ },
+ {
+  "name": "coinbase",
+  "employer": "Coinbase",
+  "ok": true,
+  "count": 271,
+  "error": ""
+ },
+ {
+  "name": "robinhood",
+  "employer": "Robinhood",
+  "ok": true,
+  "count": 160,
+  "error": ""
+ },
+ {
+  "name": "affirm",
+  "employer": "Affirm",
+  "ok": true,
+  "count": 220,
+  "error": ""
+ },
+ {
+  "name": "sofi",
+  "employer": "SoFi",
+  "ok": true,
+  "count": 46,
+  "error": ""
+ },
+ {
+  "name": "carta",
+  "employer": "Carta",
+  "ok": true,
+  "count": 77,
+  "error": ""
+ },
+ {
+  "name": "brex",
+  "employer": "Brex",
+  "ok": true,
+  "count": 283,
+  "error": ""
+ },
+ {
+  "name": "betterment",
+  "employer": "Betterment",
+  "ok": true,
+  "count": 28,
+  "error": ""
+ },
+ {
+  "name": "chime",
+  "employer": "Chime",
+  "ok": true,
+  "count": 68,
+  "error": ""
+ },
+ {
+  "name": "watershed",
+  "employer": "Watershed",
+  "ok": true,
+  "count": 40,
+  "error": ""
+ },
+ {
+  "name": "ramp",
+  "employer": "Ramp",
+  "ok": true,
+  "count": 180,
+  "error": ""
+ },
+ {
+  "name": "arcadia",
+  "employer": "Arcadia",
+  "ok": true,
+  "count": 15,
+  "error": ""
+ },
+ {
+  "name": "experian",
+  "employer": "Experian",
+  "ok": true,
+  "count": 390,
+  "error": ""
+ }
+]
