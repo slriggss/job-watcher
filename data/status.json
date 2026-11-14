@@ -1,80 +1,80 @@
 {
- "run_time": "2026-11-13T07:52:31Z",
+ "run_time": "2026-11-14T07:33:58Z",
  "first_run_date": "2026-10-29",
- "days_with_success": 15,
- "open": 10180,
- "new_today": 226,
- "removed_today": 358,
+ "days_with_success": 16,
+ "open": 10182,
+ "new_today": 57,
+ "removed_today": 62,
  "sources": [
   {
    "name": "statestreet",
    "employer": "State Street",
-   "ok": true,
-   "count": 1189,
-   "error": "",
+   "ok": false,
+   "count": 0,
+   "error": "HTTPError: 521 Server Error: <none> for url: https://statestreet.wd1.myworkdayjobs.com/wday/cxs/statestreet/Global/jobs",
    "last_ok": "2026-11-13",
    "suspect": false
   },
   {
    "name": "invesco",
    "employer": "Invesco",
-   "ok": true,
-   "count": 203,
-   "error": "",
+   "ok": false,
+   "count": 0,
+   "error": "HTTPError: 521 Server Error: <none> for url: https://invesco.wd1.myworkdayjobs.com/wday/cxs/invesco/IVZ/jobs",
    "last_ok": "2026-11-13",
    "suspect": false
   },
   {
    "name": "mastercard",
    "employer": "Mastercard",
-   "ok": true,
-   "count": 869,
-   "error": "",
+   "ok": false,
+   "count": 0,
+   "error": "HTTPError: 521 Server Error: <none> for url: https://mastercard.wd1.myworkdayjobs.com/wday/cxs/mastercard/CorporateCareers/jobs",
    "last_ok": "2026-11-13",
    "suspect": false
   },
   {
    "name": "morganstanley",
    "employer": "Morgan Stanley",
-   "ok": true,
-   "count": 1184,
-   "error": "",
+   "ok": false,
+   "count": 0,
+   "error": "HTTPError: 521 Server Error: <none> for url: https://ms.wd5.myworkdayjobs.com/wday/cxs/ms/External/jobs",
    "last_ok": "2026-11-13",
    "suspect": false
   },
   {
    "name": "northerntrust",
    "employer": "Northern Trust",
-   "ok": true,
-   "count": 655,
-   "error": "",
+   "ok": false,
+   "count": 0,
+   "error": "HTTPError: 521 Server Error: <none> for url: https://ntrs.wd1.myworkdayjobs.com/wday/cxs/ntrs/northerntrust/jobs",
    "last_ok": "2026-11-13",
    "suspect": false
   },
   {
    "name": "nuveen",
    "employer": "Nuveen (TIAA)",
-   "ok": true,
-   "count": 168,
-   "error": "",
+   "ok": false,
+   "count": 0,
+   "error": "HTTPError: 521 Server Error: <none> for url: https://tiaa.wd1.myworkdayjobs.com/wday/cxs/tiaa/Search/jobs",
    "last_ok": "2026-11-13",
    "suspect": false
   },
   {
    "name": "blueowl",
    "employer": "Blue Owl",
-   "ok": true,
-   "count": 55,
-   "error": "",
+   "ok": false,
+   "count": 0,
+   "error": "HTTPError: 521 Server Error: <none> for url: https://blueowl.wd1.myworkdayjobs.com/wday/cxs/blueowl/BlueOwl/jobs",
    "last_ok": "2026-11-13",
    "suspect": false
   },
   {
    "name": "wellington",
    "employer": "Wellington Management",
-   "ok": true,
-   "count": 122,
-   "error": "",
+   "ok": false,
+   "count": 0,
+   "error": "HTTPError: 521 Server Error: <none> for url: https://wellington.wd5.myworkdayjobs.com/wday/cxs/wellington/External/jobs",
    "last_ok": "2026-11-13",
    "suspect": false
   },
@@ -82,116 +82,116 @@
    "name": "jpmorgan",
    "employer": "JPMorgan Chase",
    "ok": true,
-   "count": 337,
+   "count": 334,
    "error": "",
-   "last_ok": "2026-11-13",
+   "last_ok": "2026-11-14",
    "suspect": false
   },
   {
    "name": "russell",
    "employer": "Russell Investments (Seattle)",
-   "ok": true,
-   "count": 41,
-   "error": "",
+   "ok": false,
+   "count": 0,
+   "error": "HTTPError: 521 Server Error: <none> for url: https://russell.wd5.myworkdayjobs.com/wday/cxs/russell/RussellInvestments/jobs",
    "last_ok": "2026-11-13",
    "suspect": false
   },
   {
    "name": "ameriprise",
    "employer": "Ameriprise (Columbia Threadneedle)",
-   "ok": true,
-   "count": 223,
-   "error": "",
+   "ok": false,
+   "count": 0,
+   "error": "HTTPError: 521 Server Error: <none> for url: https://ameriprise.wd5.myworkdayjobs.com/wday/cxs/ameriprise/ameriprise/jobs",
    "last_ok": "2026-11-13",
    "suspect": false
   },
   {
    "name": "blackrock",
    "employer": "BlackRock",
-   "ok": true,
-   "count": 285,
-   "error": "",
+   "ok": false,
+   "count": 0,
+   "error": "HTTPError: 521 Server Error: <none> for url: https://blackrock.wd1.myworkdayjobs.com/wday/cxs/blackrock/BlackRock_Professional/jobs",
    "last_ok": "2026-11-13",
    "suspect": false
   },
   {
    "name": "spglobal",
    "employer": "S&P Global",
-   "ok": true,
-   "count": 344,
-   "error": "",
+   "ok": false,
+   "count": 0,
+   "error": "HTTPError: 521 Server Error: <none> for url: https://spgi.wd5.myworkdayjobs.com/wday/cxs/spgi/SPGI_Careers/jobs",
    "last_ok": "2026-11-13",
    "suspect": false
   },
   {
    "name": "morningstar",
    "employer": "Morningstar (Sustainalytics)",
-   "ok": true,
-   "count": 192,
-   "error": "",
+   "ok": false,
+   "count": 0,
+   "error": "HTTPError: 521 Server Error: <none> for url: https://morningstar.wd5.myworkdayjobs.com/wday/cxs/morningstar/Morningstar/jobs",
    "last_ok": "2026-11-13",
    "suspect": false
   },
   {
    "name": "vanguard",
    "employer": "Vanguard",
-   "ok": true,
-   "count": 321,
-   "error": "",
+   "ok": false,
+   "count": 0,
+   "error": "HTTPError: 521 Server Error: <none> for url: https://vanguard.wd5.myworkdayjobs.com/wday/cxs/vanguard/vanguard_external/jobs",
    "last_ok": "2026-11-13",
    "suspect": false
   },
   {
    "name": "fidelity",
    "employer": "Fidelity Investments",
-   "ok": true,
-   "count": 882,
-   "error": "",
+   "ok": false,
+   "count": 0,
+   "error": "HTTPError: 521 Server Error: <none> for url: https://fmr.wd1.myworkdayjobs.com/wday/cxs/fmr/FidelityCareers/jobs",
    "last_ok": "2026-11-13",
    "suspect": false
   },
   {
    "name": "capitalgroup",
    "employer": "Capital Group",
-   "ok": true,
-   "count": 154,
-   "error": "",
+   "ok": false,
+   "count": 0,
+   "error": "HTTPError: 521 Server Error: <none> for url: https://capgroup.wd1.myworkdayjobs.com/wday/cxs/capgroup/capitalgroupcareers/jobs",
    "last_ok": "2026-11-13",
    "suspect": false
   },
   {
    "name": "troweprice",
    "employer": "T. Rowe Price",
-   "ok": true,
-   "count": 127,
-   "error": "",
+   "ok": false,
+   "count": 0,
+   "error": "HTTPError: 521 Server Error: <none> for url: https://troweprice.wd5.myworkdayjobs.com/wday/cxs/troweprice/TRowePrice/jobs",
    "last_ok": "2026-11-13",
    "suspect": false
   },
   {
    "name": "abrdn",
    "employer": "abrdn",
-   "ok": true,
-   "count": 16,
-   "error": "",
+   "ok": false,
+   "count": 0,
+   "error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
    "last_ok": "2026-11-13",
    "suspect": false
   },
   {
    "name": "blackstone",
    "employer": "Blackstone",
-   "ok": true,
-   "count": 141,
-   "error": "",
+   "ok": false,
+   "count": 0,
+   "error": "HTTPError: 521 Server Error: <none> for url: https://blackstone.wd1.myworkdayjobs.com/wday/cxs/blackstone/Blackstone_Careers/jobs",
    "last_ok": "2026-11-13",
    "suspect": false
   },
   {
    "name": "carlyle",
    "employer": "Carlyle",
-   "ok": true,
-   "count": 64,
-   "error": "",
+   "ok": false,
+   "count": 0,
+   "error": "HTTPError: 521 Server Error: <none> for url: https://carlyle.wd1.myworkdayjobs.com/wday/cxs/carlyle/carlyle/jobs",
    "last_ok": "2026-11-13",
    "suspect": false
   },
@@ -201,16 +201,16 @@
    "ok": true,
    "count": 7,
    "error": "",
-   "last_ok": "2026-11-13",
+   "last_ok": "2026-11-14",
    "suspect": false
   },
   {
    "name": "sylvera",
    "employer": "Sylvera",
    "ok": true,
-   "count": 7,
+   "count": 8,
    "error": "",
-   "last_ok": "2026-11-13",
+   "last_ok": "2026-11-14",
    "suspect": false
   },
   {
@@ -219,7 +219,7 @@
    "ok": true,
    "count": 0,
    "error": "",
-   "last_ok": "2026-11-13",
+   "last_ok": "2026-11-14",
    "suspect": false
   },
   {
@@ -228,7 +228,7 @@
    "ok": true,
    "count": 3,
    "error": "",
-   "last_ok": "2026-11-13",
+   "last_ok": "2026-11-14",
    "suspect": false
   },
   {
@@ -237,70 +237,70 @@
    "ok": true,
    "count": 26,
    "error": "",
-   "last_ok": "2026-11-13",
+   "last_ok": "2026-11-14",
    "suspect": false
   },
   {
    "name": "stripe",
    "employer": "Stripe",
    "ok": true,
-   "count": 787,
+   "count": 786,
    "error": "",
-   "last_ok": "2026-11-13",
+   "last_ok": "2026-11-14",
    "suspect": false
   },
   {
    "name": "coinbase",
    "employer": "Coinbase",
    "ok": true,
-   "count": 271,
+   "count": 265,
    "error": "",
-   "last_ok": "2026-11-13",
+   "last_ok": "2026-11-14",
    "suspect": false
   },
   {
    "name": "robinhood",
    "employer": "Robinhood",
    "ok": true,
-   "count": 160,
+   "count": 165,
    "error": "",
-   "last_ok": "2026-11-13",
+   "last_ok": "2026-11-14",
    "suspect": false
   },
   {
    "name": "affirm",
    "employer": "Affirm",
    "ok": true,
-   "count": 220,
+   "count": 217,
    "error": "",
-   "last_ok": "2026-11-13",
+   "last_ok": "2026-11-14",
    "suspect": false
   },
   {
    "name": "sofi",
    "employer": "SoFi",
    "ok": true,
-   "count": 46,
+   "count": 48,
    "error": "",
-   "last_ok": "2026-11-13",
+   "last_ok": "2026-11-14",
    "suspect": false
   },
   {
    "name": "carta",
    "employer": "Carta",
    "ok": true,
-   "count": 77,
+   "count": 78,
    "error": "",
-   "last_ok": "2026-11-13",
+   "last_ok": "2026-11-14",
    "suspect": false
   },
   {
    "name": "brex",
    "employer": "Brex",
    "ok": true,
-   "count": 283,
+   "count": 286,
    "error": "",
-   "last_ok": "2026-11-13",
+   "last_ok": "2026-11-14",
    "suspect": false
   },
   {
@@ -309,16 +309,16 @@
    "ok": true,
    "count": 28,
    "error": "",
-   "last_ok": "2026-11-13",
+   "last_ok": "2026-11-14",
    "suspect": false
   },
   {
    "name": "chime",
    "employer": "Chime",
    "ok": true,
-   "count": 68,
+   "count": 71,
    "error": "",
-   "last_ok": "2026-11-13",
+   "last_ok": "2026-11-14",
    "suspect": false
   },
   {
@@ -327,7 +327,7 @@
    "ok": true,
    "count": 40,
    "error": "",
-   "last_ok": "2026-11-13",
+   "last_ok": "2026-11-14",
    "suspect": false
   },
   {
@@ -336,7 +336,7 @@
    "ok": true,
    "count": 180,
    "error": "",
-   "last_ok": "2026-11-13",
+   "last_ok": "2026-11-14",
    "suspect": false
   },
   {
@@ -345,7 +345,7 @@
    "ok": true,
    "count": 15,
    "error": "",
-   "last_ok": "2026-11-13",
+   "last_ok": "2026-11-14",
    "suspect": false
   },
   {
@@ -354,7 +354,7 @@
    "ok": true,
    "count": 390,
    "error": "",
-   "last_ok": "2026-11-13",
+   "last_ok": "2026-11-14",
    "suspect": false
   }
  ]
