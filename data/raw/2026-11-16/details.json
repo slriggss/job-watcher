@@ -1,0 +1,13 @@
+{
+ "fetched": 2,
+ "failed": 6,
+ "blocked": [
+  "blackstone",
+  "blueowl",
+  "capitalgroup"
+ ],
+ "posting_ids": [
+  "blueowl:R-101470-1",
+  "blueowl:R-101917"
+ ]
+}

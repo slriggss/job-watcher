@@ -1,0 +1,275 @@
+[
+ {
+  "name": "statestreet",
+  "employer": "State Street",
+  "ok": false,
+  "count": 0,
+  "error": "HTTPError: 429 Client Error: Too Many Requests for url: https://statestreet.wd1.myworkdayjobs.com/wday/cxs/statestreet/Global/jobs"
+ },
+ {
+  "name": "invesco",
+  "employer": "Invesco",
+  "ok": false,
+  "count": 0,
+  "error": "HTTPError: 429 Client Error: Too Many Requests for url: https://invesco.wd1.myworkdayjobs.com/wday/cxs/invesco/IVZ/jobs"
+ },
+ {
+  "name": "mastercard",
+  "employer": "Mastercard",
+  "ok": false,
+  "count": 0,
+  "error": "HTTPError: 429 Client Error: Too Many Requests for url: https://mastercard.wd1.myworkdayjobs.com/wday/cxs/mastercard/CorporateCareers/jobs"
+ },
+ {
+  "name": "morganstanley",
+  "employer": "Morgan Stanley",
+  "ok": false,
+  "count": 0,
+  "error": "HTTPError: 429 Client Error: Too Many Requests for url: https://ms.wd5.myworkdayjobs.com/wday/cxs/ms/External/jobs"
+ },
+ {
+  "name": "northerntrust",
+  "employer": "Northern Trust",
+  "ok": false,
+  "count": 0,
+  "error": "HTTPError: 429 Client Error: Too Many Requests for url: https://ntrs.wd1.myworkdayjobs.com/wday/cxs/ntrs/northerntrust/jobs"
+ },
+ {
+  "name": "nuveen",
+  "employer": "Nuveen (TIAA)",
+  "ok": false,
+  "count": 0,
+  "error": "HTTPError: 429 Client Error: Too Many Requests for url: https://tiaa.wd1.myworkdayjobs.com/wday/cxs/tiaa/Search/jobs"
+ },
+ {
+  "name": "blueowl",
+  "employer": "Blue Owl",
+  "ok": true,
+  "count": 55,
+  "error": ""
+ },
+ {
+  "name": "wellington",
+  "employer": "Wellington Management",
+  "ok": false,
+  "count": 0,
+  "error": "HTTPError: 429 Client Error: Too Many Requests for url: https://wellington.wd5.myworkdayjobs.com/wday/cxs/wellington/External/jobs"
+ },
+ {
+  "name": "jpmorgan",
+  "employer": "JPMorgan Chase",
+  "ok": true,
+  "count": 332,
+  "error": ""
+ },
+ {
+  "name": "russell",
+  "employer": "Russell Investments (Seattle)",
+  "ok": true,
+  "count": 41,
+  "error": ""
+ },
+ {
+  "name": "ameriprise",
+  "employer": "Ameriprise (Columbia Threadneedle)",
+  "ok": false,
+  "count": 0,
+  "error": "HTTPError: 429 Client Error: Too Many Requests for url: https://ameriprise.wd5.myworkdayjobs.com/wday/cxs/ameriprise/ameriprise/jobs"
+ },
+ {
+  "name": "blackrock",
+  "employer": "BlackRock",
+  "ok": false,
+  "count": 0,
+  "error": "HTTPError: 429 Client Error: Too Many Requests for url: https://blackrock.wd1.myworkdayjobs.com/wday/cxs/blackrock/BlackRock_Professional/jobs"
+ },
+ {
+  "name": "spglobal",
+  "employer": "S&P Global",
+  "ok": false,
+  "count": 0,
+  "error": "HTTPError: 429 Client Error: Too Many Requests for url: https://spgi.wd5.myworkdayjobs.com/wday/cxs/spgi/SPGI_Careers/jobs"
+ },
+ {
+  "name": "morningstar",
+  "employer": "Morningstar (Sustainalytics)",
+  "ok": false,
+  "count": 0,
+  "error": "HTTPError: 429 Client Error: Too Many Requests for url: https://morningstar.wd5.myworkdayjobs.com/wday/cxs/morningstar/Morningstar/jobs"
+ },
+ {
+  "name": "vanguard",
+  "employer": "Vanguard",
+  "ok": false,
+  "count": 0,
+  "error": "HTTPError: 429 Client Error: Too Many Requests for url: https://vanguard.wd5.myworkdayjobs.com/wday/cxs/vanguard/vanguard_external/jobs"
+ },
+ {
+  "name": "fidelity",
+  "employer": "Fidelity Investments",
+  "ok": false,
+  "count": 0,
+  "error": "HTTPError: 429 Client Error: Too Many Requests for url: https://fmr.wd1.myworkdayjobs.com/wday/cxs/fmr/FidelityCareers/jobs"
+ },
+ {
+  "name": "capitalgroup",
+  "employer": "Capital Group",
+  "ok": false,
+  "count": 0,
+  "error": "HTTPError: 429 Client Error: Too Many Requests for url: https://capgroup.wd1.myworkdayjobs.com/wday/cxs/capgroup/capitalgroupcareers/jobs"
+ },
+ {
+  "name": "troweprice",
+  "employer": "T. Rowe Price",
+  "ok": false,
+  "count": 0,
+  "error": "HTTPError: 429 Client Error: Too Many Requests for url: https://troweprice.wd5.myworkdayjobs.com/wday/cxs/troweprice/TRowePrice/jobs"
+ },
+ {
+  "name": "abrdn",
+  "employer": "abrdn",
+  "ok": true,
+  "count": 16,
+  "error": ""
+ },
+ {
+  "name": "blackstone",
+  "employer": "Blackstone",
+  "ok": false,
+  "count": 0,
+  "error": "HTTPError: 429 Client Error: Too Many Requests for url: https://blackstone.wd1.myworkdayjobs.com/wday/cxs/blackstone/Blackstone_Careers/jobs"
+ },
+ {
+  "name": "carlyle",
+  "employer": "Carlyle",
+  "ok": true,
+  "count": 63,
+  "error": ""
+ },
+ {
+  "name": "sweep",
+  "employer": "Sweep",
+  "ok": true,
+  "count": 7,
+  "error": ""
+ },
+ {
+  "name": "sylvera",
+  "employer": "Sylvera",
+  "ok": true,
+  "count": 8,
+  "error": ""
+ },
+ {
+  "name": "patch",
+  "employer": "Patch",
+  "ok": true,
+  "count": 0,
+  "error": ""
+ },
+ {
+  "name": "carbondirect",
+  "employer": "Carbon Direct",
+  "ok": true,
+  "count": 3,
+  "error": ""
+ },
+ {
+  "name": "ecovadis",
+  "employer": "EcoVadis",
+  "ok": true,
+  "count": 26,
+  "error": ""
+ },
+ {
+  "name": "stripe",
+  "employer": "Stripe",
+  "ok": true,
+  "count": 785,
+  "error": ""
+ },
+ {
+  "name": "coinbase",
+  "employer": "Coinbase",
+  "ok": true,
+  "count": 265,
+  "error": ""
+ },
+ {
+  "name": "robinhood",
+  "employer": "Robinhood",
+  "ok": true,
+  "count": 165,
+  "error": ""
+ },
+ {
+  "name": "affirm",
+  "employer": "Affirm",
+  "ok": true,
+  "count": 217,
+  "error": ""
+ },
+ {
+  "name": "sofi",
+  "employer": "SoFi",
+  "ok": true,
+  "count": 48,
+  "error": ""
+ },
+ {
+  "name": "carta",
+  "employer": "Carta",
+  "ok": true,
+  "count": 77,
+  "error": ""
+ },
+ {
+  "name": "brex",
+  "employer": "Brex",
+  "ok": true,
+  "count": 286,
+  "error": ""
+ },
+ {
+  "name": "betterment",
+  "employer": "Betterment",
+  "ok": true,
+  "count": 28,
+  "error": ""
+ },
+ {
+  "name": "chime",
+  "employer": "Chime",
+  "ok": true,
+  "count": 71,
+  "error": ""
+ },
+ {
+  "name": "watershed",
+  "employer": "Watershed",
+  "ok": true,
+  "count": 40,
+  "error": ""
+ },
+ {
+  "name": "ramp",
+  "employer": "Ramp",
+  "ok": true,
+  "count": 179,
+  "error": ""
+ },
+ {
+  "name": "arcadia",
+  "employer": "Arcadia",
+  "ok": true,
+  "count": 15,
+  "error": ""
+ },
+ {
+  "name": "experian",
+  "employer": "Experian",
+  "ok": true,
+  "count": 389,
+  "error": ""
+ }
+]

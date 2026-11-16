@@ -1,62 +1,62 @@
 {
- "run_time": "2026-11-15T07:48:09Z",
+ "run_time": "2026-11-16T07:54:58Z",
  "first_run_date": "2026-10-29",
- "days_with_success": 17,
- "open": 10118,
- "new_today": 149,
- "removed_today": 237,
+ "days_with_success": 18,
+ "open": 10114,
+ "new_today": 3,
+ "removed_today": 11,
  "sources": [
   {
    "name": "statestreet",
    "employer": "State Street",
-   "ok": true,
-   "count": 1170,
-   "error": "",
+   "ok": false,
+   "count": 0,
+   "error": "HTTPError: 429 Client Error: Too Many Requests for url: https://statestreet.wd1.myworkdayjobs.com/wday/cxs/statestreet/Global/jobs",
    "last_ok": "2026-11-15",
    "suspect": false
   },
   {
    "name": "invesco",
    "employer": "Invesco",
-   "ok": true,
-   "count": 204,
-   "error": "",
+   "ok": false,
+   "count": 0,
+   "error": "HTTPError: 429 Client Error: Too Many Requests for url: https://invesco.wd1.myworkdayjobs.com/wday/cxs/invesco/IVZ/jobs",
    "last_ok": "2026-11-15",
    "suspect": false
   },
   {
    "name": "mastercard",
    "employer": "Mastercard",
-   "ok": true,
-   "count": 846,
-   "error": "",
+   "ok": false,
+   "count": 0,
+   "error": "HTTPError: 429 Client Error: Too Many Requests for url: https://mastercard.wd1.myworkdayjobs.com/wday/cxs/mastercard/CorporateCareers/jobs",
    "last_ok": "2026-11-15",
    "suspect": false
   },
   {
    "name": "morganstanley",
    "employer": "Morgan Stanley",
-   "ok": true,
-   "count": 1179,
-   "error": "",
+   "ok": false,
+   "count": 0,
+   "error": "HTTPError: 429 Client Error: Too Many Requests for url: https://ms.wd5.myworkdayjobs.com/wday/cxs/ms/External/jobs",
    "last_ok": "2026-11-15",
    "suspect": false
   },
   {
    "name": "northerntrust",
    "employer": "Northern Trust",
-   "ok": true,
-   "count": 646,
-   "error": "",
+   "ok": false,
+   "count": 0,
+   "error": "HTTPError: 429 Client Error: Too Many Requests for url: https://ntrs.wd1.myworkdayjobs.com/wday/cxs/ntrs/northerntrust/jobs",
    "last_ok": "2026-11-15",
    "suspect": false
   },
   {
    "name": "nuveen",
    "employer": "Nuveen (TIAA)",
-   "ok": true,
-   "count": 171,
-   "error": "",
+   "ok": false,
+   "count": 0,
+   "error": "HTTPError: 429 Client Error: Too Many Requests for url: https://tiaa.wd1.myworkdayjobs.com/wday/cxs/tiaa/Search/jobs",
    "last_ok": "2026-11-15",
    "suspect": false
   },
@@ -66,15 +66,15 @@
    "ok": true,
    "count": 55,
    "error": "",
-   "last_ok": "2026-11-15",
+   "last_ok": "2026-11-16",
    "suspect": false
   },
   {
    "name": "wellington",
    "employer": "Wellington Management",
-   "ok": true,
-   "count": 125,
-   "error": "",
+   "ok": false,
+   "count": 0,
+   "error": "HTTPError: 429 Client Error: Too Many Requests for url: https://wellington.wd5.myworkdayjobs.com/wday/cxs/wellington/External/jobs",
    "last_ok": "2026-11-15",
    "suspect": false
   },
@@ -82,89 +82,89 @@
    "name": "jpmorgan",
    "employer": "JPMorgan Chase",
    "ok": true,
-   "count": 333,
+   "count": 332,
    "error": "",
-   "last_ok": "2026-11-15",
+   "last_ok": "2026-11-16",
    "suspect": false
   },
   {
    "name": "russell",
    "employer": "Russell Investments (Seattle)",
    "ok": true,
-   "count": 42,
+   "count": 41,
    "error": "",
-   "last_ok": "2026-11-15",
+   "last_ok": "2026-11-16",
    "suspect": false
   },
   {
    "name": "ameriprise",
    "employer": "Ameriprise (Columbia Threadneedle)",
-   "ok": true,
-   "count": 218,
-   "error": "",
+   "ok": false,
+   "count": 0,
+   "error": "HTTPError: 429 Client Error: Too Many Requests for url: https://ameriprise.wd5.myworkdayjobs.com/wday/cxs/ameriprise/ameriprise/jobs",
    "last_ok": "2026-11-15",
    "suspect": false
   },
   {
    "name": "blackrock",
    "employer": "BlackRock",
-   "ok": true,
-   "count": 273,
-   "error": "",
+   "ok": false,
+   "count": 0,
+   "error": "HTTPError: 429 Client Error: Too Many Requests for url: https://blackrock.wd1.myworkdayjobs.com/wday/cxs/blackrock/BlackRock_Professional/jobs",
    "last_ok": "2026-11-15",
    "suspect": false
   },
   {
    "name": "spglobal",
    "employer": "S&P Global",
-   "ok": true,
-   "count": 340,
-   "error": "",
+   "ok": false,
+   "count": 0,
+   "error": "HTTPError: 429 Client Error: Too Many Requests for url: https://spgi.wd5.myworkdayjobs.com/wday/cxs/spgi/SPGI_Careers/jobs",
    "last_ok": "2026-11-15",
    "suspect": false
   },
   {
    "name": "morningstar",
    "employer": "Morningstar (Sustainalytics)",
-   "ok": true,
-   "count": 190,
-   "error": "",
+   "ok": false,
+   "count": 0,
+   "error": "HTTPError: 429 Client Error: Too Many Requests for url: https://morningstar.wd5.myworkdayjobs.com/wday/cxs/morningstar/Morningstar/jobs",
    "last_ok": "2026-11-15",
    "suspect": false
   },
   {
    "name": "vanguard",
    "employer": "Vanguard",
-   "ok": true,
-   "count": 314,
-   "error": "",
+   "ok": false,
+   "count": 0,
+   "error": "HTTPError: 429 Client Error: Too Many Requests for url: https://vanguard.wd5.myworkdayjobs.com/wday/cxs/vanguard/vanguard_external/jobs",
    "last_ok": "2026-11-15",
    "suspect": false
   },
   {
    "name": "fidelity",
    "employer": "Fidelity Investments",
-   "ok": true,
-   "count": 894,
-   "error": "",
+   "ok": false,
+   "count": 0,
+   "error": "HTTPError: 429 Client Error: Too Many Requests for url: https://fmr.wd1.myworkdayjobs.com/wday/cxs/fmr/FidelityCareers/jobs",
    "last_ok": "2026-11-15",
    "suspect": false
   },
   {
    "name": "capitalgroup",
    "employer": "Capital Group",
-   "ok": true,
-   "count": 158,
-   "error": "",
+   "ok": false,
+   "count": 0,
+   "error": "HTTPError: 429 Client Error: Too Many Requests for url: https://capgroup.wd1.myworkdayjobs.com/wday/cxs/capgroup/capitalgroupcareers/jobs",
    "last_ok": "2026-11-15",
    "suspect": false
   },
   {
    "name": "troweprice",
    "employer": "T. Rowe Price",
-   "ok": true,
-   "count": 128,
-   "error": "",
+   "ok": false,
+   "count": 0,
+   "error": "HTTPError: 429 Client Error: Too Many Requests for url: https://troweprice.wd5.myworkdayjobs.com/wday/cxs/troweprice/TRowePrice/jobs",
    "last_ok": "2026-11-15",
    "suspect": false
   },
@@ -174,15 +174,15 @@
    "ok": true,
    "count": 16,
    "error": "",
-   "last_ok": "2026-11-15",
+   "last_ok": "2026-11-16",
    "suspect": false
   },
   {
    "name": "blackstone",
    "employer": "Blackstone",
-   "ok": true,
-   "count": 142,
-   "error": "",
+   "ok": false,
+   "count": 0,
+   "error": "HTTPError: 429 Client Error: Too Many Requests for url: https://blackstone.wd1.myworkdayjobs.com/wday/cxs/blackstone/Blackstone_Careers/jobs",
    "last_ok": "2026-11-15",
    "suspect": false
   },
@@ -192,7 +192,7 @@
    "ok": true,
    "count": 63,
    "error": "",
-   "last_ok": "2026-11-15",
+   "last_ok": "2026-11-16",
    "suspect": false
   },
   {
@@ -201,7 +201,7 @@
    "ok": true,
    "count": 7,
    "error": "",
-   "last_ok": "2026-11-15",
+   "last_ok": "2026-11-16",
    "suspect": false
   },
   {
@@ -210,7 +210,7 @@
    "ok": true,
    "count": 8,
    "error": "",
-   "last_ok": "2026-11-15",
+   "last_ok": "2026-11-16",
    "suspect": false
   },
   {
@@ -219,7 +219,7 @@
    "ok": true,
    "count": 0,
    "error": "",
-   "last_ok": "2026-11-15",
+   "last_ok": "2026-11-16",
    "suspect": false
   },
   {
@@ -228,7 +228,7 @@
    "ok": true,
    "count": 3,
    "error": "",
-   "last_ok": "2026-11-15",
+   "last_ok": "2026-11-16",
    "suspect": false
   },
   {
@@ -237,7 +237,7 @@
    "ok": true,
    "count": 26,
    "error": "",
-   "last_ok": "2026-11-15",
+   "last_ok": "2026-11-16",
    "suspect": false
   },
   {
@@ -246,7 +246,7 @@
    "ok": true,
    "count": 785,
    "error": "",
-   "last_ok": "2026-11-15",
+   "last_ok": "2026-11-16",
    "suspect": false
   },
   {
@@ -255,7 +255,7 @@
    "ok": true,
    "count": 265,
    "error": "",
-   "last_ok": "2026-11-15",
+   "last_ok": "2026-11-16",
    "suspect": false
   },
   {
@@ -264,7 +264,7 @@
    "ok": true,
    "count": 165,
    "error": "",
-   "last_ok": "2026-11-15",
+   "last_ok": "2026-11-16",
    "suspect": false
   },
   {
@@ -273,7 +273,7 @@
    "ok": true,
    "count": 217,
    "error": "",
-   "last_ok": "2026-11-15",
+   "last_ok": "2026-11-16",
    "suspect": false
   },
   {
@@ -282,16 +282,16 @@
    "ok": true,
    "count": 48,
    "error": "",
-   "last_ok": "2026-11-15",
+   "last_ok": "2026-11-16",
    "suspect": false
   },
   {
    "name": "carta",
    "employer": "Carta",
    "ok": true,
-   "count": 78,
+   "count": 77,
    "error": "",
-   "last_ok": "2026-11-15",
+   "last_ok": "2026-11-16",
    "suspect": false
   },
   {
@@ -300,7 +300,7 @@
    "ok": true,
    "count": 286,
    "error": "",
-   "last_ok": "2026-11-15",
+   "last_ok": "2026-11-16",
    "suspect": false
   },
   {
@@ -309,7 +309,7 @@
    "ok": true,
    "count": 28,
    "error": "",
-   "last_ok": "2026-11-15",
+   "last_ok": "2026-11-16",
    "suspect": false
   },
   {
@@ -318,7 +318,7 @@
    "ok": true,
    "count": 71,
    "error": "",
-   "last_ok": "2026-11-15",
+   "last_ok": "2026-11-16",
    "suspect": false
   },
   {
@@ -327,16 +327,16 @@
    "ok": true,
    "count": 40,
    "error": "",
-   "last_ok": "2026-11-15",
+   "last_ok": "2026-11-16",
    "suspect": false
   },
   {
    "name": "ramp",
    "employer": "Ramp",
    "ok": true,
-   "count": 180,
+   "count": 179,
    "error": "",
-   "last_ok": "2026-11-15",
+   "last_ok": "2026-11-16",
    "suspect": false
   },
   {
@@ -345,7 +345,7 @@
    "ok": true,
    "count": 15,
    "error": "",
-   "last_ok": "2026-11-15",
+   "last_ok": "2026-11-16",
    "suspect": false
   },
   {
@@ -354,7 +354,7 @@
    "ok": true,
    "count": 389,
    "error": "",
-   "last_ok": "2026-11-15",
+   "last_ok": "2026-11-16",
    "suspect": false
   }
  ]
