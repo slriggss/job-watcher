@@ -1,0 +1,16 @@
+{
+ "fetched": 0,
+ "failed": 14,
+ "blocked": [
+  "carlyle",
+  "mastercard",
+  "morganstanley",
+  "northerntrust",
+  "russell",
+  "spglobal",
+  "statestreet",
+  "troweprice",
+  "wellington"
+ ],
+ "posting_ids": []
+}
