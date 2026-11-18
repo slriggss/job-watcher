@@ -9,7 +9,10 @@ import os
 import re
 import shutil
 import subprocess
+import time
 from concurrent.futures import ThreadPoolExecutor
+
+import requests
 from datetime import datetime, timezone
 
 from .build import DATA, build_history, build_status, load_all_enrich, load_raw, write_history
@@ -22,10 +25,26 @@ ISSUE_LABEL = "daily-run"  # only issues with this label are ever closed by the 
 OVERFLOW_MARK = "<!-- job-watcher:overflow -->"  # first line of every overflow comment, so a rerun can replace them
 
 
+RATE_LIMIT_WAITS = (45, 120, 240)  # seconds to wait after a 429 before pulling the same source again
+
+
+def _fetch_patiently(src):
+    """Fetch one source; if the host answers 429 (rate limit), wait and try again instead of giving up.
+    Workday throttles GitHub's shared runner addresses, and a source that only got a few seconds of backoff failed."""
+    for wait in (*RATE_LIMIT_WAITS, None):
+        try:
+            return FETCH[src["ats"]](src)
+        except requests.HTTPError as e:
+            if e.response is None or e.response.status_code != 429 or wait is None:
+                raise
+            print(f"429 {src['name']}: Retry-After={e.response.headers.get('Retry-After')!r}, waiting {wait}s", flush=True)
+            time.sleep(wait)
+
+
 def fetch_source(src):
     """Return (name, raw or None, result). A failure is a result, never an exception."""
     try:
-        raw = FETCH[src["ats"]](src)
+        raw = _fetch_patiently(src)
         count = len(NORMALIZE[src["ats"]](src, raw))
         total = reported_total(raw)
         if total and count < total * MIN_SHARE_OF_TOTAL:  # a short pull would mark real postings as removed
@@ -56,8 +75,15 @@ def fetch_all(date, sources=None):
     old_results = {}
     if (day_dir / "results.json").exists():
         old_results = {r["name"]: r for r in json.loads((day_dir / "results.json").read_text(encoding="utf-8"))}
-    with ThreadPoolExecutor(max_workers=6) as pool:
-        fetched = list(pool.map(fetch_source, SOURCES if sources is None else sources))
+    todo = SOURCES if sources is None else sources
+    workday = [x for x in todo if x["ats"] == "workday"]
+    others = [x for x in todo if x["ats"] != "workday"]
+    with ThreadPoolExecutor(max_workers=6) as pool, ThreadPoolExecutor(max_workers=2) as slow:
+        # Workday boards go through a narrow pool of 2 so 19 of them are not hit at once
+        got_workday = slow.map(fetch_source, workday)
+        got_others = pool.map(fetch_source, others)
+        by_name = {f[0]: f for f in (*got_workday, *got_others)}
+    fetched = [by_name[x["name"]] for x in todo]
     results = []
     for name, raw, result in fetched:
         earlier = day_dir / f"{name}.json.gz"
