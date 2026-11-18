@@ -1,13 +1,6 @@
 {
- "fetched": 3,
- "failed": 4,
- "blocked": [
-  "morningstar",
-  "nuveen"
- ],
- "posting_ids": [
-  "nuveen:R261000354",
-  "nuveen:R261000355",
-  "nuveen:R261100049-3"
- ]
+ "fetched": 0,
+ "failed": 0,
+ "blocked": [],
+ "posting_ids": []
 }
