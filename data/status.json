@@ -1,10 +1,10 @@
 {
- "run_time": "2026-11-17T09:08:25Z",
+ "run_time": "2026-11-18T08:28:57Z",
  "first_run_date": "2026-10-29",
- "days_with_success": 19,
- "open": 10104,
- "new_today": 60,
- "removed_today": 78,
+ "days_with_success": 20,
+ "open": 10086,
+ "new_today": 51,
+ "removed_today": 71,
  "sources": [
   {
    "name": "statestreet",
@@ -63,10 +63,10 @@
   {
    "name": "blueowl",
    "employer": "Blue Owl",
-   "ok": false,
-   "count": 0,
-   "error": "HTTPError: 429 Client Error: Too Many Requests for url: https://blueowl.wd1.myworkdayjobs.com/wday/cxs/blueowl/BlueOwl/jobs",
-   "last_ok": "2026-11-16",
+   "ok": true,
+   "count": 55,
+   "error": "",
+   "last_ok": "2026-11-18",
    "suspect": false
   },
   {
@@ -82,9 +82,9 @@
    "name": "jpmorgan",
    "employer": "JPMorgan Chase",
    "ok": true,
-   "count": 330,
+   "count": 325,
    "error": "",
-   "last_ok": "2026-11-17",
+   "last_ok": "2026-11-18",
    "suspect": false
   },
   {
@@ -201,7 +201,7 @@
    "ok": true,
    "count": 7,
    "error": "",
-   "last_ok": "2026-11-17",
+   "last_ok": "2026-11-18",
    "suspect": false
   },
   {
@@ -210,7 +210,7 @@
    "ok": true,
    "count": 8,
    "error": "",
-   "last_ok": "2026-11-17",
+   "last_ok": "2026-11-18",
    "suspect": false
   },
   {
@@ -219,7 +219,7 @@
    "ok": true,
    "count": 0,
    "error": "",
-   "last_ok": "2026-11-17",
+   "last_ok": "2026-11-18",
    "suspect": false
   },
   {
@@ -228,7 +228,7 @@
    "ok": true,
    "count": 3,
    "error": "",
-   "last_ok": "2026-11-17",
+   "last_ok": "2026-11-18",
    "suspect": false
   },
   {
@@ -237,25 +237,25 @@
    "ok": true,
    "count": 26,
    "error": "",
-   "last_ok": "2026-11-17",
+   "last_ok": "2026-11-18",
    "suspect": false
   },
   {
    "name": "stripe",
    "employer": "Stripe",
    "ok": true,
-   "count": 792,
+   "count": 788,
    "error": "",
-   "last_ok": "2026-11-17",
+   "last_ok": "2026-11-18",
    "suspect": false
   },
   {
    "name": "coinbase",
    "employer": "Coinbase",
    "ok": true,
-   "count": 260,
+   "count": 256,
    "error": "",
-   "last_ok": "2026-11-17",
+   "last_ok": "2026-11-18",
    "suspect": false
   },
   {
@@ -264,25 +264,25 @@
    "ok": true,
    "count": 166,
    "error": "",
-   "last_ok": "2026-11-17",
+   "last_ok": "2026-11-18",
    "suspect": false
   },
   {
    "name": "affirm",
    "employer": "Affirm",
    "ok": true,
-   "count": 213,
+   "count": 221,
    "error": "",
-   "last_ok": "2026-11-17",
+   "last_ok": "2026-11-18",
    "suspect": false
   },
   {
    "name": "sofi",
    "employer": "SoFi",
    "ok": true,
-   "count": 50,
+   "count": 51,
    "error": "",
-   "last_ok": "2026-11-17",
+   "last_ok": "2026-11-18",
    "suspect": false
   },
   {
@@ -291,16 +291,16 @@
    "ok": true,
    "count": 77,
    "error": "",
-   "last_ok": "2026-11-17",
+   "last_ok": "2026-11-18",
    "suspect": false
   },
   {
    "name": "brex",
    "employer": "Brex",
    "ok": true,
-   "count": 277,
+   "count": 266,
    "error": "",
-   "last_ok": "2026-11-17",
+   "last_ok": "2026-11-18",
    "suspect": false
   },
   {
@@ -309,34 +309,34 @@
    "ok": true,
    "count": 25,
    "error": "",
-   "last_ok": "2026-11-17",
+   "last_ok": "2026-11-18",
    "suspect": false
   },
   {
    "name": "chime",
    "employer": "Chime",
    "ok": true,
-   "count": 74,
+   "count": 75,
    "error": "",
-   "last_ok": "2026-11-17",
+   "last_ok": "2026-11-18",
    "suspect": false
   },
   {
    "name": "watershed",
    "employer": "Watershed",
    "ok": true,
-   "count": 40,
+   "count": 38,
    "error": "",
-   "last_ok": "2026-11-17",
+   "last_ok": "2026-11-18",
    "suspect": false
   },
   {
    "name": "ramp",
    "employer": "Ramp",
    "ok": true,
-   "count": 179,
+   "count": 181,
    "error": "",
-   "last_ok": "2026-11-17",
+   "last_ok": "2026-11-18",
    "suspect": false
   },
   {
@@ -345,16 +345,16 @@
    "ok": true,
    "count": 15,
    "error": "",
-   "last_ok": "2026-11-17",
+   "last_ok": "2026-11-18",
    "suspect": false
   },
   {
    "name": "experian",
    "employer": "Experian",
    "ok": true,
-   "count": 389,
+   "count": 385,
    "error": "",
-   "last_ok": "2026-11-17",
+   "last_ok": "2026-11-18",
    "suspect": false
   }
  ]
