@@ -1,0 +1,13 @@
+{
+ "fetched": 0,
+ "failed": 29,
+ "blocked": [
+  "abrdn",
+  "ameriprise",
+  "blackrock",
+  "fidelity",
+  "invesco",
+  "vanguard"
+ ],
+ "posting_ids": []
+}

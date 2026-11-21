@@ -1,13 +1,13 @@
 {
- "abrdn": "2026-11-14",
- "ameriprise": "2026-11-14",
- "blackrock": "2026-11-14",
+ "abrdn": "2026-11-21",
+ "ameriprise": "2026-11-21",
+ "blackrock": "2026-11-21",
  "blackstone": "2026-11-16",
  "blueowl": "2026-11-16",
  "capitalgroup": "2026-11-16",
  "carlyle": "2026-11-17",
- "fidelity": "2026-11-14",
- "invesco": "2026-11-14",
+ "fidelity": "2026-11-21",
+ "invesco": "2026-11-21",
  "mastercard": "2026-11-17",
  "morganstanley": "2026-11-17",
  "morningstar": "2026-11-18",
@@ -17,6 +17,6 @@
  "spglobal": "2026-11-17",
  "statestreet": "2026-11-17",
  "troweprice": "2026-11-17",
- "vanguard": "2026-11-14",
+ "vanguard": "2026-11-21",
  "wellington": "2026-11-17"
 }

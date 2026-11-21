@@ -1,0 +1,275 @@
+[
+ {
+  "name": "statestreet",
+  "employer": "State Street",
+  "ok": false,
+  "count": 0,
+  "error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)"
+ },
+ {
+  "name": "invesco",
+  "employer": "Invesco",
+  "ok": false,
+  "count": 0,
+  "error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)"
+ },
+ {
+  "name": "mastercard",
+  "employer": "Mastercard",
+  "ok": false,
+  "count": 0,
+  "error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)"
+ },
+ {
+  "name": "morganstanley",
+  "employer": "Morgan Stanley",
+  "ok": false,
+  "count": 0,
+  "error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)"
+ },
+ {
+  "name": "northerntrust",
+  "employer": "Northern Trust",
+  "ok": false,
+  "count": 0,
+  "error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)"
+ },
+ {
+  "name": "nuveen",
+  "employer": "Nuveen (TIAA)",
+  "ok": false,
+  "count": 0,
+  "error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)"
+ },
+ {
+  "name": "blueowl",
+  "employer": "Blue Owl",
+  "ok": false,
+  "count": 0,
+  "error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)"
+ },
+ {
+  "name": "wellington",
+  "employer": "Wellington Management",
+  "ok": false,
+  "count": 0,
+  "error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)"
+ },
+ {
+  "name": "jpmorgan",
+  "employer": "JPMorgan Chase",
+  "ok": true,
+  "count": 316,
+  "error": ""
+ },
+ {
+  "name": "russell",
+  "employer": "Russell Investments (Seattle)",
+  "ok": false,
+  "count": 0,
+  "error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)"
+ },
+ {
+  "name": "ameriprise",
+  "employer": "Ameriprise (Columbia Threadneedle)",
+  "ok": false,
+  "count": 0,
+  "error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)"
+ },
+ {
+  "name": "blackrock",
+  "employer": "BlackRock",
+  "ok": false,
+  "count": 0,
+  "error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)"
+ },
+ {
+  "name": "spglobal",
+  "employer": "S&P Global",
+  "ok": false,
+  "count": 0,
+  "error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)"
+ },
+ {
+  "name": "morningstar",
+  "employer": "Morningstar (Sustainalytics)",
+  "ok": false,
+  "count": 0,
+  "error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)"
+ },
+ {
+  "name": "vanguard",
+  "employer": "Vanguard",
+  "ok": false,
+  "count": 0,
+  "error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)"
+ },
+ {
+  "name": "fidelity",
+  "employer": "Fidelity Investments",
+  "ok": false,
+  "count": 0,
+  "error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)"
+ },
+ {
+  "name": "capitalgroup",
+  "employer": "Capital Group",
+  "ok": false,
+  "count": 0,
+  "error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)"
+ },
+ {
+  "name": "troweprice",
+  "employer": "T. Rowe Price",
+  "ok": false,
+  "count": 0,
+  "error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)"
+ },
+ {
+  "name": "abrdn",
+  "employer": "abrdn",
+  "ok": false,
+  "count": 0,
+  "error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)"
+ },
+ {
+  "name": "blackstone",
+  "employer": "Blackstone",
+  "ok": false,
+  "count": 0,
+  "error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)"
+ },
+ {
+  "name": "carlyle",
+  "employer": "Carlyle",
+  "ok": false,
+  "count": 0,
+  "error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)"
+ },
+ {
+  "name": "sweep",
+  "employer": "Sweep",
+  "ok": true,
+  "count": 7,
+  "error": ""
+ },
+ {
+  "name": "sylvera",
+  "employer": "Sylvera",
+  "ok": true,
+  "count": 8,
+  "error": ""
+ },
+ {
+  "name": "patch",
+  "employer": "Patch",
+  "ok": true,
+  "count": 0,
+  "error": ""
+ },
+ {
+  "name": "carbondirect",
+  "employer": "Carbon Direct",
+  "ok": true,
+  "count": 2,
+  "error": ""
+ },
+ {
+  "name": "ecovadis",
+  "employer": "EcoVadis",
+  "ok": true,
+  "count": 26,
+  "error": ""
+ },
+ {
+  "name": "stripe",
+  "employer": "Stripe",
+  "ok": true,
+  "count": 778,
+  "error": ""
+ },
+ {
+  "name": "coinbase",
+  "employer": "Coinbase",
+  "ok": true,
+  "count": 252,
+  "error": ""
+ },
+ {
+  "name": "robinhood",
+  "employer": "Robinhood",
+  "ok": true,
+  "count": 163,
+  "error": ""
+ },
+ {
+  "name": "affirm",
+  "employer": "Affirm",
+  "ok": true,
+  "count": 222,
+  "error": ""
+ },
+ {
+  "name": "sofi",
+  "employer": "SoFi",
+  "ok": true,
+  "count": 53,
+  "error": ""
+ },
+ {
+  "name": "carta",
+  "employer": "Carta",
+  "ok": true,
+  "count": 80,
+  "error": ""
+ },
+ {
+  "name": "brex",
+  "employer": "Brex",
+  "ok": true,
+  "count": 249,
+  "error": ""
+ },
+ {
+  "name": "betterment",
+  "employer": "Betterment",
+  "ok": true,
+  "count": 26,
+  "error": ""
+ },
+ {
+  "name": "chime",
+  "employer": "Chime",
+  "ok": true,
+  "count": 80,
+  "error": ""
+ },
+ {
+  "name": "watershed",
+  "employer": "Watershed",
+  "ok": true,
+  "count": 39,
+  "error": ""
+ },
+ {
+  "name": "ramp",
+  "employer": "Ramp",
+  "ok": true,
+  "count": 187,
+  "error": ""
+ },
+ {
+  "name": "arcadia",
+  "employer": "Arcadia",
+  "ok": true,
+  "count": 12,
+  "error": ""
+ },
+ {
+  "name": "experian",
+  "employer": "Experian",
+  "ok": true,
+  "count": 403,
+  "error": ""
+ }
+]
