@@ -1,0 +1,275 @@
+[
+ {
+  "name": "statestreet",
+  "employer": "State Street",
+  "ok": false,
+  "count": 0,
+  "error": "HTTPError: 429 Client Error: Too Many Requests for url: https://statestreet.wd1.myworkdayjobs.com/wday/cxs/statestreet/Global/jobs"
+ },
+ {
+  "name": "invesco",
+  "employer": "Invesco",
+  "ok": true,
+  "count": 218,
+  "error": ""
+ },
+ {
+  "name": "mastercard",
+  "employer": "Mastercard",
+  "ok": true,
+  "count": 697,
+  "error": ""
+ },
+ {
+  "name": "morganstanley",
+  "employer": "Morgan Stanley",
+  "ok": false,
+  "count": 0,
+  "error": "HTTPError: 429 Client Error: Too Many Requests for url: https://ms.wd5.myworkdayjobs.com/wday/cxs/ms/External/jobs"
+ },
+ {
+  "name": "northerntrust",
+  "employer": "Northern Trust",
+  "ok": false,
+  "count": 0,
+  "error": "HTTPError: 429 Client Error: Too Many Requests for url: https://ntrs.wd1.myworkdayjobs.com/wday/cxs/ntrs/northerntrust/jobs"
+ },
+ {
+  "name": "nuveen",
+  "employer": "Nuveen (TIAA)",
+  "ok": true,
+  "count": 179,
+  "error": ""
+ },
+ {
+  "name": "blueowl",
+  "employer": "Blue Owl",
+  "ok": true,
+  "count": 51,
+  "error": ""
+ },
+ {
+  "name": "wellington",
+  "employer": "Wellington Management",
+  "ok": true,
+  "count": 129,
+  "error": ""
+ },
+ {
+  "name": "jpmorgan",
+  "employer": "JPMorgan Chase",
+  "ok": true,
+  "count": 312,
+  "error": ""
+ },
+ {
+  "name": "russell",
+  "employer": "Russell Investments (Seattle)",
+  "ok": true,
+  "count": 41,
+  "error": ""
+ },
+ {
+  "name": "ameriprise",
+  "employer": "Ameriprise (Columbia Threadneedle)",
+  "ok": true,
+  "count": 205,
+  "error": ""
+ },
+ {
+  "name": "blackrock",
+  "employer": "BlackRock",
+  "ok": true,
+  "count": 281,
+  "error": ""
+ },
+ {
+  "name": "spglobal",
+  "employer": "S&P Global",
+  "ok": true,
+  "count": 358,
+  "error": ""
+ },
+ {
+  "name": "morningstar",
+  "employer": "Morningstar (Sustainalytics)",
+  "ok": true,
+  "count": 178,
+  "error": ""
+ },
+ {
+  "name": "vanguard",
+  "employer": "Vanguard",
+  "ok": true,
+  "count": 331,
+  "error": ""
+ },
+ {
+  "name": "fidelity",
+  "employer": "Fidelity Investments",
+  "ok": false,
+  "count": 0,
+  "error": "HTTPError: 429 Client Error: Too Many Requests for url: https://fmr.wd1.myworkdayjobs.com/wday/cxs/fmr/FidelityCareers/jobs"
+ },
+ {
+  "name": "capitalgroup",
+  "employer": "Capital Group",
+  "ok": false,
+  "count": 0,
+  "error": "HTTPError: 429 Client Error: Too Many Requests for url: https://capgroup.wd1.myworkdayjobs.com/wday/cxs/capgroup/capitalgroupcareers/jobs"
+ },
+ {
+  "name": "troweprice",
+  "employer": "T. Rowe Price",
+  "ok": true,
+  "count": 136,
+  "error": ""
+ },
+ {
+  "name": "abrdn",
+  "employer": "abrdn",
+  "ok": true,
+  "count": 26,
+  "error": ""
+ },
+ {
+  "name": "blackstone",
+  "employer": "Blackstone",
+  "ok": true,
+  "count": 138,
+  "error": ""
+ },
+ {
+  "name": "carlyle",
+  "employer": "Carlyle",
+  "ok": true,
+  "count": 63,
+  "error": ""
+ },
+ {
+  "name": "sweep",
+  "employer": "Sweep",
+  "ok": true,
+  "count": 7,
+  "error": ""
+ },
+ {
+  "name": "sylvera",
+  "employer": "Sylvera",
+  "ok": true,
+  "count": 8,
+  "error": ""
+ },
+ {
+  "name": "patch",
+  "employer": "Patch",
+  "ok": true,
+  "count": 0,
+  "error": ""
+ },
+ {
+  "name": "carbondirect",
+  "employer": "Carbon Direct",
+  "ok": true,
+  "count": 2,
+  "error": ""
+ },
+ {
+  "name": "ecovadis",
+  "employer": "EcoVadis",
+  "ok": true,
+  "count": 25,
+  "error": ""
+ },
+ {
+  "name": "stripe",
+  "employer": "Stripe",
+  "ok": true,
+  "count": 770,
+  "error": ""
+ },
+ {
+  "name": "coinbase",
+  "employer": "Coinbase",
+  "ok": true,
+  "count": 250,
+  "error": ""
+ },
+ {
+  "name": "robinhood",
+  "employer": "Robinhood",
+  "ok": true,
+  "count": 160,
+  "error": ""
+ },
+ {
+  "name": "affirm",
+  "employer": "Affirm",
+  "ok": true,
+  "count": 218,
+  "error": ""
+ },
+ {
+  "name": "sofi",
+  "employer": "SoFi",
+  "ok": true,
+  "count": 55,
+  "error": ""
+ },
+ {
+  "name": "carta",
+  "employer": "Carta",
+  "ok": true,
+  "count": 80,
+  "error": ""
+ },
+ {
+  "name": "brex",
+  "employer": "Brex",
+  "ok": true,
+  "count": 259,
+  "error": ""
+ },
+ {
+  "name": "betterment",
+  "employer": "Betterment",
+  "ok": true,
+  "count": 25,
+  "error": ""
+ },
+ {
+  "name": "chime",
+  "employer": "Chime",
+  "ok": true,
+  "count": 83,
+  "error": ""
+ },
+ {
+  "name": "watershed",
+  "employer": "Watershed",
+  "ok": true,
+  "count": 40,
+  "error": ""
+ },
+ {
+  "name": "ramp",
+  "employer": "Ramp",
+  "ok": true,
+  "count": 181,
+  "error": ""
+ },
+ {
+  "name": "arcadia",
+  "employer": "Arcadia",
+  "ok": true,
+  "count": 13,
+  "error": ""
+ },
+ {
+  "name": "experian",
+  "employer": "Experian",
+  "ok": true,
+  "count": 402,
+  "error": ""
+ }
+]

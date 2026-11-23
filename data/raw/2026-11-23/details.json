@@ -1,0 +1,32 @@
+{
+ "fetched": 21,
+ "failed": 6,
+ "blocked": [
+  "blackstone",
+  "blueowl",
+  "capitalgroup"
+ ],
+ "posting_ids": [
+  "blackstone:45786",
+  "blackstone:45788-1",
+  "blackstone:45789",
+  "blackstone:45790",
+  "blackstone:45791",
+  "blackstone:45801",
+  "blackstone:45826",
+  "blackstone:45865-2",
+  "blackstone:45882",
+  "blackstone:45985",
+  "blackstone:46018",
+  "blackstone:46056",
+  "blackstone:46080",
+  "blackstone:46087",
+  "blackstone:46125",
+  "blackstone:46157",
+  "capitalgroup:JR3993",
+  "capitalgroup:JR4287-1",
+  "capitalgroup:JR5149",
+  "capitalgroup:JR5917",
+  "capitalgroup:JR7703"
+ ]
+}
